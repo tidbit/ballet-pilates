@@ -1,0 +1,33 @@
+@import "normalize"
+@import "mixins"
+
+
+
+$color1: #f4b9d0 // Main Pink
+$color2: #686969 // Main Grey
+$color3: #fadee8 // Light Pink
+$color4: #e8e8e8 // Light Grey
+$color5: #ffffff // White
+
+body
+  color: $color2
+
+a
+  color: $color1
+  :hover
+    color: $color3
+
+
+.wrapper
+  width: 960px
+  margin: 0 auto
+
+header#main-header
+  background: transparent
+  border-top: 17px solid $color2
+
+
+footer#main-footer
+  background: $color2
+  color: $color5
+  padding: 20px 0

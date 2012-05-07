@@ -3,6 +3,7 @@
 
 
 <div id="home-slider">
+<div class="wrapper">
 
   <ul>
     <li class="slide">
@@ -25,6 +26,7 @@
     </li>
   </ul>
 
+</div>
 </div>
 
 
