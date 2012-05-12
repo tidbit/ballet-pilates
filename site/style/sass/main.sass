@@ -9,12 +9,15 @@ $color3: #fadee8 // Light Pink
 $color4: #e8e8e8 // Light Grey
 $color5: #ffffff // White
 
+$font: 'Arimo', sans-serif
+
 body
   color: $color2
+  font-family: $font
 
 a
   color: $color1
-  :hover
+  &:hover
     color: $color3
 
 
@@ -22,12 +25,80 @@ a
   width: 960px
   margin: 0 auto
 
+
+// Begin Header Specific Styles
+
 header#main-header
   background: transparent
   border-top: 17px solid $color2
 
+#main-nav
+  h1
+    width: 630px
+    height: 140px
+    margin: 30px 0
+    float: left
+    a
+      display: block
+      height: 100%
+      width: 100%
+      text-indent: -9999em
+      background: transparent url('/style/img/main-logo.png') no-repeat top left scroll
+  ul
+    float: right
+    width: 300px
+    height: 140px
+    padding: 0
+    margin: 30px 0
+    li
+      display: block
+      float: right
+      padding-left: 30px
+      a
+        display: block
+        padding-top: 85px
+        font-size: 24px
+        text-decoration: none
+        color: $color2
+        font-weight: bold
+        &:hover
+          color: $color1
+
+#main-nav 
+  li#signup a
+    background: transparent url('/style/img/nav-signup-img.png') no-repeat center 25px scroll
+  li#contact a
+    background: transparent url('/style/img/nav-contact-img.png') no-repeat center 25px scroll
+
+
+// Begin Footer Specific Styles
 
 footer#main-footer
   background: $color2
   color: $color5
-  padding: 20px 0
+  padding: 20px 0 40px
+  text-align: center
+  h3
+    font-size: 34px
+    font-style: italic
+  #footer-nav
+    ul
+      display: block
+      text-align: center
+      padding: 0
+      margin: 0 0 8px
+    li
+      font-size: 25px
+      height: 23px
+      display: inline
+      padding: 0 10px 0 0
+      border-right: 2px solid $color5
+      margin: 0 10px 0 0
+      a
+        color: $color5
+        text-decoration: none
+        &:hover
+          color: $color1
+  .copyright
+    font-size: 20px
+    font-style: italic

@@ -21,7 +21,7 @@ html {
 body {
   margin: 0; }
 
-body, button, input, select, textarea {
+button, input, select, textarea {
   font-family: sans-serif; }
 
 a:focus {
@@ -161,11 +161,13 @@ table {
   zoom: 1; }
 
 body {
-  color: #686969; }
+  color: #686969;
+  font-family: "Arimo", sans-serif; }
 
 a {
-  color: #f4b9d0;
-  hover-color: #fadee8; }
+  color: #f4b9d0; }
+  a:hover {
+    color: #fadee8; }
 
 .wrapper {
   width: 960px;
@@ -175,7 +177,67 @@ header#main-header {
   background: transparent;
   border-top: 17px solid #686969; }
 
+#main-nav h1 {
+  width: 630px;
+  height: 140px;
+  margin: 30px 0;
+  float: left; }
+  #main-nav h1 a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-indent: -9999em;
+    background: transparent url("/style/img/main-logo.png") no-repeat top left scroll; }
+#main-nav ul {
+  float: right;
+  width: 300px;
+  height: 140px;
+  padding: 0;
+  margin: 30px 0; }
+  #main-nav ul li {
+    display: block;
+    float: right;
+    padding-left: 30px; }
+    #main-nav ul li a {
+      display: block;
+      padding-top: 85px;
+      font-size: 24px;
+      text-decoration: none;
+      color: #686969;
+      font-weight: bold; }
+      #main-nav ul li a:hover {
+        color: #f4b9d0; }
+
+#main-nav li#signup a {
+  background: transparent url("/style/img/nav-signup-img.png") no-repeat center 25px scroll; }
+#main-nav li#contact a {
+  background: transparent url("/style/img/nav-contact-img.png") no-repeat center 25px scroll; }
+
 footer#main-footer {
   background: #686969;
   color: white;
-  padding: 20px 0; }
+  padding: 20px 0 40px;
+  text-align: center; }
+  footer#main-footer h3 {
+    font-size: 34px;
+    font-style: italic; }
+  footer#main-footer #footer-nav ul {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0 0 8px; }
+  footer#main-footer #footer-nav li {
+    font-size: 25px;
+    height: 23px;
+    display: inline;
+    padding: 0 10px 0 0;
+    border-right: 2px solid white;
+    margin: 0 10px 0 0; }
+    footer#main-footer #footer-nav li a {
+      color: white;
+      text-decoration: none; }
+      footer#main-footer #footer-nav li a:hover {
+        color: #f4b9d0; }
+  footer#main-footer .copyright {
+    font-size: 20px;
+    font-style: italic; }

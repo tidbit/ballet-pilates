@@ -7,16 +7,17 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  
+
   <title></title>
   <meta name="description" content="">
   <meta name="author" content="">
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+  <link href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/style/css/main.css">
-  
+
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
