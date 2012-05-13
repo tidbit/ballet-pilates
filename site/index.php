@@ -5,22 +5,19 @@
 <div id="home-slider">
 <div class="wrapper">
 
-  <ul>
-    <li class="slide">
+  <ul class="clearfix ">
+    <li id="kids" class="slide current">
       <a href="#">
-        <img src="style/img/kids-ballet-off.png" alt="Kids Ballet" width="320" height="530" />
         <span>Kid's Ballet</span>
       </a>
     </li>
-    <li class="slide">
+    <li id="pilates" class="slide">
       <a href="#">
-        <img src="style/img/kids-ballet-off.png" alt="Kids Ballet" width="320" height="530" />
         <span>Pilates</span>
       </a>
     </li>
-    <li class="slide current">
+    <li id="adult" class="slide">
       <a href="#">
-        <img src="style/img/kids-ballet-off.png" alt="Kids Ballet" width="320" height="530" />
         <span>Adult Ballet</span>
       </a>
     </li>

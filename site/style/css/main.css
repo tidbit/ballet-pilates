@@ -81,7 +81,7 @@ sub {
 
 ul, ol {
   margin-left: 0;
-  padding: 0 0 0 40px; }
+  padding: 0; }
 
 dd {
   margin: 0 0 0 40px; }
@@ -160,6 +160,12 @@ table {
 * html .clearfix, *:first-child + html .clearfix {
   zoom: 1; }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0; }
+
+h2, h3, h4, p {
+  padding-bottom: 20px; }
+
 body {
   color: #686969;
   font-family: "Arimo", sans-serif; }
@@ -192,7 +198,6 @@ header#main-header {
   float: right;
   width: 300px;
   height: 140px;
-  padding: 0;
   margin: 30px 0; }
   #main-nav ul li {
     display: block;
@@ -224,7 +229,6 @@ footer#main-footer {
   footer#main-footer #footer-nav ul {
     display: block;
     text-align: center;
-    padding: 0;
     margin: 0 0 8px; }
   footer#main-footer #footer-nav li {
     font-size: 25px;
@@ -240,4 +244,67 @@ footer#main-footer {
         color: #f4b9d0; }
   footer#main-footer .copyright {
     font-size: 20px;
-    font-style: italic; }
+    font-style: italic;
+    padding: 10px 0; }
+
+#home-slider {
+  padding-bottom: 30px; }
+  #home-slider ul {
+    display: block;
+    margin: 0 0 20px;
+    list-style: none;
+    border-bottom: 4px solid #f4b9d0; }
+    #home-slider ul li {
+      float: left;
+      width: 320px;
+      height: 575px;
+      display: block;
+      padding-bottom: 3px;
+      position: relative; }
+  #home-slider .slide a {
+    display: block;
+    width: 320px;
+    height: 45px;
+    padding-top: 530px;
+    text-decoration: none; }
+    #home-slider .slide a span {
+      background: #f4b9d0;
+      color: #fadee8;
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      font-size: 31px;
+      height: 32px;
+      padding: 8px 0 5px; }
+    #home-slider .slide a:hover span {
+      color: white; }
+  #home-slider .slide.current span {
+    color: white; }
+  #home-slider .slide.current:before {
+    background: transparent url("/style/img/icon-slide-arrow.png") no-repeat center center scroll;
+    display: block;
+    content: "";
+    width: 50px;
+    height: 24px;
+    position: absolute;
+    top: 506px;
+    left: 135px;
+    z-index: 20; }
+
+#kids.slide a {
+  background: transparent url("/style/img/kids-ballet-off.png") no-repeat top center scroll; }
+
+#kids.slide.current a, #kids.slide a:hover {
+  background: transparent url("/style/img/kids-ballet-on.png") no-repeat top center scroll; }
+
+#pilates.slide a {
+  background: transparent url("/style/img/pilates-off.png") no-repeat top center scroll; }
+
+#pilates.slide.current a, #pilates.slide a:hover {
+  background: transparent url("/style/img/pilates-on.png") no-repeat top center scroll; }
+
+#adult.slide a {
+  background: transparent url("/style/img/adult-off.png") no-repeat top center scroll; }
+
+#adult.slide.current a, #adult.slide a:hover {
+  background: transparent url("/style/img/adult-on.png") no-repeat top center scroll; }
