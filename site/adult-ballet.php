@@ -18,7 +18,7 @@
     <div class="unify">
       <header>
         <h1>Adult Ballet</h1>
-        <h2><strong>Sub-title</strong></h2>
+        <h2>Sub-title</h2>
       </header>
   
       <p>Who doesn’t want that long and lean dancer’s look? Ballet is the art of strength, beauty, elegance and grace. It uses all the muscles of the body to create a physical art form that incorporates beautiful music, the sheer enjoyment of movement and fitness. It challenges the body and the brain to create flow of movement.</p>
