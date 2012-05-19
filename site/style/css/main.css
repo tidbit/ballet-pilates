@@ -261,7 +261,7 @@ footer#main-footer {
   padding-bottom: 30px; }
   #home-slider ul {
     display: block;
-    margin: 0 0 20px;
+    margin: 0;
     list-style: none;
     border-bottom: 4px solid #f4b9d0; }
     #home-slider ul li {

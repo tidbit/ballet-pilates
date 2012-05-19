@@ -27,10 +27,10 @@
 </div>
 
 
-<div id="main" role="main">
+<div id="main" role="main" class="clearfix">
 <div class="wrapper">
 
-  <div class="prim-col">
+  <div class="primary-col">
 
     <h1>About Victoria Simo</h1>
     <h2>Professional Title Title</h2>
@@ -40,7 +40,7 @@
   </div> <!-- End .prim-col -->
 
 
-  <div class="sec-col">
+  <div class="secondary-col">
 
     <nav class="nav">
       <ul>
