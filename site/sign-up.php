@@ -1,4 +1,4 @@
-<?php $current_page = 'kids'; ?>
+<?php $current_page = 'sign-up'; ?>
 <?php include('_includes/header.php'); ?>
 
 

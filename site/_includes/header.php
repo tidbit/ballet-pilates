@@ -1,4 +1,5 @@
-
+<?php include('functions.php'); ?>
+<?php include('head.php'); ?>
 
 <header id="main-header" class="clearfix">
 <div class="wrapper">

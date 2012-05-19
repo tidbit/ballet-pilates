@@ -1,4 +1,4 @@
-<?php include('_includes/head.php'); ?>
+<?php $current_page = 'index'; ?>
 <?php include('_includes/header.php'); ?>
 
 

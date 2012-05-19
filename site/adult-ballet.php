@@ -1,4 +1,4 @@
-<?php include('_includes/head.php'); ?>
+<?php $current_page = 'adult'; ?>
 <?php include('_includes/header.php'); ?>
 
 

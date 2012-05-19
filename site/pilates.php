@@ -1,7 +1,5 @@
-<?php include('_includes/head.php'); ?>
+<?php $current_page = 'pilates'; ?>
 <?php include('_includes/header.php'); ?>
-
-
 
 
 <div id="main" role="main" class="clearfix">
