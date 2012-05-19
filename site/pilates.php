@@ -26,6 +26,7 @@
       <p>These  classes are organized into sessions with a set number of participants and a guaranteed place in class. No matter the time of year a new workshop is starting soon. Sign up today!</p>
       <h4>Private and Duet Reformer and Mat Lessons</h4>
       <p>Private and duet lessons are the best way to advance your technique quickly. Corrections are immediate and you will develop more confidence. Your instructor will design a personal program based on your needs and goals and they will be there just for you to motivate, train, and direct.</p>
+
     </div>
 
   </div> <!-- End .primary-col -->
