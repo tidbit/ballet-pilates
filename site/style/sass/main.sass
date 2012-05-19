@@ -40,7 +40,7 @@ a
   float: right
 
 .secondary-col
-  width: 300px
+  width: 270px
   padding: 0 0 0 10px
   float: left
 
@@ -149,17 +149,27 @@ footer#main-footer
 
 // ^4. Sidebar specific styles
 
-.secondary-col nav li
-  font-size: 28px
-  line-height: 42px
-  letter-spacing: -1px
-  a
-    text-decoration: none
-    color: $color2
-    &:hover
+.secondary-col nav
+  border-right: 2px solid $color4
+  li
+    font-size: 28px
+    line-height: 42px
+    letter-spacing: -1px
+    a
+      text-decoration: none
+      color: $color2
+    a:hover, .current
       color: $color1
       font-weight: bold
 
+
+ul.side-nav
+  border-bottom: 2px solid $color4
+  margin: 0 25px 24px 0
+  padding: 0 0 20px
+
+ul.side-nav.social-nav
+  border-bottom: none
 
 // ^5. Home Slideshow Specific styles
 
