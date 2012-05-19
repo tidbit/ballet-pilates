@@ -7,17 +7,17 @@
 
   <ul class="clearfix ">
     <li id="kids" class="slide current">
-      <a href="#">
+      <a href="/kids-ballet.php">
         <span>Kid's Ballet</span>
       </a>
     </li>
     <li id="pilates" class="slide">
-      <a href="#">
+      <a href="/pilates.php">
         <span>Pilates</span>
       </a>
     </li>
     <li id="adult" class="slide">
-      <a href="#">
+      <a href="/adult-ballet.php">
         <span>Adult Ballet</span>
       </a>
     </li>
