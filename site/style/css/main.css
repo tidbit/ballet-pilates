@@ -214,6 +214,17 @@ header > h1, header > h2, header > h3, header > h4, header > h5, header > h6 {
 #main header {
   padding-bottom: 24px; }
 
+#masthead {
+  padding-bottom: 3px;
+  border-bottom: 3px solid #f4b9d0;
+  margin-bottom: 30px;
+  position: relative;
+  top: -20px; }
+  #masthead img {
+    border-bottom: 45px solid #f4b9d0;
+    display: block;
+    padding: 0; }
+
 header#main-header {
   background: transparent;
   border-top: 17px solid #686969; }
