@@ -2,6 +2,14 @@
 @import "mixins"
 
 
+// ^1. Generic Structural Elements
+// ^2. Begin Header Specific Styles
+// ^3. Begin Footer Specific Styles
+// ^4. Sidebar specific styles
+// ^5. Home Slideshow Specific styles
+
+
+
 
 $color1: #f4b9d0 // Main Pink
 $color2: #686969 // Main Grey
@@ -11,7 +19,7 @@ $color5: #ffffff // White
 
 $font: 'Arimo', sans-serif
 
-// Generic Structural Elements
+// ^1. Generic Structural Elements
 
 body
   color: $color2
@@ -21,7 +29,6 @@ a
   color: $color1
   &:hover
     color: $color3
-
 
 .wrapper
   width: 960px
@@ -37,7 +44,33 @@ a
   padding: 0 0 0 10px
   float: left
 
-// Begin Header Specific Styles
+#main
+  padding: 20px 0 22px
+
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+  padding: 0 0 18px
+  line-height: 30px
+
+h1
+  font-size: 41px
+
+h2
+  font-size: 34px
+  font-weight: normal
+  font-style: italic
+
+p
+  font-size: 24px
+
+header > h1, header > h2, header > h3, header > h4, header > h5, header > h6
+  padding-bottom: 5px
+
+#main header
+  padding-bottom: 19px
+
+// ^2. Begin Header Specific Styles
 
 header#main-header
   background: transparent
@@ -81,7 +114,7 @@ header#main-header
     background: transparent url('/style/img/nav-contact-img.png') no-repeat center 25px scroll
 
 
-// Begin Footer Specific Styles
+// ^3. Begin Footer Specific Styles
 
 footer#main-footer
   background: $color2
@@ -114,7 +147,21 @@ footer#main-footer
     padding: 10px 0
 
 
-// Home Slideshow Specific styles
+// ^4. Sidebar specific styles
+
+.secondary-col nav li
+  font-size: 28px
+  line-height: 42px
+  letter-spacing: -1px
+  a
+    text-decoration: none
+    color: $color2
+    &:hover
+      color: $color1
+      font-weight: bold
+
+
+// ^5. Home Slideshow Specific styles
 
 #home-slider
   padding-bottom: 30px

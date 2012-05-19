@@ -189,6 +189,31 @@ a {
   padding: 0 0 0 10px;
   float: left; }
 
+#main {
+  padding: 20px 0 22px; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0 0 18px;
+  line-height: 30px; }
+
+h1 {
+  font-size: 41px; }
+
+h2 {
+  font-size: 34px;
+  font-weight: normal;
+  font-style: italic; }
+
+p {
+  font-size: 24px; }
+
+header > h1, header > h2, header > h3, header > h4, header > h5, header > h6 {
+  padding-bottom: 5px; }
+
+#main header {
+  padding-bottom: 19px; }
+
 header#main-header {
   background: transparent;
   border-top: 17px solid #686969; }
@@ -256,6 +281,17 @@ footer#main-footer {
     font-size: 20px;
     font-style: italic;
     padding: 10px 0; }
+
+.secondary-col nav li {
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -1px; }
+  .secondary-col nav li a {
+    text-decoration: none;
+    color: #686969; }
+    .secondary-col nav li a:hover {
+      color: #f4b9d0;
+      font-weight: bold; }
 
 #home-slider {
   padding-bottom: 30px; }

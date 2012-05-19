@@ -32,17 +32,19 @@
 
   <div class="primary-col">
 
-    <h1>About Victoria Simo</h1>
-    <h2>Professional Title Title</h2>
+    <header>
+      <h1>About Victoria Simo</h1>
+      <h2>Professional Title Title</h2>
+    </header>
     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Except Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in cucillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culp.</p>
     <p>agna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo exercitation exercitation ullamco laboris nisi ut aliquip ex ea commoco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. <a href="#">More...</a></p>
 
-  </div> <!-- End .prim-col -->
+  </div> <!-- End .primary-col -->
 
 
   <div class="secondary-col">
 
-    <nav class="nav">
+    <nav>
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">About Victoria</a></li>
@@ -60,7 +62,7 @@
       </ul>
     </nav>
 
-  </div>
+  </div>  <!-- End .secondary-col -->
 
 
 </div>
