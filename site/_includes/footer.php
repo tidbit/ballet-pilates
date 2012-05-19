@@ -2,7 +2,7 @@
 <footer id="main-footer" class="clearfix">
 <div class="wrapper">
 
-  <h3>Inspiring Creativity and Discovering a Love of<br>Movement Through Ballet and Pilates</h3>
+  <h3 class="unify">Inspiring Creativity and Discovering a Love of<br>Movement Through Ballet and Pilates</h3>
 
   <nav id="footer-nav" class="nav">
     <ul>
@@ -19,7 +19,7 @@
     </ul>
   </nav>
 
-  <p class="copyright">Copright 2012 by Ballet & Pilates By Victoria. All Rights Reserved.</p>
+  <p class="unify copyright">Copright 2012 by Ballet & Pilates By Victoria. All Rights Reserved.</p>
 
 </div>
 </footer> <!-- end #main_footer -->
