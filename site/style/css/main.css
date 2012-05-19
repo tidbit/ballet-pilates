@@ -194,7 +194,7 @@ a {
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
-  padding: 0 0 18px;
+  padding: 0 0 24px;
   line-height: 30px; }
 
 h1 {
@@ -212,7 +212,7 @@ header > h1, header > h2, header > h3, header > h4, header > h5, header > h6 {
   padding-bottom: 5px; }
 
 #main header {
-  padding-bottom: 19px; }
+  padding-bottom: 24px; }
 
 header#main-header {
   background: transparent;
