@@ -2,7 +2,9 @@
 <footer id="main-footer" class="clearfix">
 <div class="wrapper">
 
-  <h3 class="unify">Inspiring Creativity and Discovering a Love of<br>Movement Through Ballet and Pilates</h3>
+  <h3 class="unify">
+Kid's Ballet start next week! <a href="https://clients.mindbodyonline.com/asp/main_shop.asp?fl=true&amp;tabID=3" rel="" target="" title="">Sign up</a>&nbsp;now!
+</h3>
 
   <nav id="footer-nav" class="nav">
     <ul>
@@ -13,7 +15,7 @@
       <li><a href="#">Facebook</a></li>
     </ul>
     <ul>
-      <li><a href="#">Kid's Ballet</a></li>
+      <li><a href="#">Children's Ballet</a></li>
       <li><a href="#">Adult Ballet</a></li>
       <li><a href="#">Pilates</a></li>
     </ul>
