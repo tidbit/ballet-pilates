@@ -1,8 +1,7 @@
     <nav>
       <ul class="side-nav page-nav">
         <li><a <?php if (is_page('index') ) { echo 'class="current"'; } ?> href="/">Home</a></li>
-        <li><a <?php if (is_page('boutique') ) { echo 'class="current"'; } ?> href="/boutique.php">Boutique on the Go</a></li>
-        <li><a <?php if (is_page('sign-up') ) { echo 'class="current"'; } ?> href="/sign-up.php">Sign Up</a></li>
+        <li><a <?php if (is_page('about') ) { echo 'class="current"'; } ?> href="/about-victoria.php">About Victoria</a></li>
       </ul>
       <ul class="side-nav class-nav">
         <li><a <?php if (is_page('kids') ) { echo 'class="current"'; } ?> href="/kids-ballet.php">Children's Ballet</a></li>
@@ -10,7 +9,9 @@
         <li><a <?php if (is_page('pilates') ) { echo 'class="current"'; } ?> href="/pilates.php">Pilates</a></li>
       </ul>
       <ul class="side-nav social-nav">
+        <li><a <?php if (is_page('sign-up') ) { echo 'class="current"'; } ?> href="/sign-up.php">Sign Up</a></li>
+        <li><a <?php if (is_page('boutique') ) { echo 'class="current"'; } ?> href="/boutique.php">Boutique on the Go</a></li>
         <li><a <?php if (is_page('contact') ) { echo 'class="current"'; } ?> href="/contact.php">Contact Us</a></li>
-        <li><a href="#">Facebook</a></li>
+        <li><a href="http://www.facebook.com/pages/Ballet-and-pilates-by-Victoria/266261843470004" target="_blank">Facebook</a></li>
       </ul>
     </nav>
