@@ -4,7 +4,7 @@
         <li><a <?php if (is_page('about') ) { echo 'class="current"'; } ?> href="/about-victoria.php">About Victoria</a></li>
       </ul>
       <ul class="side-nav class-nav">
-        <li><a <?php if (is_page('kids') ) { echo 'class="current"'; } ?> href="/kids-ballet.php">Children's Ballet</a></li>
+        <li><a <?php if (is_page('kids') ) { echo 'class="current"'; } ?> href="/childrens-ballet.php">Children's Ballet</a></li>
         <li><a <?php if (is_page('adult') ) { echo 'class="current"'; } ?> href="/adult-ballet.php">Adult Ballet</a></li>
         <li><a <?php if (is_page('pilates') ) { echo 'class="current"'; } ?> href="/pilates.php">Pilates</a></li>
       </ul>
