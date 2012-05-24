@@ -7,16 +7,18 @@
 <div id="main" role="main" class="clearfix">
 <div class="wrapper">
 
-  <div class="unify">
-    <div id="masthead">
-      <img src="style/img/masthead-placeholder.png" alt="masthead-placeholder" width="960" height="258" />
-    </div>
+  <div id="masthead" class="unify">
+    <img src="http://balletandpilates.com/style/img/website-subpage-headertemplatesignup.jpg" alt="masthead-placeholder" width="960" height="300">
   </div>
 
   <div class="primary-col">
 
+    <header class="unify">
+      <h1>Contact Us</h1>
+    </header>
+
     <div class="unify">
-<header><h1>Contact Us</h1></header><p>Ballet and Pilates by Victoria is conveniently located at 15544 Ridge Park Drive, Houston, TX 77095 off Hwy 6 North. The studio is behind Carrabbas and adjacent to the Jazzercise Center.</p><p>The 3,000sq foot studio offers natural light, ballet barres, pavi dance flooring, state of the art Pilates Reformers and equipment, and a Ballet and Pilates clothing boutique. For your convenience, free childcare is available at most adult classes and sessions.</p>
+<p>Ballet and Pilates by Victoria is conveniently located at 15544 Ridge Park Drive, Houston, TX 77095 off Hwy 6 North. The studio is behind Carrabbas and adjacent to the Jazzercise Center.</p><p>The 3,000sq foot studio offers natural light, ballet barres, pavi dance flooring, state of the art Pilates Reformers and equipment, and a Ballet and Pilates clothing boutique. For your convenience, free childcare is available at most adult classes and sessions.</p>
 
 
 <p>For more information please contact:</p>

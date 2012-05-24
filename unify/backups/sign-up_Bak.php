@@ -6,10 +6,8 @@
 <div class="wrapper">
 
   <div class="unify">
-    <div id="masthead">
-      <img src="style/img/masthead-placeholder.png" alt="masthead-placeholder" width="960" height="258" />
-    </div>
-  </div>
+<img alt="" src="http://balletandpilates.com/signup.jpg" width="960" height="300">&nbsp;
+</div>
 
   <div class="primary-col">
 

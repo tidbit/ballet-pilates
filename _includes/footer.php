@@ -3,15 +3,14 @@
 <div class="wrapper">
 
   <h3 class="unify">
-Inspiring Creativity and Discovering a Love of <br>
-Movement Through Ballet and Pilates
+&nbsp;Find Grace with&nbsp;Ballet&nbsp;&amp; Pilates<br>
 </h3>
 
   <nav id="footer-nav" class="nav">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/about-victoria.php">About Victoria</a></li>
-      <li><a href="/sign-up.php">Sign Up Now</a></li>
+      <li><a href="https://clients.mindbodyonline.com/asp/home.asp?studioid=27108">Sign Up Now</a></li>
       <li><a href="/contact.php">Contact Us</a></li>
       <li><a href="http://www.facebook.com/pages/Ballet-and-pilates-by-Victoria/266261843470004">Facebook</a></li>
     </ul>
@@ -22,7 +21,9 @@ Movement Through Ballet and Pilates
     </ul>
   </nav>
 
-  <p class="unify copyright">Copright 2012 by Ballet & Pilates By Victoria. All Rights Reserved.</p>
+  <p class="unify copyright">
+Copright 2012 by ballet &amp; pilates by Victoria. All Rights Reserved.
+</p>
 
 </div>
 </footer> <!-- end #main_footer -->

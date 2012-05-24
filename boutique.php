@@ -5,15 +5,20 @@
 <div id="main" role="main" class="clearfix">
 <div class="wrapper">
 
-  <div class="unify">
-<div id="masthead"><img src="http://balletandpilates.com/boutiqueonthego.jpg" alt="masthead-placeholder" class="" width="960" height="300"></div>
-</div>
+  <div id="masthead" class="unify">
+    <img src="http://balletandpilates.com/unify-uploads/boutiqueonthego.jpg" alt="masthead-placeholder" class="" width="960" height="300">
+  </div>
 
   <div class="primary-col">
 
+  <header class="unify">
+    <h1>Boutique on the Go</h1>
+    <h2>Dress your physique</h2>
+  </header>
+
     <div class="unify">
-<header><h1>Boutique on the Go</h1><h2>Sub-title</h2></header><p>More Coming Soon! <em><strong>REALLY SOON!&nbsp;</strong></em></p>
-</div>
+<p>Offering a complete line of active wear, leotards, tights and ballet slippers. Located inside the center for your convience.</p>
+  </div>
 
   </div> <!-- End .primary-col -->
 
