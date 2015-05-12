@@ -45,8 +45,8 @@ dfn {
   font-style: italic; }
 
 mark {
-  background: yellow;
-  color: black; }
+  background: #ff0;
+  color: #000; }
 
 pre, code, kbd, samp {
   font-family: monospace, serif;
@@ -104,7 +104,7 @@ form {
   margin: 0; }
 
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -176,7 +176,8 @@ a {
     color: #fadee8; }
 
 .wrapper {
-  width: 960px;
+  max-width: 960px;
+  padding: 0 10px;
   margin: 0 auto; }
 
 .primary-col {
@@ -197,13 +198,13 @@ table {
   border: 1px solid #686969;
   width: 100%; }
   table thead th {
-    color: white;
+    color: #ffffff;
     background: #f4b9d0;
     border: 1px solid #f4b9d0;
     font-weight: bold; }
   table tr td {
     color: #686969;
-    background: white;
+    background: #ffffff;
     border: 1px solid #686969; }
   table td, table th {
     padding: 3px;
@@ -254,43 +255,82 @@ header#main-header {
   border-top: 17px solid #686969; }
 
 #main-nav h1 {
-  width: 630px;
-  height: 140px;
-  margin: 30px 0;
-  float: left; }
+  width: 92%;
+  height: 2.75em;
+  padding: 0.25em 4%; }
+  @media only screen and (min-width: 48.1em) {
+    #main-nav h1 {
+      width: 60%;
+      max-width: 630px;
+      box-sizing: border-box;
+      height: 140px;
+      margin: 30px 0;
+      padding: 0;
+      float: left; } }
   #main-nav h1 a {
     display: block;
     height: 100%;
     width: 100%;
     text-indent: -9999em;
-    background: transparent url("/style/img/main-logo.png") no-repeat top left scroll; }
+    background: transparent url("/style/img/main-logo.png") no-repeat center center scroll;
+    background-size: contain; }
 #main-nav ul {
-  float: right;
-  width: 300px;
-  height: 140px;
-  margin: 30px 0; }
+  height: 2em;
+  max-width: 440px;
+  margin: 0 auto; }
+  @media only screen and (min-width: 48.1em) {
+    #main-nav ul {
+      float: right;
+      width: 300px;
+      height: 140px;
+      margin: 30px 0; } }
   #main-nav ul li {
-    display: block;
-    float: right;
-    padding-left: 30px; }
+    display: inline-block;
+    width: 49%;
+    box-sizing: border-box;
+    padding: 2%; }
+    @media only screen and (min-width: 48.1em) {
+      #main-nav ul li {
+        float: right;
+        box-sizing: border-box;
+        padding: 0;
+        width: auto;
+        padding-left: 30px; } }
     #main-nav ul li a {
       display: block;
-      padding-top: 85px;
       font-size: 24px;
       text-decoration: none;
       color: #686969;
       font-weight: bold; }
+      @media only screen and (min-width: 48.1em) {
+        #main-nav ul li a {
+          display: block;
+          padding-top: 85px; } }
       #main-nav ul li a:hover {
         color: #f4b9d0; }
 
+#main-nav li a {
+  background: transparent no-repeat left center scroll;
+  background-size: contain; }
+  @media only screen and (min-width: 48.1em) {
+    #main-nav li a {
+      background: transparent no-repeat center 25px scroll; } }
 #main-nav li#signup a {
-  background: transparent url("/style/img/nav-signup-img.png") no-repeat center 25px scroll; }
+  padding-left: 1.5em;
+  background-image: url("/style/img/nav-signup-img.png"); }
+  @media only screen and (min-width: 48.1em) {
+    #main-nav li#signup a {
+      padding-left: 0; } }
 #main-nav li#contact a {
-  background: transparent url("/style/img/nav-contact-img.png") no-repeat center 25px scroll; }
+  padding-left: 2em;
+  background-image: url("/style/img/nav-contact-img.png"); }
+  @media only screen and (min-width: 48.1em) {
+    #main-nav li#contact a {
+      padding-left: 0; } }
 
 footer#main-footer {
   background: #686969;
-  color: white;
+  color: #ffffff;
   padding: 20px 0 40px;
   text-align: center; }
   footer#main-footer h3 {
@@ -305,10 +345,10 @@ footer#main-footer {
     height: 23px;
     display: inline;
     padding: 0 10px 0 0;
-    border-right: 2px solid white;
+    border-right: 2px solid #ffffff;
     margin: 0 10px 0 0; }
     footer#main-footer #footer-nav li a {
-      color: white;
+      color: #ffffff;
       text-decoration: none; }
       footer#main-footer #footer-nav li a:hover {
         color: #f4b9d0; }
@@ -368,9 +408,9 @@ ul.side-nav.social-nav {
       height: 32px;
       padding: 8px 0 5px; }
     #home-slider .slide a:hover span {
-      color: white; }
+      color: #ffffff; }
   #home-slider .slide.current span {
-    color: white; }
+    color: #ffffff; }
   #home-slider .slide.current:before {
     background: transparent url("/style/img/icon-slide-arrow.png") no-repeat center center scroll;
     display: block;
@@ -399,3 +439,5 @@ ul.side-nav.social-nav {
 
 #adult.slide.current a, #adult.slide a:hover {
   background: transparent url("/style/img/adult-on.png") no-repeat top center scroll; }
+
+/*# sourceMappingURL=main.css.map */

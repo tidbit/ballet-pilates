@@ -19,6 +19,14 @@ $color5: #ffffff // White
 
 $font: 'Arimo', sans-serif
 
+
+$bp-sm: 30.1em
+$bp-md: 48.1em
+$bp-lg: 75.1em
+// @media only screen and (min-width: $bp-sm) { }
+
+
+
 // ^1. Generic Structural Elements
 
 body
@@ -31,7 +39,8 @@ a
     color: $color3
 
 .wrapper
-  width: 960px
+  max-width: 960px
+  padding: 0 10px
   margin: 0 auto
 
 .primary-col
@@ -114,40 +123,72 @@ header#main-header
 
 #main-nav
   h1
-    width: 630px
-    height: 140px
-    margin: 30px 0
-    float: left
+    width: 92%
+    height: 2.75em
+    padding: .25em 4% 
+    @media only screen and (min-width: $bp-md)
+      width: 60%
+      max-width: 630px
+      box-sizing: border-box
+      height: 140px
+      margin: 30px 0
+      padding: 0
+      float: left
     a
       display: block
       height: 100%
       width: 100%
       text-indent: -9999em
-      background: transparent url('/style/img/main-logo.png') no-repeat top left scroll
+      background: transparent url('/style/img/main-logo.png') no-repeat center center scroll
+      background-size: contain
   ul
-    float: right
-    width: 300px
-    height: 140px
-    margin: 30px 0
-    li
-      display: block
+    height: 2em
+    max-width: 440px
+    margin: 0 auto
+    @media only screen and (min-width: $bp-md)
       float: right
-      padding-left: 30px
+      width: 300px
+      height: 140px
+      margin: 30px 0
+    li
+      display: inline-block
+      width: 49%
+      box-sizing: border-box
+      padding: 2%
+      @media only screen and (min-width: $bp-md)
+        float: right
+        box-sizing: border-box
+        padding: 0
+        width: auto
+        padding-left: 30px
       a
         display: block
-        padding-top: 85px
         font-size: 24px
         text-decoration: none
         color: $color2
         font-weight: bold
+        @media only screen and (min-width: $bp-md)
+          display: block
+          padding-top: 85px
         &:hover
           color: $color1
 
 #main-nav 
+  li a
+    background: transparent no-repeat left center scroll
+    background-size: contain
+    @media only screen and (min-width: $bp-md)
+      background: transparent no-repeat center 25px scroll
   li#signup a
-    background: transparent url('/style/img/nav-signup-img.png') no-repeat center 25px scroll
+    padding-left: 1.5em
+    background-image: url('/style/img/nav-signup-img.png')
+    @media only screen and (min-width: $bp-md)
+      padding-left: 0
   li#contact a
-    background: transparent url('/style/img/nav-contact-img.png') no-repeat center 25px scroll
+    padding-left: 2em
+    background-image: url('/style/img/nav-contact-img.png')
+    @media only screen and (min-width: $bp-md)
+      padding-left: 0
 
 
 // ^3. Begin Footer Specific Styles
