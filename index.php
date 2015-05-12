@@ -33,13 +33,11 @@
   <div class="primary-col">
 
     <header class="unify">
-
-    <h1>Making Your Dreams a Reality</h1>
-
-    </header>
+<p><iframe src="//www.youtube.com/embed/fGUudfcBpA8" frameborder="0" width="620" height="349"></iframe></p>
+</header>
 
     <div class="unify">
-<p id="internal-source-marker_0.4902700866494214" dir="ltr"><span>Ballet and Pilates by Victoria engages, educates, and empowers people of all ages and skill levels to adopt a healthy lifestyle and love of one's body. By providing high quality instruction in an open and inviting atmosphere, ballet and pilates inspires confidence, encourages fun, shapes your entire body and essentially leaving a lasting legacy.</span></p><p dir="ltr"><span>*Summer Children's Ballet Camps and adult/teen sessions enrolling now!</span></p><p dir="ltr"><span>﻿</span></p><p><br></p><p dir="ltr"><br></p><p><br></p><p dir="ltr">&nbsp;</p><p dir="ltr"><span>﻿</span></p>
+<p id="internal-source-marker_0.4902700866494214" dir="ltr"><img class="" src="http://www.balletandpilates.com/unnamed (4).jpg" alt="" width="620" height="356"></p><p dir="ltr"><img src="http://www.balletandpilates.com/Pricing - 9-11-14.jpg" alt="" width="620" height="802"></p>*All cancellations must be done via email to info@balletandpilates.com. Cancellation of any adult auto-pay prior to completion of option term will require an early cancellation payment. No refunds or returns.&nbsp;
 </div>
 
   </div> <!-- End .primary-col -->

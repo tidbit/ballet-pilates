@@ -3,7 +3,7 @@
 <div class="wrapper">
 
   <h3 class="unify">
-&nbsp;Find Grace with&nbsp;Ballet&nbsp;&amp; Pilates<br>
+&nbsp;Find What Moves You<br>
 </h3>
 
   <nav id="footer-nav" class="nav">
@@ -22,7 +22,7 @@
   </nav>
 
   <p class="unify copyright">
-Copright 2012 by ballet &amp; pilates by Victoria. All Rights Reserved.
+Copyright 2012 by Ballet &amp; Pilates by Victoria. All Rights Reserved.
 </p>
 
 </div>

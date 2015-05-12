@@ -6,19 +6,18 @@
 <div class="wrapper">
 
   <div id="masthead" class="unify">
-    <img src="http://balletandpilates.com/unify-uploads/boutiqueonthego.jpg" alt="masthead-placeholder" class="" width="960" height="300">
-  </div>
+<img class="" src="http://www.balletandpilates.com/B&amp;P-14-0085 (2).jpg" alt="" width="960" height="508">
+</div>
 
   <div class="primary-col">
 
   <header class="unify">
-    <h1>Boutique on the Go</h1>
-    <h2>Dress your physique</h2>
-  </header>
+<h1>Ballet Boutique</h1><h2><br></h2>
+</header>
 
     <div class="unify">
-<p>Offering a complete line of active wear, leotards, tights and ballet slippers. Located inside the center for your convience.</p>
-  </div>
+<p>Offering&nbsp;children's leotards, ballet tights, jazz pants, dance bags, wraps, ballet skirts, and leather ballet slippers for children through adults. Ballet Boutique&nbsp;is&nbsp;located inside the&nbsp;studio complete with dressing rooms and a full staff to help you. The official school leotard for children's Ballet is sold at our boutique.</p>
+</div>
 
   </div> <!-- End .primary-col -->
 
