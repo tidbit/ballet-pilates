@@ -445,7 +445,6 @@ ul.side-nav.social-nav
     height: 45px
     padding-top: 530px
     text-decoration: none
-    background-size: contain
     span
       background: $color1
       color: $color3
@@ -472,19 +471,28 @@ ul.side-nav.social-nav
       z-index: 20
 
 
-#kids.slide a
-  background: transparent url('/style/img/kids-ballet-off.png') no-repeat top center scroll
-#kids.slide.current a, #kids.slide a:hover
-  background: transparent url('/style/img/kids-ballet-on.png') no-repeat top center scroll
+#kids.slide
+  a
+    background: transparent url('/style/img/kids-ballet-off.png') no-repeat top center scroll
+    background-size: contain
+  &.current a, & a:hover
+    background: transparent url('/style/img/kids-ballet-on.png') no-repeat top center scroll
+    background-size: contain
+  
+#pilates.slide 
+  a
+    background: transparent url('/style/img/pilates-off.png') no-repeat top center scroll
+    background-size: contain
+  &.current a, & a:hover
+    background: transparent url('/style/img/pilates-on.png') no-repeat top center scroll
+    background-size: contain
 
-#pilates.slide a
-  background: transparent url('/style/img/pilates-off.png') no-repeat top center scroll
-#pilates.slide.current a, #pilates.slide a:hover
-  background: transparent url('/style/img/pilates-on.png') no-repeat top center scroll
-
-#adult.slide a
-  background: transparent url('/style/img/adult-off.png') no-repeat top center scroll
-#adult.slide.current a, #adult.slide a:hover
-  background: transparent url('/style/img/adult-on.png') no-repeat top center scroll
+#adult.slide 
+  a
+    background: transparent url('/style/img/adult-off.png') no-repeat top center scroll
+    background-size: contain
+  &.current a, & a:hover
+    background: transparent url('/style/img/adult-on.png') no-repeat top center scroll
+    background-size: contain
 
 
