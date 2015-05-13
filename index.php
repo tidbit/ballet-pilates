@@ -33,7 +33,7 @@
   <div class="primary-col">
 
     <header class="unify">
-<p><iframe src="//www.youtube.com/embed/fGUudfcBpA8" frameborder="0" width="620" height="349"></iframe></p>
+		<div class="video-container"><iframe src="//www.youtube.com/embed/fGUudfcBpA8" frameborder="0" width="620" height="349"></iframe></div>
 </header>
 
     <div class="unify">

@@ -25,6 +25,12 @@ $bp-md: 48.1em
 $bp-lg: 75.1em
 // @media only screen and (min-width: $bp-sm) { }
 
+// Clearfix
+%clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
 
 
 // ^1. Generic Structural Elements
@@ -38,20 +44,48 @@ a
   &:hover
     color: $color3
 
+img
+  width: 100%
+  height: auto
+
+iframe
+  width: 100%
+  min-height: 75%
+  height: 75% 
+
+.video-container 
+  position: relative
+  padding-bottom: 56.25%
+  padding-top: 35px
+  height: 0
+  overflow: hidden
+
+.video-container iframe 
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
 .wrapper
   max-width: 960px
-  padding: 0 10px
+  padding: 0 18px
   margin: 0 auto
+  @extend %clearfix
 
 .primary-col
-  width: 620px
-  padding: 0 10px
+  max-width: 620px
+  width: 100%
+  padding: 0
   float: right
+  @extend %clearfix
 
 .secondary-col
-  width: 270px
-  padding: 0 0 0 10px
+  max-width: 270px
+  width: 100%
+  padding: 0
   float: left
+  @extend %clearfix
 
 #main
   padding: 20px 0 22px
@@ -106,12 +140,13 @@ header > h1, header > h2, header > h3, header > h4, header > h5, header > h6
 
 #masthead
   position: relative
+  margin-top: 30px
+  margin-bottom: 30px
   img
     display: block
     padding: 0 0 51px
     background: transparent url("../img/masthead-border.png") repeat-x bottom left scroll
     margin-bottom: 20px
-    top: -20px
     position: relative
 
 
@@ -174,7 +209,7 @@ header#main-header
           color: $color1
 
 #main-nav 
-  li a
+  li a, button
     background: transparent no-repeat left center scroll
     background-size: contain
     @media only screen and (min-width: $bp-md)
@@ -191,12 +226,116 @@ header#main-header
       padding-left: 0
 
 
+
+$button-width: 44px
+$button-height: 44px
+$bar-thickness: 2px
+$button-pad: 14px
+$button-trans-delay: 0.3s
+
+
+#toggle-nav
+  display: block
+  position: fixed
+  top: -1px 
+  right: 18px 
+  overflow: hidden
+  margin: 0
+  padding: 0
+  width: $button-width
+  height: $button-height
+  font-size: 0
+  text-indent: -9999px
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  box-shadow: none
+  border-radius: none
+  border: none
+  cursor: pointer
+  transition: background $button-trans-delay
+  z-index: 25
+
+#toggle-nav:focus
+  outline: none
+
+#toggle-nav span
+  display: block
+  position: absolute
+  top: ($button-height / 2) - ($bar-thickness / 2)
+  left: $button-pad
+  right: $button-pad
+  height: $bar-thickness
+  background: rgb(255,255,255)
+
+#toggle-nav span::before,
+#toggle-nav span::after
+  position: absolute
+  display: block
+  left: 0
+  width: 100%
+  height: $bar-thickness
+  background-color: #fff
+  content: ""
+
+#toggle-nav span::before
+  top: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad)
+
+#toggle-nav span::after
+  bottom: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad)
+
+#toggle-nav
+  background-color: $color1
+
+#toggle-nav span
+  transition: background 0s $button-trans-delay
+
+#toggle-nav span::before,
+#toggle-nav span::after
+  transition-duration: $button-trans-delay, $button-trans-delay
+  transition-delay: $button-trans-delay, 0s
+
+
+#toggle-nav span::before
+  transition-property: top, transform
+
+
+#toggle-nav span::after
+  transition-property: bottom, transform
+
+
+/* active state, i.e. menu open */
+
+#toggle-nav.active
+  background-color: $color2 //darken($color1, 20%)
+  transform: translateY(18px)
+
+#toggle-nav.active span
+  background: none
+
+
+#toggle-nav.active span::before 
+  top: 0
+  transform: rotate(45deg)
+
+
+#toggle-nav.active span::after
+  bottom: 0
+  transform: rotate(-45deg)
+
+#toggle-nav.active span::before,
+#toggle-nav.active span::after
+  transition-delay: 0s, $button-trans-delay
+
+
+
+
 // ^3. Begin Footer Specific Styles
 
 footer#main-footer
   background: $color2
   color: $color5
-  padding: 20px 0 40px
+  padding: 40px 0
   text-align: center
   h3
     font-size: 34px
@@ -205,7 +344,7 @@ footer#main-footer
     ul
       display: block
       text-align: center
-      margin: 0 0 8px
+      margin: 0 0 16px
     li
       font-size: 25px
       height: 23px
@@ -213,6 +352,8 @@ footer#main-footer
       padding: 0 10px 0 0
       border-right: 2px solid $color5
       margin: 0 10px 0 0
+      &:last-child
+        border-right: none
       a
         color: $color5
         text-decoration: none
@@ -226,19 +367,51 @@ footer#main-footer
 
 // ^4. Sidebar specific styles
 
+.secondary-col
+  display: none
+  &.hide
+    display: none
+  &.show
+    display: block
+
 .secondary-col nav
-  border-right: 2px solid $color4
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background: $color2
+  border-right: none
+  padding: 3em
+  overflow-y: scroll
+  z-index: 10
+  @media only screen and (min-width: $bp-md)
+    border-right: 2px solid $color4
   li
     font-size: 28px
     line-height: 42px
     letter-spacing: -1px
     a
       text-decoration: none
-      color: $color2
+      color: $color5
+      @media only screen and (min-width: $bp-md)
+        color: $color2
     a:hover, .current
       color: $color1
+    .current
       font-weight: bold
 
+.secondary-col .close 
+  display: block
+  height: 32px
+  width: 32px
+  position: absolute
+  border: none
+  padding: none
+  top: 2em
+  right: 2em
+  background: transparent url('/style/img/close.png') no-repeat center center scroll
+  background-size: contain
 
 ul.side-nav
   border-bottom: 2px solid $color4
@@ -259,17 +432,20 @@ ul.side-nav.social-nav
     border-bottom: 4px solid $color1
     li
       float: left
-      width: 320px
+      width: 33%
+      max-width: 320px
       height: 575px
       display: block
       padding-bottom: 3px
       position: relative
   .slide a
     display: block
-    width: 320px
+    width: 100%
+    max-width: 320px
     height: 45px
     padding-top: 530px
     text-decoration: none
+    background-size: contain
     span
       background: $color1
       color: $color3

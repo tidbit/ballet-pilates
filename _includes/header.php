@@ -12,5 +12,7 @@
     </ul>
   </nav>
 
+	<button id="toggle-nav" title="Toggle Menu"><span>Menu</span></button>
+
 </div>
 </header> <!-- end #main_header -->

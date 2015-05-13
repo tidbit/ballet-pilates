@@ -166,6 +166,11 @@ h1, h2, h3, h4, h5, h6, p {
 h2, h3, h4, p {
   padding-bottom: 20px; }
 
+.wrapper:after, .primary-col:after, .secondary-col:after {
+  content: "";
+  display: table;
+  clear: both; }
+
 body {
   color: #686969;
   font-family: "Arimo", sans-serif; }
@@ -175,19 +180,44 @@ a {
   a:hover {
     color: #fadee8; }
 
+img {
+  width: 100%;
+  height: auto; }
+
+iframe {
+  width: 100%;
+  min-height: 75%;
+  height: 75%; }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden; }
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
 .wrapper {
   max-width: 960px;
-  padding: 0 10px;
+  padding: 0 18px;
   margin: 0 auto; }
 
 .primary-col {
-  width: 620px;
-  padding: 0 10px;
+  max-width: 620px;
+  width: 100%;
+  padding: 0;
   float: right; }
 
 .secondary-col {
-  width: 270px;
-  padding: 0 0 0 10px;
+  max-width: 270px;
+  width: 100%;
+  padding: 0;
   float: left; }
 
 #main {
@@ -241,13 +271,14 @@ header > h1, header > h2, header > h3, header > h4, header > h5, header > h6 {
   padding-bottom: 24px; }
 
 #masthead {
-  position: relative; }
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px; }
   #masthead img {
     display: block;
     padding: 0 0 51px;
     background: transparent url("../img/masthead-border.png") repeat-x bottom left scroll;
     margin-bottom: 20px;
-    top: -20px;
     position: relative; }
 
 header#main-header {
@@ -309,11 +340,11 @@ header#main-header {
       #main-nav ul li a:hover {
         color: #f4b9d0; }
 
-#main-nav li a {
+#main-nav li a, #main-nav button {
   background: transparent no-repeat left center scroll;
   background-size: contain; }
   @media only screen and (min-width: 48.1em) {
-    #main-nav li a {
+    #main-nav li a, #main-nav button {
       background: transparent no-repeat center 25px scroll; } }
 #main-nav li#signup a {
   padding-left: 1.5em;
@@ -328,10 +359,97 @@ header#main-header {
     #main-nav li#contact a {
       padding-left: 0; } }
 
+#toggle-nav {
+  display: block;
+  position: fixed;
+  top: -1px;
+  right: 18px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 25; }
+
+#toggle-nav:focus {
+  outline: none; }
+
+#toggle-nav span {
+  display: block;
+  position: absolute;
+  top: 21px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: white; }
+
+#toggle-nav span::before,
+#toggle-nav span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  content: ""; }
+
+#toggle-nav span::before {
+  top: -7px; }
+
+#toggle-nav span::after {
+  bottom: -7px; }
+
+#toggle-nav {
+  background-color: #f4b9d0; }
+
+#toggle-nav span {
+  transition: background 0s 0.3s; }
+
+#toggle-nav span::before,
+#toggle-nav span::after {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0s; }
+
+#toggle-nav span::before {
+  transition-property: top, transform; }
+
+#toggle-nav span::after {
+  transition-property: bottom, transform; }
+
+/* active state, i.e. menu open */
+#toggle-nav.active {
+  background-color: #686969;
+  transform: translateY(18px); }
+
+#toggle-nav.active span {
+  background: none; }
+
+#toggle-nav.active span::before {
+  top: 0;
+  transform: rotate(45deg); }
+
+#toggle-nav.active span::after {
+  bottom: 0;
+  transform: rotate(-45deg); }
+
+#toggle-nav.active span::before,
+#toggle-nav.active span::after {
+  transition-delay: 0s, 0.3s; }
+
 footer#main-footer {
   background: #686969;
   color: #ffffff;
-  padding: 20px 0 40px;
+  padding: 40px 0;
   text-align: center; }
   footer#main-footer h3 {
     font-size: 34px;
@@ -339,7 +457,7 @@ footer#main-footer {
   footer#main-footer #footer-nav ul {
     display: block;
     text-align: center;
-    margin: 0 0 8px; }
+    margin: 0 0 16px; }
   footer#main-footer #footer-nav li {
     font-size: 25px;
     height: 23px;
@@ -347,6 +465,8 @@ footer#main-footer {
     padding: 0 10px 0 0;
     border-right: 2px solid #ffffff;
     margin: 0 10px 0 0; }
+    footer#main-footer #footer-nav li:last-child {
+      border-right: none; }
     footer#main-footer #footer-nav li a {
       color: #ffffff;
       text-decoration: none; }
@@ -357,18 +477,53 @@ footer#main-footer {
     font-style: italic;
     padding: 10px 0; }
 
+.secondary-col {
+  display: none; }
+  .secondary-col.hide {
+    display: none; }
+  .secondary-col.show {
+    display: block; }
+
 .secondary-col nav {
-  border-right: 2px solid #e8e8e8; }
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #686969;
+  border-right: none;
+  padding: 3em;
+  overflow-y: scroll;
+  z-index: 10; }
+  @media only screen and (min-width: 48.1em) {
+    .secondary-col nav {
+      border-right: 2px solid #e8e8e8; } }
   .secondary-col nav li {
     font-size: 28px;
     line-height: 42px;
     letter-spacing: -1px; }
     .secondary-col nav li a {
       text-decoration: none;
-      color: #686969; }
+      color: #ffffff; }
+      @media only screen and (min-width: 48.1em) {
+        .secondary-col nav li a {
+          color: #686969; } }
     .secondary-col nav li a:hover, .secondary-col nav li .current {
-      color: #f4b9d0;
+      color: #f4b9d0; }
+    .secondary-col nav li .current {
       font-weight: bold; }
+
+.secondary-col .close {
+  display: block;
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  border: none;
+  padding: none;
+  top: 2em;
+  right: 2em;
+  background: transparent url("/style/img/close.png") no-repeat center center scroll;
+  background-size: contain; }
 
 ul.side-nav {
   border-bottom: 2px solid #e8e8e8;
@@ -387,17 +542,20 @@ ul.side-nav.social-nav {
     border-bottom: 4px solid #f4b9d0; }
     #home-slider ul li {
       float: left;
-      width: 320px;
+      width: 33%;
+      max-width: 320px;
       height: 575px;
       display: block;
       padding-bottom: 3px;
       position: relative; }
   #home-slider .slide a {
     display: block;
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     height: 45px;
     padding-top: 530px;
-    text-decoration: none; }
+    text-decoration: none;
+    background-size: contain; }
     #home-slider .slide a span {
       background: #f4b9d0;
       color: #fadee8;

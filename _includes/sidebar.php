@@ -14,4 +14,5 @@
         <li><a <?php if (is_page('contact') ) { echo 'class="current"'; } ?> href="/contact.php">Contact Us</a></li>
         <li><a href="http://www.facebook.com/pages/Ballet-and-pilates-by-Victoria/266261843470004" target="_blank">Facebook</a></li>
       </ul>
+
     </nav>

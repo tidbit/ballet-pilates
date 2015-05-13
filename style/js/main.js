@@ -20,14 +20,20 @@ $(document).ready(function() {
     }
   );
 
+	var nav = $('.secondary-col');
+	var toggleButton = $('#toggle-nav');
+
+	toggleButton.click( function() {
+		toggleButton.toggleClass('active');
+		nav.toggleClass("hide").toggleClass("show");
+	});
+
 });
 
 
 
 function initSlideshow() {
-
   var slideshowID = setInterval(getNextSlide, slideTimer);
-
   return slideshowID;
 }
 
@@ -56,17 +62,12 @@ function getNextSlide() {
 
 
 function loadSlide(slide) {
-
   $('#home-slider li.current').removeClass('current');
   $('#home-slider li#' + slide).addClass('current');
-
 }
 
 
 function restartSlideShow() {
-
   var slideshowID = setInterval(getNextSlide, slideTimer);
-
   return slideshowID;
-
 }
