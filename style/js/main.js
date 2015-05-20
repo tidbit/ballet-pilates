@@ -1,10 +1,21 @@
 var slideTimer = 5000;
+var slideID;
 
 $(document).ready(function() {
 
-  var slideID = initSlideshow();
+  slideID = initSlideshow();
 
-  $('#home-slider li').hover(
+
+  $('#home-slider .slider-nav li').on('touchstart click', function(e) {
+    e.stopPropagation(); e.preventDefault();
+
+    clearInterval(slideID);
+    loadSlide($(this).removeClass('current').attr('class'));
+    slideID = restartSlideShow();
+
+  });
+
+  $('#home-slider .slide').hover(
     function() {
 
       var currentHover = $(this).attr('id');
@@ -28,6 +39,20 @@ $(document).ready(function() {
 		nav.toggleClass("hide").toggleClass("show");
 	});
 
+  // disable nav on escape key press
+  $(document).keyup(function(e) {
+
+    // Is escape keycode
+    if (e.keyCode !== 27) return;
+
+    // Is nav showing
+    if( !nav.hasClass('show') ) return;
+
+    toggleButton.removeClass('active');
+    nav.removeClass('show').addClass('hide');
+
+  });
+
 });
 
 
@@ -40,7 +65,7 @@ function initSlideshow() {
 
 
 function getCurrentSlide() {
-  var currentSlide = $('#home-slider li.current').attr('id');
+  var currentSlide = $('#home-slider ul.slides li.current').attr('id');
   return currentSlide;
 }
 
@@ -63,7 +88,20 @@ function getNextSlide() {
 
 function loadSlide(slide) {
   $('#home-slider li.current').removeClass('current');
-  $('#home-slider li#' + slide).addClass('current');
+
+  $('#home-slider .slides li#' + slide).addClass('current');
+  $('#home-slider .slider-nav li.' + slide ).addClass('current');
+
+  $('#home-slider .slides li').removeClass('hidden');
+
+  if( slide === "kids" ) {
+    $('#home-slider .slides li#adult').addClass('hidden');
+  } else if ( slide === "pilates" ) {
+    $('#home-slider .slides li#adult').addClass('hidden');
+  } else if ( slide === "adult" ) {
+    $('#home-slider .slides li#kids').addClass('hidden');
+  }
+
 }
 
 
