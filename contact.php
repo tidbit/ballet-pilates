@@ -74,7 +74,7 @@ while(x=eval(x));}hiveware_enkoder();
 <!-- END: Constant Contact Bubble Opt-in Email List Form -->
 <!-- BEGIN: SafeSubscribe -->
 <div style="padding-top:5px;">
-<img src="https://imgssl.constantcontact.com/ui/images1/safe_subscribe_logo.gif" border="0" width="168" height="14" alt=""/>
+<img style="width: 168px;" src="https://imgssl.constantcontact.com/ui/images1/safe_subscribe_logo.gif" border="0" width="168" height="14" alt=""/>
 </div>
 <!-- END: SafeSubscribe -->
 
