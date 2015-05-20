@@ -5,7 +5,7 @@
 <div id="home-slider">
 <div class="wrapper">
 
-  <ul class="clearfix ">
+  <ul class="clearfix slides">
     <li id="kids" class="slide current">
       <a href="/childrens-ballet.php">
         <span>Children's Ballet</span>
@@ -16,13 +16,14 @@
         <span>Pilates</span>
       </a>
     </li>
-    <li id="adult" class="slide">
+    <li id="adult" class="slide hidden">
       <a href="/adult-ballet.php">
         <span>Adult Ballet</span>
       </a>
     </li>
   </ul>
 
+  <ul class="slider-nav"><li class="kids current"></li><li class="pilates"></li><li class="adult"></li></ul>
 </div>
 </div>
 
