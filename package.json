@@ -1,0 +1,20 @@
+{
+  "name": "ballet-pilates",
+  "version": "1.0.0",
+  "description": "site for ballet & pilates",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass style/sass/main.sass:style/css/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthewsimo/ballet-pilates.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthewsimo/ballet-pilates/issues"
+  },
+  "homepage": "https://github.com/matthewsimo/ballet-pilates"
+}
