@@ -1,5 +1,5 @@
-<?php $current_page = 'adult'; ?>
-<?php include('_includes/header.php'); ?>
+<?php $current_page = ['page' => 'index', 'section' => 'adult']; ?>
+<?php include('../_includes/header.php'); ?>
 
 
 
@@ -25,7 +25,7 @@
 
   <div class="secondary-col">
 
-  <?php include('_includes/sidebar.php'); ?>
+  <?php include('../_includes/sidebar.php'); ?>
 
   </div>  <!-- End .secondary-col -->
 
@@ -34,4 +34,4 @@
 </div> <!-- end #main -->
 
 
-<?php include('_includes/footer.php'); ?>
+<?php include('../_includes/footer.php'); ?>

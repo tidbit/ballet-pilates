@@ -7,18 +7,18 @@
 
   <ul class="clearfix slides">
     <li id="kids" class="slide current">
-      <a href="/childrens-ballet.php">
-        <span>Children's Ballet</span>
+      <a href="/children-classes/">
+        <span>Children Classes</span>
       </a>
     </li>
     <li id="pilates" class="slide">
-      <a href="/pilates.php">
-        <span>Pilates</span>
+      <a href="/adult-classes/">
+        <span>Adult Classes</span>
       </a>
     </li>
     <li id="adult" class="slide hidden">
-      <a href="/adult-ballet.php">
-        <span>Adult Ballet</span>
+      <a href="/private-sessions/">
+        <span>Private Sessions</span>
       </a>
     </li>
   </ul>

@@ -1,5 +1,5 @@
-<?php $current_page = 'pilates'; ?>
-<?php include('_includes/header.php'); ?>
+<?php $current_page = ['page' => 'pilates', 'section' => 'adult']; ?>
+<?php include('../_includes/header.php'); ?>
 
 
 <div id="main" role="main" class="clearfix">
@@ -24,7 +24,7 @@
 
   <div class="secondary-col">
 
-  <?php include('_includes/sidebar.php'); ?>
+  <?php include('../_includes/sidebar.php'); ?>
 
   </div>  <!-- End .secondary-col -->
 
@@ -33,4 +33,4 @@
 </div> <!-- end #main -->
 
 
-<?php include('_includes/footer.php'); ?>
+<?php include('../_includes/footer.php'); ?>

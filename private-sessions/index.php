@@ -1,5 +1,5 @@
-<?php $current_page = 'boutique'; ?>
-<?php include('_includes/header.php'); ?>
+<?php $current_page = 'private-sessions'; ?>
+<?php include('../_includes/header.php'); ?>
 
 
 <div id="main" role="main" class="clearfix">
@@ -12,7 +12,7 @@
   <div class="primary-col">
 
   <header class="unify">
-<h1>Ballet Boutique</h1><h2><br></h2>
+<h1>Private Sessions</h1><h2><br></h2>
 </header>
 
     <div class="unify">
@@ -24,7 +24,7 @@
 
   <div class="secondary-col">
 
-  <?php include('_includes/sidebar.php'); ?>
+  <?php include('../_includes/sidebar.php'); ?>
 
   </div>  <!-- End .secondary-col -->
 
@@ -33,4 +33,4 @@
 </div> <!-- end #main -->
 
 
-<?php include('_includes/footer.php'); ?>
+<?php include('../_includes/footer.php'); ?>
