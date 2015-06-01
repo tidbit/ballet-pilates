@@ -11,10 +11,10 @@
 
 
 
-$color1: #f4b9d0 // Main Pink
-$color2: #686969 // Main Grey
-$color3: #fadee8 // Light Pink
-$color4: #e8e8e8 // Light Grey
+$color1: #F15BB1 // #DE71B4 // Old #f4b9d0 // Main Pink
+$color2: #62625E // Old #686969 // Main Grey
+$color3: lighten($color1, 20%) //  Old #fadee8 // Light Pink
+$color4: lighten($color2, 52%) // #e8e8e8 // Light Grey
 $color5: #ffffff // White
 
 $font: 'Arimo', sans-serif
@@ -151,11 +151,11 @@ header > h1, header > h2, header > h3, header > h4, header > h5, header > h6
   position: relative
   margin-top: 30px
   margin-bottom: 30px
+  padding-bottom: 3px
+  border-bottom: solid $color1 3px 
   img
     display: block
-    padding: 0 0 51px
-    background: transparent url("../img/masthead-border.png") repeat-x bottom left scroll
-    margin-bottom: 20px
+    border-bottom: solid $color1 45px
     position: relative
 
 
@@ -183,7 +183,7 @@ header#main-header
       height: 100%
       width: 100%
       text-indent: -9999em
-      background: transparent url('/style/img/main-logo.png') no-repeat center center scroll
+      background: transparent url('/style/img/main-logo-new.png') no-repeat center center scroll
       background-size: contain
   ul
     height: 2em
@@ -493,7 +493,7 @@ ul.side-nav.social-nav
     span
       color: $color5
     &:before
-      background: transparent url('/style/img/icon-slide-arrow.png') no-repeat center center scroll
+      background: transparent url('/style/img/icon-slide-arrow.png') no-repeat bottom center scroll
       display: block
       content: ''
       width: 50px
