@@ -533,15 +533,17 @@ footer#main-footer {
   left: 0;
   background: #62625E;
   border-right: none;
+  color: #ffffff;
   padding: 3em;
   overflow-y: scroll;
   z-index: 10; }
   @media only screen and (min-width: 48.1em) {
     .secondary-col nav {
+      background: transparent;
       border-right: 2px solid #e5e5e4;
+      color: #62625E;
       position: relative;
-      padding: 0;
-      background: transparent; } }
+      padding: 0; } }
   .secondary-col nav li {
     font-size: 28px;
     line-height: 42px;
