@@ -1,4 +1,4 @@
-<?php $current_page = ['page' => 'adult-ballet', 'section' => 'adult']; ?>
+<?php $current_page = ['page' => 'ballet', 'section' => 'adult']; ?>
 <?php include('../_includes/header.php'); ?>
 
 
