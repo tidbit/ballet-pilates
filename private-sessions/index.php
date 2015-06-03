@@ -16,7 +16,7 @@
 </header>
 
     <div class="unify">
-<p>Offering&nbsp;children's leotards, ballet tights, jazz pants, dance bags, wraps, ballet skirts, and leather ballet slippers for children through adults. Ballet Boutique&nbsp;is&nbsp;located inside the&nbsp;studio complete with dressing rooms and a full staff to help you. The official school leotard for children's Ballet is sold at our boutique.</p>
+<p>We do private sessions. For scheduling, call:</p>
 </div>
 
   </div> <!-- End .primary-col -->
