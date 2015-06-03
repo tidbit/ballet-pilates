@@ -10,7 +10,7 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/about-victoria.php">About&nbsp;Victoria</a></li>
-      <li><a href="https://clients.mindbodyonline.com/asp/home.asp?studioid=27108">Sign&nbsp;Up</a></li>
+      <li><a href="https://clients.mindbodyonline.com/asp/home.asp?studioid=27108">Schedule</a></li>
       <li><a href="/contact.php">Contact&nbsp;Us</a></li>
       <li><a href="http://www.facebook.com/pages/Ballet-and-pilates-by-Victoria/266261843470004">Facebook</a></li>
     </ul>
@@ -21,8 +21,10 @@
     </ul>
   </nav>
 
+<?php include('email-subscribe.php'); ?>
+
   <p class="unify copyright">
-Copyright 2012 by Ballet &amp; Pilates by Victoria. All Rights Reserved.
+Copyright 2012-2015 by Ballet &amp; Pilates by Victoria. All Rights Reserved.
 </p>
 
 </div>
