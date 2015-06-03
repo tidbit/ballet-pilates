@@ -7,7 +7,7 @@
   <nav id="main-nav" class="nav">
     <h1><a href="/">Ballet & Pilates By Victoria</a></h1>
     <ul>
-      <li id="signup"><a href="https://clients.mindbodyonline.com/asp/home.asp?studioid=27108">Sign Up</a></li>
+      <li id="signup"><a href="https://clients.mindbodyonline.com/asp/home.asp?studioid=27108">Schedule</a></li>
       <li id="contact"><a href="/contact.php">Contact&nbsp;Us</a></li>
     </ul>
   </nav>
