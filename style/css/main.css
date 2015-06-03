@@ -211,15 +211,16 @@ iframe {
 .primary-col {
   width: 100%;
   padding: 0; }
-  @media only screen and (min-width: 75.1em) {
+  @media only screen and (min-width: 48.1em) {
     .primary-col {
+      width: calc( 100% - ( 270px + 30px ) );
       max-width: 620px;
       float: right; } }
 
 .secondary-col {
   width: 100%;
   padding: 0; }
-  @media only screen and (min-width: 75.1em) {
+  @media only screen and (min-width: 48.1em) {
     .secondary-col {
       max-width: 270px;
       float: left; } }
@@ -312,7 +313,7 @@ header#main-header {
 #main-nav ul {
   height: 2em;
   max-width: 440px;
-  margin: 0 auto; }
+  margin: 0 auto 20px; }
   @media only screen and (min-width: 48.1em) {
     #main-nav ul {
       float: right;
@@ -368,20 +369,28 @@ header#main-header {
   display: table;
   border-top: solid 2px #e5e5e4;
   border-bottom: solid 2px #e5e5e4;
-  padding: 8px 0;
   margin: 0; }
 #class-nav li {
-  display: table-cell;
-  width: 33%;
-  padding: 0 10px;
+  display: block;
+  padding: 5px 10px;
   font-size: 24px;
   font-weight: bold;
   box-sizing: border-box;
-  text-align: center; }
+  text-align: center;
+  width: 100%;
+  border-top: solid 2px #e5e5e4; }
+  #class-nav li:first-child {
+    border-top: none; }
+  @media only screen and (min-width: 715px) {
+    #class-nav li {
+      display: table-cell;
+      width: 33%;
+      border-top: none; } }
   #class-nav li a {
     color: #62625E;
     text-decoration: none;
-    padding: 5px; }
+    padding: 5px;
+    display: block; }
     #class-nav li a.current, #class-nav li a:hover, #class-nav li a:active {
       color: #F15BB1; }
 
@@ -406,7 +415,7 @@ header#main-header {
   cursor: pointer;
   transition: background 0.3s;
   z-index: 25; }
-  @media only screen and (min-width: 75.1em) {
+  @media only screen and (min-width: 48.1em) {
     #toggle-nav {
       display: none; } }
 
@@ -512,7 +521,7 @@ footer#main-footer {
     display: none; }
   .secondary-col.show {
     display: block; }
-  @media only screen and (min-width: 75.1em) {
+  @media only screen and (min-width: 48.1em) {
     .secondary-col {
       display: block !important; } }
 
@@ -527,7 +536,7 @@ footer#main-footer {
   padding: 3em;
   overflow-y: scroll;
   z-index: 10; }
-  @media only screen and (min-width: 75.1em) {
+  @media only screen and (min-width: 48.1em) {
     .secondary-col nav {
       border-right: 2px solid #e5e5e4;
       position: relative;
@@ -540,7 +549,7 @@ footer#main-footer {
     .secondary-col nav li a {
       text-decoration: none;
       color: #ffffff; }
-      @media only screen and (min-width: 75.1em) {
+      @media only screen and (min-width: 48.1em) {
         .secondary-col nav li a {
           color: #62625E; } }
     .secondary-col nav li a:hover, .secondary-col nav li .current {
@@ -567,6 +576,11 @@ ul.side-nav {
 
 ul.side-nav.social-nav {
   border-bottom: none; }
+
+ul.sub-nav {
+  padding-left: 1em; }
+  ul.sub-nav li {
+    list-style: disc inside; }
 
 #home-slider {
   padding-bottom: 30px; }

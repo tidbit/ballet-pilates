@@ -84,7 +84,8 @@ iframe
   width: 100%
   padding: 0
   @extend %clearfix
-  @media only screen and (min-width: $bp-lg)
+  @media only screen and (min-width: $bp-md)
+    width: calc( 100% - ( 270px + 30px ) ) // 100% - ( sidebar + padding) 
     max-width: 620px
     float: right
 
@@ -92,7 +93,7 @@ iframe
   width: 100%
   padding: 0
   @extend %clearfix
-  @media only screen and (min-width: $bp-lg)
+  @media only screen and (min-width: $bp-md)
     max-width: 270px
     float: left
 
@@ -188,7 +189,7 @@ header#main-header
   ul
     height: 2em
     max-width: 440px
-    margin: 0 auto
+    margin: 0 auto 20px
     @media only screen and (min-width: $bp-md)
       float: right
       width: auto 
@@ -241,20 +242,27 @@ header#main-header
     display: table
     border-top: solid 2px $color4
     border-bottom: solid 2px $color4
-    padding: 8px 0
     margin: 0
   li
-    display: table-cell 
-    width: 33%
-    padding: 0 10px
+    display: block
+    padding: 5px 10px
     font-size: 24px
     font-weight: bold
     box-sizing: border-box
     text-align: center
+    width: 100%
+    border-top: solid 2px $color4
+    &:first-child
+      border-top: none
+    @media only screen and (min-width: 715px)
+      display: table-cell 
+      width: 33%
+      border-top: none 
     a
       color: $color2
       text-decoration: none
       padding: 5px
+      display: block
       &.current, &:hover, &:active
         color: $color1
 
@@ -288,7 +296,7 @@ $button-trans-delay: 0.3s
   cursor: pointer
   transition: background $button-trans-delay
   z-index: 25
-  @media only screen and (min-width: $bp-lg)
+  @media only screen and (min-width: $bp-md)
     display: none
 
 #toggle-nav:focus
@@ -408,7 +416,7 @@ footer#main-footer
     display: none
   &.show
     display: block
-  @media only screen and (min-width: $bp-lg)
+  @media only screen and (min-width: $bp-md)
     display: block !important
 
 .secondary-col nav
@@ -422,7 +430,7 @@ footer#main-footer
   padding: 3em
   overflow-y: scroll
   z-index: 10
-  @media only screen and (min-width: $bp-lg)
+  @media only screen and (min-width: $bp-md)
     border-right: 2px solid $color4
     position: relative
     padding: 0
@@ -434,7 +442,7 @@ footer#main-footer
     a
       text-decoration: none
       color: $color5
-      @media only screen and (min-width: $bp-lg)
+      @media only screen and (min-width: $bp-md)
         color: $color2
     a:hover, .current
       color: $color1
@@ -460,6 +468,11 @@ ul.side-nav
 
 ul.side-nav.social-nav
   border-bottom: none
+
+ul.sub-nav
+  padding-left: 1em
+  li
+    list-style: disc inside
 
 // ^5. Home Slideshow Specific styles
 
