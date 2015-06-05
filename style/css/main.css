@@ -174,6 +174,15 @@ h2, h3, h4, p {
 body {
   color: #62625E;
   font-family: "Arimo", sans-serif; }
+  @media only screen and (min-width: 30.1em) {
+    body {
+      background: rgba(250, 0, 0, 0.2); } }
+  @media only screen and (min-width: 48.1em) {
+    body {
+      background: rgba(0, 250, 0, 0.2); } }
+  @media only screen and (min-width: 75.1em) {
+    body {
+      background: rgba(0, 0, 250, 0.2); } }
 
 a {
   color: #F15BB1; }
@@ -491,29 +500,60 @@ footer#main-footer {
   text-align: center; }
   footer#main-footer h3 {
     font-size: 34px;
-    font-style: italic; }
+    font-style: italic;
+    margin-bottom: 30px; }
   footer#main-footer #footer-nav ul {
-    display: block;
-    text-align: center;
+    text-align: left;
     margin: 0 0 16px; }
+    footer#main-footer #footer-nav ul ul {
+      margin-bottom: 0; }
   footer#main-footer #footer-nav li {
     font-size: 25px;
-    height: 23px;
-    display: inline;
-    padding: 0 10px 0 0;
-    border-right: 2px solid #ffffff;
+    padding: 4px 10px 4px 0;
     margin: 0 10px 0 0; }
     footer#main-footer #footer-nav li:last-child {
       border-right: none; }
     footer#main-footer #footer-nav li a {
-      color: #ffffff;
-      text-decoration: none; }
+      color: #ffffff; }
       footer#main-footer #footer-nav li a:hover {
         color: #F15BB1; }
   footer#main-footer .copyright {
     font-size: 20px;
     font-style: italic;
-    padding: 10px 0; }
+    padding: 10px 0;
+    margin-top: 40px;
+    color: #b3b3b0; }
+  footer#main-footer .footer-col {
+    text-align: left;
+    margin: 8% 0; }
+    footer#main-footer .footer-col:last-child {
+      width: 50%;
+      margin: 3% auto; }
+    @media only screen and (min-width: 48.1em) {
+      footer#main-footer .footer-col {
+        float: left;
+        width: 44%;
+        margin: 3%; }
+        footer#main-footer .footer-col:last-child {
+          width: 20%;
+          margin: 2%; } }
+    @media only screen and (min-width: 75.1em) {
+      footer#main-footer .footer-col {
+        width: 29%;
+        margin: 2%; } }
+  footer#main-footer .email-opt-in {
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; }
+  footer#main-footer iframe {
+    border: solid 1px #ffffff; }
+  footer#main-footer .footer-logo {
+    background: #ffffff;
+    display: block;
+    margin-bottom: 20px; }
+  footer#main-footer a {
+    color: #ffffff; }
 
 .secondary-col {
   display: none; }
@@ -580,9 +620,8 @@ ul.side-nav.social-nav {
   border-bottom: none; }
 
 ul.sub-nav {
-  padding-left: 1em; }
-  ul.sub-nav li {
-    list-style: disc inside; }
+  padding-left: 1em;
+  list-style: disc inside; }
 
 #home-slider {
   padding-bottom: 30px; }

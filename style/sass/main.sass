@@ -38,12 +38,12 @@ $bp-lg: 75.1em
 body
   color: $color2
   font-family: $font
-//  @media only screen and (min-width: $bp-sm)
-//    background: rgba( 250, 0, 0, .2)
-//  @media only screen and (min-width: $bp-md)
-//    background: rgba( 0, 250, 0, .2)
-//  @media only screen and (min-width: $bp-lg)
-//    background: rgba( 0, 0, 250, .2)
+  @media only screen and (min-width: $bp-sm)
+    background: rgba( 250, 0, 0, .2)
+  @media only screen and (min-width: $bp-md)
+    background: rgba( 0, 250, 0, .2)
+  @media only screen and (min-width: $bp-lg)
+    background: rgba( 0, 0, 250, .2)
 
 
 a
@@ -383,29 +383,60 @@ footer#main-footer
   h3
     font-size: 34px
     font-style: italic
+    margin-bottom: 30px
   #footer-nav
     ul
-      display: block
-      text-align: center
+      text-align: left
       margin: 0 0 16px
+      ul
+        margin-bottom: 0
     li
       font-size: 25px
-      height: 23px
-      display: inline
-      padding: 0 10px 0 0
-      border-right: 2px solid $color5
+      padding: 4px 10px 4px 0
       margin: 0 10px 0 0
       &:last-child
         border-right: none
       a
         color: $color5
-        text-decoration: none
         &:hover
           color: $color1
   .copyright
     font-size: 20px
     font-style: italic
     padding: 10px 0
+    margin-top: 40px
+    color: darken($color4, 20%)
+  .footer-col
+    text-align: left
+    margin: 8% 0
+    &:last-child
+      width: 50%
+      margin: 3% auto
+    @media only screen and (min-width: $bp-md)
+      float: left
+      width: 44%
+      margin: 3%
+      &:last-child
+        width: 20%
+        margin: 2%
+    @media only screen and (min-width: $bp-md)
+    @media only screen and (min-width: $bp-lg)
+      width: 29%
+      margin: 2%
+  .email-opt-in
+    background: $color5
+    padding: 20px
+    text-align: center
+    margin-bottom: 20px
+  iframe
+    border: solid 1px $color5
+  .footer-logo
+    background: $color5
+    display: block
+    margin-bottom: 20px
+  a
+    color: $color5
+
 
 
 // ^4. Sidebar specific styles
@@ -473,8 +504,7 @@ ul.side-nav.social-nav
 
 ul.sub-nav
   padding-left: 1em
-  li
-    list-style: disc inside
+  list-style: disc inside
 
 // ^5. Home Slideshow Specific styles
 
