@@ -174,15 +174,6 @@ h2, h3, h4, p {
 body {
   color: #62625E;
   font-family: "Arimo", sans-serif; }
-  @media only screen and (min-width: 30.1em) {
-    body {
-      background: rgba(250, 0, 0, 0.2); } }
-  @media only screen and (min-width: 48.1em) {
-    body {
-      background: rgba(0, 250, 0, 0.2); } }
-  @media only screen and (min-width: 75.1em) {
-    body {
-      background: rgba(0, 0, 250, 0.2); } }
 
 a {
   color: #F15BB1; }
@@ -526,21 +517,11 @@ footer#main-footer {
   footer#main-footer .footer-col {
     text-align: left;
     margin: 8% 0; }
-    footer#main-footer .footer-col:last-child {
-      width: 50%;
-      margin: 3% auto; }
     @media only screen and (min-width: 48.1em) {
       footer#main-footer .footer-col {
         float: left;
         width: 44%;
-        margin: 3%; }
-        footer#main-footer .footer-col:last-child {
-          width: 20%;
-          margin: 2%; } }
-    @media only screen and (min-width: 75.1em) {
-      footer#main-footer .footer-col {
-        width: 29%;
-        margin: 2%; } }
+        margin: 3%; } }
   footer#main-footer .email-opt-in {
     background: #ffffff;
     padding: 20px;
@@ -551,7 +532,10 @@ footer#main-footer {
   footer#main-footer .footer-logo {
     background: #ffffff;
     display: block;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 250px; }
   footer#main-footer a {
     color: #ffffff; }
 

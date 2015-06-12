@@ -52,6 +52,7 @@
 
       //]]>
       </script>
+      <br><a href="https://clients.mindbodyonline.com/classic/home?studioid=27108" title="See the class schedule">Class Schedule</a>
       <br><a href="https://goo.gl/maps/Ww4x1">Get Directions</a>
       <br>281.855.0255
     </p>
@@ -60,6 +61,9 @@
 
   <div class="footer-col">
 
+    <a class="footer-logo" href="/"><img src="/style/img/main-logo-mini.png" title="Ballet and Pilated By Victoria - Home"/></a>
+
+<!--
     <nav id="footer-nav" class="nav">
       <ul>
         <li><a <?php if (is_page('kids') ) { echo 'class="current"'; } ?> href="/children-classes/">Children Classes</a></li>
@@ -76,11 +80,9 @@
         <li><a <?php if (is_page('social') ) { echo 'class="current"'; } ?> href="/social.php">Social</a></li>
       </ul>
     </nav>
+-->
   </div>
 
-  <div class="footer-col">
-    <a class="footer-logo" href="/"><img src="/style/img/main-logo-stacked.png" title="Ballet and Pilated By Victoria - Home"/></a>
-  </div>
 </div>
 
 <div class="wrapper">

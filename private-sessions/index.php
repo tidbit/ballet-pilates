@@ -6,7 +6,7 @@
 <div class="wrapper">
 
   <div id="masthead" class="unify">
-<img class="" src="http://www.balletandpilates.com/B&amp;P-14-0085 (2).jpg" alt="" width="960" height="508">
+<img class="" src="../style/img/private-sessions-masthead.jpg" alt="" width="960" height="375">
 </div>
 
   <div class="primary-col">
