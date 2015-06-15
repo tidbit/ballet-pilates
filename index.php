@@ -34,6 +34,7 @@
   <div class="primary-col">
 
     <header class="unify">
+    <p>Ballet and Pilates by Victoria engages, educates, and empowers people of all ages and skill levels to adopt a healthy lifestyle and love of one's body. By providing high quality instruction in an open and inviting atmosphere, our classes inspire confidence, encourages fun, shapes your entire body and essentially leaving a lasting legacy. Offering over 30 adult classes per week in Barre, Pilates, Ballet & Stretch. Young Children's Ballet provides a creative dance education experience for ballerinas ages 18 months - 10 years old.</p>
 		<div class="video-container"><iframe src="//www.youtube.com/embed/fGUudfcBpA8" frameborder="0" width="620" height="349"></iframe></div>
 </header>
 

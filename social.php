@@ -18,7 +18,10 @@
     </header>
 
     <div class="unify">
-<p>Social page content.</p>
+<p>Let's be friends! Get up to date information and check out images of the latest classes.</p>
+<p>Facebook - <a href="http://facebook.com/BalletandPilatesbyVictoria">facebook.com/BalletandPilatesbyVictoria</a></p>
+<p>Twitter - <a href="http://twitter.com/BalletPilatesV">twitter.com/@BalletPilatesV</a></p>
+<p>Instagram - <a href="https://instagram.com/BalletandPilates">instagram.com/BalletandPilates</a></p>
 </div>
 
 

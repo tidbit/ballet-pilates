@@ -233,13 +233,13 @@ table {
   border: 1px solid #62625E;
   width: 100%; }
   table thead th {
-    color: #ffffff;
+    color: #FFFFFF;
     background: #F15BB1;
     border: 1px solid #F15BB1;
     font-weight: bold; }
   table tr td {
     color: #62625E;
-    background: #ffffff;
+    background: #FFFFFF;
     border: 1px solid #62625E; }
   table td, table th {
     padding: 3px;
@@ -486,7 +486,7 @@ header#main-header {
 
 footer#main-footer {
   background: #62625E;
-  color: #ffffff;
+  color: #FFFFFF;
   padding: 40px 0;
   text-align: center; }
   footer#main-footer h3 {
@@ -505,7 +505,7 @@ footer#main-footer {
     footer#main-footer #footer-nav li:last-child {
       border-right: none; }
     footer#main-footer #footer-nav li a {
-      color: #ffffff; }
+      color: #FFFFFF; }
       footer#main-footer #footer-nav li a:hover {
         color: #F15BB1; }
   footer#main-footer .copyright {
@@ -523,21 +523,21 @@ footer#main-footer {
         width: 44%;
         margin: 3%; } }
   footer#main-footer .email-opt-in {
-    background: #ffffff;
+    background: #FFFFFF;
     padding: 20px;
     text-align: center;
     margin-bottom: 20px; }
   footer#main-footer iframe {
-    border: solid 1px #ffffff; }
+    border: solid 1px #FFFFFF; }
   footer#main-footer .footer-logo {
-    background: #ffffff;
+    background: #FFFFFF;
     display: block;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     max-width: 250px; }
   footer#main-footer a {
-    color: #ffffff; }
+    color: #FFFFFF; }
 
 .secondary-col {
   display: none; }
@@ -557,7 +557,7 @@ footer#main-footer {
   left: 0;
   background: #62625E;
   border-right: none;
-  color: #ffffff;
+  color: #FFFFFF;
   padding: 3em;
   overflow-y: scroll;
   z-index: 10; }
@@ -574,7 +574,7 @@ footer#main-footer {
     letter-spacing: -1px; }
     .secondary-col nav li a {
       text-decoration: none;
-      color: #ffffff; }
+      color: #FFFFFF; }
       @media only screen and (min-width: 48.1em) {
         .secondary-col nav li a {
           color: #62625E; } }
@@ -649,7 +649,7 @@ ul.sub-nav {
       line-height: 1.3;
       padding: 8px 0 5px; }
     #home-slider .slide a:hover span {
-      color: #ffffff; }
+      color: #FFFFFF; }
   #home-slider .slide {
     display: none; }
     @media only screen and (min-width: 575px) {
@@ -665,7 +665,7 @@ ul.sub-nav {
   #home-slider .slide.current {
     display: block; }
     #home-slider .slide.current span {
-      color: #ffffff; }
+      color: #FFFFFF; }
     #home-slider .slide.current:before {
       background: transparent url("/style/img/icon-slide-arrow.png") no-repeat bottom center scroll;
       display: block;

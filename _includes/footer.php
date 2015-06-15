@@ -55,6 +55,8 @@
       <br><a href="https://clients.mindbodyonline.com/classic/home?studioid=27108" title="See the class schedule">Class Schedule</a>
       <br><a href="https://goo.gl/maps/Ww4x1">Get Directions</a>
       <br>281.855.0255
+      <br><iframe id="getOurApp" scrolling="no" allowtransparency="true" src="https://clients.mindbodyonline.com/connect/appbutton" style="border: none; width: 135px; height: 31px;"></iframe>
+      <br><a target="_blank" href="https://clients.mindbodyonline.com/classic/ws?studioid=27108&stype=-2&subTab=info">Login</a>
     </p>
 
   </div>
