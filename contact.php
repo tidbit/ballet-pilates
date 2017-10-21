@@ -8,8 +8,8 @@
 <div class="wrapper">
 
   <div id="masthead" class="unify">
-    <img src="http://balletandpilates.com/style/img/website-subpage-headertemplatesignup.jpg" alt="masthead-placeholder" width="960" height="300">
-  </div>
+<img class="" src="http://www.balletandpilates.com/B&amp;P-16-ADV-0023.jpg" alt="" width="960" height="0">
+</div>
 
   <div class="primary-col">
 
@@ -18,7 +18,7 @@
     </header>
 
     <div class="unify">
-<p>Ballet and Pilates by Victoria is conveniently located at <strong>15544&nbsp;Ridge&nbsp;Park&nbsp;Drive, Houston, TX 77095</strong> off Hwy 6 North. The studio is behind Carrabbas. Enter the Jazzercise&nbsp;building and the studio's entrance will be on the right.</p><p>The 3,000sq foot studio offers natural light, ballet barres, pavi dance flooring, state of the art Pilates Reformers and equipment,&nbsp;water fountain, dressing room, &nbsp;lobby,&nbsp;and a Ballet Boutique. For your convenience, free childcare is available at&nbsp;most classes. Infants through teenagers welcome in the childcare room. No limit of children. Mats and equipment are provided at no cost. We accept all major credit cards.</p><p>For more information please contact:</p>
+<p>Ballet and Pilates by Victoria is conveniently located at <strong>15544&nbsp;Ridge&nbsp;Park&nbsp;Drive, Houston, TX 77095</strong> off Hwy 6 North. The studio is behind Carrabbas. Enter the large brick building and the studio's entrance will be on the right.</p><p>The beautiful studio offers natural light, ballet barres, pavi dance flooring, state of the art Pilates Reformers and equipment,&nbsp;water fountain, dressing room, lobby with a viewing window,&nbsp;and a Ballet Boutique. For your convenience, free childcare is available at&nbsp;most classes. Infants through teenagers welcome in the playroom. No limit of children. Mats and equipment are provided at no cost. We accept all major credit cards.</p><p>For more information please contact:</p>
 </div>
 
   <p>Victoria Simo<br>281.855.0255<br>

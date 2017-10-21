@@ -8,14 +8,14 @@
 <div class="wrapper">
 
   <div id="masthead" class="unify">
-    <img src="./style/img/social-masthead.jpg" alt="social masthead" width="960" height="500">
-  </div>
+<img class="" src="http://www.balletandpilates.com/IMG_1866 (2).jpg" alt="" width="960" height="437">
+</div>
 
   <div class="primary-col">
 
     <header class="unify">
-      <h1>Social</h1>
-    </header>
+<h1>Get Connected</h1><p><br></p>
+</header>
 
     <div class="unify">
 <p>Let's be friends! Get up to date information and check out images of the latest classes.</p>
