@@ -8,6 +8,7 @@
     "build": "preact build --template src/template.html",
     "serve": "preact build --template src/template.html && preact serve",
     "dev": "preact watch --template src/template.html",
+    "routes": "node process-routes.js",
     "lint": "eslint src"
   },
   "eslintConfig": {
@@ -17,11 +18,13 @@
     "build/*"
   ],
   "devDependencies": {
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
     "if-env": "^1.0.0",
     "mobx": "^3.3.1",
-    "mobx-react": "^4.3.4",
+    "mobx-react": "4.2.2",
     "node-sass": "^4.6.0",
     "postcss": "^6.0.14",
     "preact-cli": "^2.0.0",
