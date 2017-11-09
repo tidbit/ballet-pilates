@@ -1,46 +1,75 @@
 import { h, Component } from 'preact';
-import style from './style';
+import { gql, graphql } from 'react-apollo';
 
-export default class Page extends Component {
-	state = {
-		time: Date.now(),
-		count: 10
-	};
+import LoadingSpinner from '../../components/loading-spinner';
+import Sidebar from '../../components/sidebar';
+import withData from '../../components/withData';
 
-	// gets called when this route is navigated to
-	componentDidMount() {
-		// start a timer for the clock:
-		this.timer = setInterval(this.updateTime, 1000);
-	}
+import style from './style.scss';
 
-	// gets called just before navigating away from the route
-	componentWillUnmount() {
-		clearInterval(this.timer);
-	}
+const debug = false;
 
-	// update the current time
-	updateTime = () => {
-		this.setState({ time: Date.now() });
-	};
+class Page extends Component {
+	render({ page, path, data: { loading, Page } }, { time, count }) {
+		return loading ? <LoadingSpinner /> : (
+        <div class="wrapper">
+          { (Page.masthead) && (
+              <div class={ style.masthead }>
+                <img src={ Page.masthead.url } title={ `${page} masthead image` } />
+              </div>
+          ) }
 
-	increment = () => {
-		this.setState({ count: this.state.count+1 });
-	};
+          <div class={style.primaryCol}>
 
-	render(props, { time, count }) {
-		return (
-			<div class={style.profile}>
-				<h1>Page: {JSON.stringify( props )}</h1>
-				<p>This is the user profile for a user named { JSON.stringify( props ) }.</p>
+            { ( Page.title || Page.subtitle ) && (
+              <header>
+                { Page.title && <h1>{ Page.title }</h1>}
+                { Page.subtitle && <h2>{ Page.subtitle }</h2>}
+              </header>
+            )}
 
-				<div>Current time: {new Date(time).toLocaleString()}</div>
+            { Page.content && <div class="page-content" dangerouslySetInnerHTML={{ __html: Page.content }} /> }
 
-				<p>
-					<button onClick={this.increment}>Click Me</button>
-					{' '}
-					Clicked {count} times.
-				</p>
-			</div>
+            { Page.videoEmbeds && (
+              Object.keys(Page.videoEmbeds).map( i => {
+                return (
+                  <div class={ style.videoContainer }>
+                    <iframe src={ Page.videoEmbeds[i] } frameborder="0"></iframe>
+                  </div>
+                )
+              })
+            )}
+
+            { debug && Object.keys(Page).map( (k, v) => (
+                <p>{k} - {JSON.stringify(Page[k])}</p>
+            ) )}
+
+          </div>
+
+          <Sidebar />
+
+        </div>
 		);
 	}
 }
+
+
+const page = gql`
+query PageDetails($page: Pages!) {
+  Page(page: $page) {
+    updatedAt,
+    title,
+    subtitle,
+    content,
+    masthead{
+      url,
+      fileName
+    },
+    videoEmbeds
+  },
+}
+`;
+
+export default withData(graphql(page, {
+  options: ({ page }) => ({ variables: { page }})
+})(Page));

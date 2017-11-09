@@ -20,11 +20,18 @@
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
     "if-env": "^1.0.0",
-    "preact-cli": "^2.0.0"
+    "mobx": "^3.3.1",
+    "mobx-react": "^4.3.4",
+    "node-sass": "^4.6.0",
+    "postcss": "^6.0.14",
+    "preact-cli": "^2.0.0",
+    "prop-types": "^15.6.0",
+    "sass-loader": "^6.0.6"
   },
   "dependencies": {
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
-    "preact-router": "^2.5.5"
+    "preact-router": "^2.5.5",
+    "react-apollo": "1.4.16"
   }
 }

@@ -1,10 +1,10 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.scss';
 
 export default class EmailSubscribe extends Component {
 	render() {
 	  return (
-      <div class="email-opt-in">
+      <div class={ style.emailOptIn }>
         { /* BEGIN: Constant Contact Bubble Opt-in Email List Form  */ }
         <div>
           <form name="ccoptin" action="http://visitor.r20.constantcontact.com/d.jsp" target="_blank" method="post" style="margin-bottom:3;">

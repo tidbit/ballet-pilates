@@ -1,26 +1,41 @@
 import { h, Component } from 'preact';
 import Match, { Link } from 'preact-router/match';
-import style from './style';
+import { observer } from 'mobx-react';
+import style from './style.scss';
 
+import { appData } from '../../store/app-data';
+
+@observer
 export default class Header extends Component {
+
+  toggleNav = (e) => {
+    const { toggleMenu } = appData;
+    e.preventDefault();
+
+    console.log("toggling nav");
+    toggleMenu();
+
+  }
+
 	render() {
+    const { showMenu } = appData;
 		return (
         <header class={style.header}>
           <div class="wrapper">
 
-            <nav id="main-nav" class="nav">
+            <nav class={ [ style.mainNav, 'nav'].join(' ') }>
               <h1><Link href="/">Ballet & Pilates By Victoria</Link></h1>
               <ul>
-                <li id="signup"><Link target="_blank" href="https://clients.mindbodyonline.com/classic/ws?studioid=27108&stype=-2&subTab=info">Login</Link></li>
-                <li id="contact"><Link href="/contact">Contact&nbsp;Us</Link></li>
+                <li class={style.signup}><a target="_blank" href="https://clients.mindbodyonline.com/classic/ws?studioid=27108&stype=-2&subTab=info">Login</a></li>
+                <li class={style.contact}><Link href="/contact">Contact&nbsp;Us</Link></li>
               </ul>
             </nav>
 
             <Match path="/">
               { ({matches, path, url}) => !matches && (
 
-                  <nav id="class-nav" class="nav">
-                    <ul class="class-nav">
+                  <nav class={[style.classNav, 'nav'].join(' ')}>
+                    <ul class={ style.classNav }>
                       <li><Link activeClassName={style.current} href="/children-classes">Children Classes</Link></li>
                       <li><Link activeClassName={style.current} href="/adult-classes">Adult Classes</Link></li>
                       <li><Link activeClassName={style.current} href="/private-sessions">Private Sessions</Link></li>
@@ -30,7 +45,7 @@ export default class Header extends Component {
               )}
             </Match>
 
-            <button id="toggle-nav" title="Toggle Menu" onClick={ (e) => console.log("toggle nav") }><span>Menu</span></button>
+            <button class={[ style.toggleNav, showMenu ? style.active : ''].join(' ') } title="Toggle Menu" onClick={ this.toggleNav }><span>Menu</span></button>
 
           </div>
         </header>

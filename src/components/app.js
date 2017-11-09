@@ -1,21 +1,20 @@
 import { h, Component } from 'preact';
-import { Router } from 'preact-router';
+import { Router, } from 'preact-router';
+import Match from 'preact-router/match';
 
-import Home from '../routes/home';
+// Unnecessary unless it's a dramatic redesign
+// import Home from '../routes/home';
 import Page from '../routes/page';
 import Error from '../routes/error';
 
-// import Home from 'async!../routes/home';
-// import Page from 'async!../routes/page';
-// import Error from 'async!../routes/error';
-
 import Header from './header';
+import HomeSlider from './home-slider';
 import Footer from './footer';
-import Sidebar from './sidebar';
 import Redirect from './redirect';
 
 import routes from '../routes.json';
 
+import s from '../style/index.scss';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -23,32 +22,31 @@ export default class App extends Component {
 	 *	@param {string} event.url	The newly routed URL
 	 */
 	handleRoute = e => {
+    console.log("handleRoute:", e);
+    if( e.url !== e.previous ) {
+      window.scrollTo(0,0);
+    }
 		this.currentUrl = e.url;
 	};
 
 	render() {
 
-    console.log(routes);
+    console.log(s);
 		return (
 			<div id="app">
 				<Header />
+        <Match path="/">
+          { ({ matches, path, url }) => (
+            matches && <HomeSlider />
+          ) }
+        </Match>
 
-        <div id="main" role="main" class="clearfix">
-          <div class="wrapper">
-            <div class="primary-col">
-
-              <Router onChange={this.handleRoute}>
-                <Home path="/" />
-                { routes.map( route => <Page path={ route } /> )}
-                <Error type="404"  default />
-              </Router>
-
-            </div>
-
-            <div class="secondary-col">
-              <Sidebar />
-            </div>
-          </div>
+        <div role="main" class={ [ 'mainContent', 'clearfix'].join(' ') }>
+          <Router onChange={this.handleRoute}>
+            { /* <Home path="/" /> */ }
+            { Object.keys(routes).map( route => <Page page={ route } path={ routes[route] } /> )}
+            <Error type="404"  default />
+          </Router>
         </div>
 
         <Footer />

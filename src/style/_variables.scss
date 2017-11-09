@@ -1,0 +1,28 @@
+
+$color1: #F15BB1;
+$color2: #62625E;
+$color3: lighten($color1, 20%);
+$color4: lighten($color2, 52%);
+$color5: #FFFFFF;
+
+$font: 'Arimo', sans-serif;
+
+$bp-sm: 30.1em;
+$bp-md: 48.1em;
+$bp-lg: 75.1em;
+
+
+
+$button-width: 44px;
+$button-height: 44px;
+$bar-thickness: 2px;
+$button-pad: 14px;
+$button-trans-delay: 0.3s;
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

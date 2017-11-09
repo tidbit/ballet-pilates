@@ -1,0 +1,46 @@
+
+@mixin brad($size)
+  -webkit-border-radius: $size
+  -khtml-border-radius: $size
+  -moz-border-radius: $size
+  border-radius: $size
+
+@mixin brad-tl($size)
+  -webkit-border-top-left-radius: $size
+  -khtml-border-radius-topleft: $size
+  -moz-border-radius-topleft: $size
+  border-top-left-radius: $size
+
+@mixin brad-tr($size)
+  -webkit-border-top-right-radius: $size
+  -khtml-border-radius-topright: $size
+  -moz-border-radius-topright: $size
+  border-top-right-radius: $size
+
+@mixin brad-bl($size)
+  -webkit-border-bottom-left-radius: $size
+  -khtml-border-radius-bottomleft: $size
+  -moz-border-radius-bottomleft: $size
+  border-bottom-left-radius: $size
+
+@mixin brad-br($size)
+  -webkit-border-bottom-right-radius: $size
+  -khtml-border-radius-bottomright: $size
+  -moz-border-radius-bottomright: $size
+  border-bottom-right-radius: $size
+
+
+
+
+@mixin bshad($amount)
+  -webkit-box-shadow: $amount
+  -moz-box-shadow: $amount
+  box-shadow: $amount
+
+@mixin bgg($startColor, $endColor)
+  background-color: $startColor
+  background-image: -moz-linear-gradient(top, $startColor, $endColor)
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $startColor),color-stop(1, $endColor))
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='$startColor', EndColorStr='$endColor')
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$startColor', EndColorStr='$endColor')"
+
