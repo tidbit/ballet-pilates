@@ -24,7 +24,7 @@ export default class App extends Component {
 	handleRoute = e => {
     console.log("handleRoute:", e);
     if( e.url !== e.previous ) {
-      window.scrollTo(0,0);
+      (typeof window !== "undefined") && window.scrollTo(0,0);
     }
 		this.currentUrl = e.url;
 	};

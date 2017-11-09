@@ -6,6 +6,6 @@ const store = {
   appData
 };
 
-debug && window.store = store;
+debug && (typeof window !== "undefined") && window.store = store;
 
 export {store};
