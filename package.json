@@ -6,7 +6,7 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build --template src/template.html",
-    "serve": "preact build --template src/template.html && preact serve",
+    "serve": "preact build --template src/template.html && preact serve --server superstatic",
     "dev": "preact watch --template src/template.html",
     "routes": "node process-routes.js",
     "lint": "eslint src"
@@ -18,6 +18,7 @@
     "build/*"
   ],
   "devDependencies": {
+    "babel-plugin-transform-es2015-literals": "^6.22.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^4.5.0",
@@ -35,6 +36,7 @@
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.5.5",
-    "react-apollo": "1.4.16"
+    "react-apollo": "1.4.16",
+    "superstatic": "^5.0.1"
   }
 }
