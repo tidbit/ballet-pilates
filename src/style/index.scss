@@ -1,0 +1,104 @@
+
+@import '_normalize';
+@import '_variables';
+
+
+body {
+  color: $color2;
+  font-family: $font;
+//  @media only screen and (min-width: $bp-sm)
+//  background: rgba( 250, 0, 0, .2)
+//  @media only screen and (min-width: $bp-md)
+//  background: rgba( 0, 250, 0, .2)
+//  @media only screen and (min-width: $bp-lg)
+//  background: rgba( 0, 0, 250, .2)
+//
+}
+
+a {
+  color: $color1;
+  &:hover {
+    color: $color3;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+iframe {
+  width: 100%;
+  min-height: 75%;
+  height: 75%;
+}
+
+.wrapper {
+  max-width: 960px;
+  padding: 0 18px;
+  margin: 0 auto;
+  @extend %clearfix;
+}
+
+.mainContent {
+  padding: 20px 0 40px;
+}
+
+
+table {
+  border-collapse: collapse;
+  border: 1px solid $color2;
+  width: 100%;
+
+  thead th {
+    color: $color5;
+    background: $color1;
+    border: 1px solid $color1;
+    font-weight: bold;
+  }
+
+  tr td {
+    color: $color2;
+    background: $color5;
+    border: 1px solid $color2;
+  }
+
+  td, th {
+    padding: 3px;
+    text-align: center;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0 0 24px;
+  line-height: 30px;
+}
+
+h1 {
+  font-size: 41px;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  padding-bottom: 5px;
+  font-size: 24px;
+  font-style: italic;
+}
+
+p {
+  font-size: 21px;
+}
+
+header > h1, header > h2, header > h3, header > h4, header > h5, header > h6 {
+  padding-bottom: 5px;
+}

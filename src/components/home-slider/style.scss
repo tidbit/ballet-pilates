@@ -1,0 +1,143 @@
+@import "../../style/_variables.scss";
+
+.homeSlider {
+  padding-bottom: 30px;
+  ul {
+    display: block;
+    margin: 0;
+    list-style: none;
+    border-bottom: 4px solid $color1;
+    li {
+      width: 100%;
+      display: block;
+      padding-bottom: 3px;
+      position: relative;
+      height: 575px;
+      @media only screen and (min-width: 575px) {
+        float: left;
+        width: 50%;
+      }
+      @media only screen and (min-width: 800px) {
+        float: left;
+        width: 33.33%;
+        max-width: 320px;
+      }
+    }
+  }
+  .slide a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    height: 45px;
+    padding-top: 530px;
+    @media only screen and (min-width: 800px) {
+      max-width: 320px;
+    }
+    span {
+      background: $color1;
+      color: $color3;
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      height: 32px;
+      line-height: 1.3;
+      padding: 8px 0 5px;
+    }
+    &:hover span {
+      color: $color5;
+    }
+  }
+  .slide {
+    display: none;
+    @media only screen and (min-width: 575px) {
+      display: block;
+      &.hidden {
+        display: none;
+      }
+    }
+    @media only screen and (min-width: 800px) {
+      &.hidden {
+        display: block;
+      }
+      display: block;
+    }
+  }
+  .slide.current {
+    display: block;
+    span {
+      color: $color5;
+    }
+    &:before {
+      background: transparent url('/assets/img/icon-slide-arrow.png') no-repeat bottom center scroll;
+      display: block;
+      content: '';
+      width: 50px;
+      height: 24px;
+      position: absolute;
+      top: 506px; // 530 (img height) - 24 (arrow height)
+      left: calc( 50% - 25px ); // 135px // 160 (1/2 img width) - 25 (1/2 arrow height)
+      z-index: 8;
+    }
+  }
+  .sliderNav {
+    display: block;
+    height: auto;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    border-bottom: none;
+    @media only screen and (min-width: 800px) {
+      display: none;
+    }
+    li {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      border-radius: 20px;
+      background: $color4;
+      margin: 3px 5px;
+      padding: 0;
+      cursor: pointer;
+      float: none;
+      &.current {
+        background: $color2;
+      }
+    }
+  }
+}
+
+
+
+.kids.slide {
+  a {
+    background: transparent url('/assets/img/kids-ballet-off.png') no-repeat top center scroll;
+    background-size: contain;
+  }
+  &.current a, & a:hover {
+    background: transparent url('/assets/img/kids-ballet-on.png') no-repeat top center scroll;
+    background-size: contain;
+  }
+}
+
+.pilates.slide {
+  a {
+    background: transparent url('/assets/img/pilates-off.png') no-repeat top center scroll;
+    background-size: contain;
+  }
+  &.current a, & a:hover {
+    background: transparent url('/assets/img/pilates-on.png') no-repeat top center scroll;
+    background-size: contain;
+  }
+}
+
+.adult.slide {
+  a {
+    background: transparent url('/assets/img/adult-off.png') no-repeat top center scroll;
+    background-size: contain;
+  }
+  &.current a, & a:hover {
+    background: transparent url('/assets/img/adult-on.png') no-repeat top center scroll;
+    background-size: contain;
+  }
+}

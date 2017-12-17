@@ -1,0 +1,86 @@
+
+@import "../../style/_variables.scss";
+
+.secondaryCol {
+
+  display: none;
+  width: 100%;
+  padding: 0;
+  @extend %clearfix;
+
+  @media only screen and (min-width: $bp-md) {
+    max-width: 270px;
+    float: left;
+  }
+
+  &.hide {
+    display: none;
+  }
+
+  &.show {
+    display: block;
+  }
+
+  @media only screen and (min-width: $bp-md) {
+    display: block !important;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $color2;
+  border-right: none;
+  color: $color5;
+  padding: 3em;
+  overflow-y: scroll;
+  z-index: 10;
+
+  @media only screen and (min-width: $bp-md) {
+    background: transparent;
+    border-right: 2px solid $color4;
+    color: $color2;
+    position: relative;
+    padding: 0;
+  }
+
+  li {
+    font-size: 28px;
+    line-height: 42px;
+    letter-spacing: -1px;
+
+    a {
+      text-decoration: none;
+      color: $color5;
+      @media only screen and (min-width: $bp-md) {
+        color: $color2;
+      }
+
+      &:hover, &.current {
+        color: $color1;
+      }
+
+      &.current {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.sideNav {
+  border-bottom: 2px solid $color4;
+  margin: 0 25px 24px 0;
+  padding: 0 0 20px;
+}
+
+.socialNav {
+  border-bottom: none;
+}
+
+.subNav {
+  padding-left: 1em;
+  list-style: disc inside;
+}
