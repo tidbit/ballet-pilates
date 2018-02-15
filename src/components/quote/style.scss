@@ -1,0 +1,28 @@
+@import "../../style/_variables.scss";
+
+.quoteWrapper {
+  background: #E0E0E0;
+  padding: 50px 0;
+  margin-bottom: 40px;
+
+  .quote {
+    position: relative;
+
+    blockquote {
+      padding: 0;
+
+      &:before {
+        content: "\"";
+        font-size: 48px;
+        color: white;
+        position: absolute;
+        top: -20px;
+        left: -20p;
+      }
+
+      h3 {
+        max-width: 70%;
+      }
+    }
+  }
+}
