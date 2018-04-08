@@ -1,19 +1,27 @@
 import { h, Component } from 'preact';
 import style from './style.scss';
 
+import Icon from '../icon';
+
 const blocks = [{
   title: "See Upcoming Classes",
-  icon: "Calendar Icon",
+  icon: "calendar",
+  iconSize: 46,
+  iconStyle: style.calendarIcon,
   linkText: "View Calendar",
   linkHref: "#"
 }, {
   title: "Get Mindbody Connect",
-  icon: "Download Icon",
+  icon: "download",
+  iconSize: 42,
+  iconStyle: style.downloadIcon,
   linkText: "Download Now",
   linkHref: "#"
 }, {
   title: "Reserve Your Spot",
-  icon: "Add User Icon",
+  icon: "signup",
+  iconSize: 46,
+  iconStyle: style.signupIcon,
   linkText: "Sign Up",
   linkHref: "#"
 }];
@@ -25,10 +33,12 @@ export default class CTABlocks extends Component {
         { blocks.map( block => (
           <div class={ style.ctaBlock }>
             <header>
-              <h3>{ block.title }</h3>
-              <span>{ block.icon }</span>
+              <h3 class={ style.ctaTitle }>{ block.title }</h3>
+              <div class={ style.ctaIconGroup }>
+              <Icon name={block.icon} color={'#62625E'} size={block.iconSize} class={block.iconStyle} />
+              </div>
             </header>
-            <a href={ block.linkHref }>{ block.linkText }</a>
+            <a class={ style.ctaLink } href={ block.linkHref }>{ block.linkText }</a>
           </div>
         )) }
       </div>

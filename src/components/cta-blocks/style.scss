@@ -4,11 +4,69 @@
 .ctaBlocks {
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 40px;
 }
 
 .ctaBlock {
   background: #F0F0F0;
   border-radius: 5px;
+  padding: 50px 20px 20px;
+  width: 33%;
+  margin: 0 10px;
+  position: relative;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-left: 0;
+  }
+}
+
+.ctaIconGroup {
+  background: #FFF;
+  display: inline-block;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: -30px;
+
+  @include circle-group(3px);
+}
+
+.ctaTitle {
+  font-weight: normal;
+  font-size: 36px;
+  padding-bottom: 2rem;
+  line-height: 1.15;
+  color: $color6;
+}
+
+.calendarIcon {
+  position: relative;
+}
+
+.downloadIcon {
+  position: relative;
+  left: 1px;
+}
+
+.signupIcon {
+  position: relative;
+  left: 1px;
+}
+
+.ctaLink {
+  color: $color6;
+  text-decoration-color: $color1;
+  &:hover {
+    text-decoration-color: $color3;
+  }
 }
