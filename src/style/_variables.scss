@@ -4,6 +4,7 @@ $color2: #62625E;
 $color3: lighten($color1, 20%);
 $color4: lighten($color2, 52%);
 $color5: #FFFFFF;
+$color6: #09050A;
 
 $font: 'Arimo', sans-serif;
 
@@ -25,4 +26,10 @@ $button-trans-delay: 0.3s;
     display: table;
     clear: both;
   }
+}
+
+@mixin circle-group($radius) {
+  border-radius: 100%;
+  border: 1px solid $color2;
+  box-shadow: 0 0 0 $radius white, 2px 2px 10px 1px transparentize($color6, .25);
 }
