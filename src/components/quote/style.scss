@@ -2,27 +2,49 @@
 
 .quoteWrapper {
   background: #E0E0E0;
-  padding: 50px 0;
+  padding: 50px 0 40px;
   margin-bottom: 40px;
+  color: $color6;
 
   .quote {
     position: relative;
 
     blockquote {
       padding: 0;
+      margin: 1em 60px;
+      position: relative;
 
       &:before {
-        content: "\"";
-        font-size: 48px;
+        content: "\201C";
+        font-size: 120px;
         color: white;
         position: absolute;
-        top: -20px;
-        left: -20p;
+        top: -35px;
+        left: -60px;
       }
 
-      h3 {
-        max-width: 70%;
-      }
     }
+  }
+
+  .quoteText {
+    font-size: 39px;
+    font-weight: normal;
+    line-height: 1.25;
+    max-width: 650px;
+  }
+
+  .byLine {
+    font-weight: normal;
+    font-size: 21px;
+    position: relative;
+    left: 15px;
+  }
+
+  .headshot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 157px;
+    @include circle-group(5px);
   }
 }
