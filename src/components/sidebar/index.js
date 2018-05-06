@@ -11,7 +11,7 @@ export default class Sidebar extends Component {
     const { showMenu } = appData;
 
 		return (
-      <div class={[style.secondaryCol, showMenu ? style.show : style.hide].join(' ')}>
+      <div class={[style.secondaryCol, 'sidebar', showMenu ? `show ${style.show}` : style.hide].join(' ')}>
         <nav class={ style.nav }>
           <ul class={[style.sideNav, 'class-nav'].join(' ')}>
             <li><Link activeClassName={style.current} href="/children-classes">Children Classes</Link>

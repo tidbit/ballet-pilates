@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { gql, graphql } from 'react-apollo';
 
+import Sidebar from '../../components/sidebar'
 import LoadingSpinner from '../../components/loading-spinner';
 import CTABlocks from '../../components/cta-blocks';
 import Quote from '../../components/quote';
@@ -14,12 +15,12 @@ import style from './style.scss';
 class Home extends Component {
 
   componentDidMount() {
-    console.log("Home didMount", this);
+    // console.log("Home didMount", this);
   }
 
 	render({ page, path, data: { loading, Page }}) {
     return loading ? <LoadingSpinner /> : (
-      <div class={ style.home }>
+      <div class={ [style.home, 'home'].join(' ') }>
         <div class={ `wrapper ${ style.wrapper }` }>
           { ( Page && Page.masthead !== null ) ? (
             <div class={ style.masthead }>
@@ -37,44 +38,10 @@ class Home extends Component {
 
         <Quote />
 
-        <div class="wrapper classes-overview">
-          <div class="class-overview children-overview">
-            <header>
-              <span>class image</span>
-              <h3>Children Classes</h3>
-              <h4>imagine. dance. play.</h4>
-            </header>
-            <p>class description</p>
-            <footer>
-              <a href="#">Learn More</a>
-            </footer>
-          </div>
+        <ClassesOverview />
 
-          <div class="class-overview children-overview">
-            <header>
-              <span>class image</span>
-              <h3>Children Classes</h3>
-              <h4>imagine. dance. play.</h4>
-            </header>
-            <p>class description</p>
-            <footer>
-              <a href="#">Learn More</a>
-            </footer>
-          </div>
+        <Sidebar />
 
-          <div class="class-overview children-overview">
-            <header>
-              <span>class image</span>
-              <h3>Children Classes</h3>
-              <h4>imagine. dance. play.</h4>
-            </header>
-            <p>class description</p>
-            <footer>
-              <a href="#">Learn More</a>
-            </footer>
-          </div>
-
-        </div>
       </div>
 		);
 	}

@@ -102,3 +102,12 @@ p {
 header > h1, header > h2, header > h3, header > h4, header > h5, header > h6 {
   padding-bottom: 5px;
 }
+
+
+.home > .sidebar {
+  display: none !important;
+
+  &.show {
+    display: block !important;
+  }
+}
