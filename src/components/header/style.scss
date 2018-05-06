@@ -6,19 +6,28 @@
 }
 
 .mainNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 0;
+
+  @media only screen and (min-width: $bp-md) {
+    flex-direction: row;
+  }
+
+
   h1 {
     width: 92%;
-    height: 2.75em;
-    padding: .25em 4%;
+    height: 2.5em;
+    padding: 0;
+    margin: 0 auto;
 
     @media only screen and (min-width: $bp-md) {
       width: 60%;
       max-width: 630px;
       box-sizing: border-box;
       height: 140px;
-      margin: 20px 0;
       padding: 0;
-      float: left;
     }
 
     a {
@@ -32,45 +41,55 @@
   }
 
   ul {
-    height: 2em;
-    max-width: 440px;
-    margin: 0 auto 20px;
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
 
     @media only screen and (min-width: $bp-md) {
-      float: right;
-      width: auto;
-      height: 140px;
+      width: 40%;
       margin: 20px 0;
+      padding-left: 4%;
+      box-sizing: border-box;
     }
 
     li {
       display: inline-block;
-      width: 49%;
       box-sizing: border-box;
-      padding: 2%;
-
-      @media only screen and (min-width: $bp-md) {
-        float: right;
-        box-sizing: border-box;
-        padding: 0;
-        width: auto;
-        padding-left: 30px;
-      }
+      padding: 0 10px;
+      text-align: center;
+      width: 50%;
+      min-height: 40px;
 
       a {
-        display: block;
-        font-size: 24px;
+        display: flex;
+        flex-direction: row;
+        font-size: 21px;
         text-decoration: none;
         color: $color2;
-        font-weight: bold;
+        font-weight: normal;
+        align-items: baseline;
+        position: relative;
+        justify-content: center;
+        padding: 2px;
+        height: 100%;
 
         @media only screen and (min-width: $bp-md) {
-          display: block;
-          padding-top: 85px;
+          flex-direction: column;
+          align-items: center;
         }
 
         &:hover {
           color: $color1;
+        }
+
+        span {
+          margin-left: 5px;
+
+          @media only screen and (min-width: $bp-md) {
+            margin-left: 0;
+            margin-top: 10px;
+          }
         }
       }
     }
@@ -80,28 +99,21 @@
 .mainNav {
   @extend %clearfix;
 
-  li a, button {
-    background: transparent no-repeat left center scroll;
-    background-size: contain;
+  svg {
+    display: block;
+    position: relative;
+    top: 1px;
+    width: 30px;
+    height: auto;
+
     @media only screen and (min-width: $bp-md) {
-      background: transparent no-repeat center 25px scroll;
+      width: auto;
     }
   }
 
-  .signup a {
-    padding-left: 1.5em;
-    background-image: url('/assets/img/nav-signup-img.png');
-    @media only screen and (min-width: $bp-md) {
-      padding-left: 0;
-    }
-  }
-
-  .contact a {
-    padding-left: 2em;
-    background-image: url('/assets/img/nav-contact-img.png');
-    @media only screen and (min-width: $bp-md) {
-      padding-left: 0;
-    }
+  .signup svg {
+    position: relative;
+    top: 5px;
   }
 }
 
