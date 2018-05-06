@@ -35,7 +35,7 @@ export default class CTABlocks extends Component {
             <header>
               <h3 class={ style.ctaTitle }>{ block.title }</h3>
               <div class={ style.ctaIconGroup }>
-              <Icon name={block.icon} color={'#62625E'} size={block.iconSize} class={block.iconStyle} />
+                <Icon name={block.icon} color={'#62625E'} size={block.iconSize} class={block.iconStyle} />
               </div>
             </header>
             <a class={ style.ctaLink } href={ block.linkHref }>{ block.linkText }</a>

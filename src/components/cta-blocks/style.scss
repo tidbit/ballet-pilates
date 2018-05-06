@@ -1,28 +1,46 @@
 @import "../../style/_variables.scss";
 
+$bp-blocks: 648px;
 
 .ctaBlocks {
   display: flex;
+  flex-direction: column;
+
   justify-content: space-between;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @media only screen and (min-width: $bp-blocks) {
+    flex-direction: row;
+  }
 }
 
 .ctaBlock {
   background: #F0F0F0;
   border-radius: 5px;
   padding: 50px 20px 20px;
-  width: 33%;
-  margin: 0 10px;
   position: relative;
 
-  &:first-child {
-    margin-left: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  @media only screen and (min-width: $bp-blocks) {
+
+    width: 33%;
+    margin-left: 4px;
+    margin-right: 4px;
+
+    &:first-child {
+      margin-right: 8px;
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-left: 8px;
+      margin-right: 0;
+    }
   }
 
-  &:last-child {
-    margin-left: 0;
-  }
 }
 
 .ctaIconGroup {
@@ -64,9 +82,5 @@
 }
 
 .ctaLink {
-  color: $color6;
-  text-decoration-color: $color1;
-  &:hover {
-    text-decoration-color: $color3;
-  }
+  @include link-style();
 }
