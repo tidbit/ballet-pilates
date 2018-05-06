@@ -1,59 +1,89 @@
 @import "../../style/_variables.scss";
 
-.spinner {
-  margin: 100px auto;
-  width: 50px;
-  height: 40px;
-  text-align: center;
-  font-size: 10px;
+.classesOverview {
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: $bp-md) {
+    flex-direction: row;
+  }
 }
 
-.spinner > div {
-  background-color: $color1;
-  height: 100%;
-  width: 6px;
-  margin: 0 1px;
-  display: inline-block;
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+.classOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  @media only screen and (min-width: $bp-sm) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @media only screen and (min-width: $bp-md) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &:nth-child(odd) {
+    background: #F0F0F0;
+  }
+
+  &:nth-child(even) {
+    background: #F7F7F7;
+  }
+
+
+  img {
+    border-bottom: 3px solid $color1;
+
+    @media only screen and (min-width: $bp-sm) {
+      border-bottom: none;
+    }
+
+    @media only screen and (min-width: $bp-md) {
+      border-bottom: 3px solid $color1;
+    }
+  }
 }
 
-.spinner .rect1 {
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-}
+.classGroup {
+  padding: 15px;
+  padding-bottom: 30px;
+  max-width: 100%;
 
-.spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
-  animation-delay: -1.1s;
-}
+  @media only screen and (min-width: $bp-sm) {
+    max-width: 60%;
+  }
 
-.spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
+  @media only screen and (min-width: $bp-md) {
+    max-width: 100%;
+  }
 
-.spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
+  h3 {
+    color: $color6;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 0;
+  }
 
-.spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
-  animation-delay: -0.8s;
-}
+  h4 {
+    color: $color2;
+    font-size: 16px;
+    font-weight: bold;
+  }
 
-@-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-  20% { -webkit-transform: scaleY(1.0) }
-}
+  header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
-@keyframes sk-stretchdelay {
-  0%, 40%, 100% {
-    transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
-  }  20% {
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
+  p {
+    color: $color6;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  a {
+    @include link-style()
   }
 }
