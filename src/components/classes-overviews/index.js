@@ -1,41 +1,29 @@
 import { h, Component } from 'preact';
 import style from './style.scss';
 
-const classes = [{
-  image: 'class-image',
-  title: 'Children Classes',
-  subtitle: 'imagine. dance. play.',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu consectetur augue, id tristique eros. Praesent vel enim nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum viverra eros lorem, non eleifend nunc hendrerit non.',
-  link: '#'
-},{
-  image: 'class-image',
-  title: 'Adult Classes',
-  subtitle: 'lengthen. strengthen. love your body.',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu consectetur augue, id tristique eros. Praesent vel enim nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum viverra eros lorem, non eleifend nunc hendrerit non.',
-  link: '#'
-},{
-  image: 'class-image',
-  title: 'Private Lessons',
-  subtitle: 'stretch. balance. educate.',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu consectetur augue, id tristique eros. Praesent vel enim nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum viverra eros lorem, non eleifend nunc hendrerit non.',
-  link: '#'
-}]
-
 export default class ClassesOverview extends Component {
-	render() {
+  getImage = img => {
+    return Object(img).url;
+  }
+
+  getLink = page => {
+    return `/${page.toLowerCase().split('_').join('-')}`;
+  }
+
+	render({classes}) {
 		return (
       <div class={`wrapper ${style.classesOverview}`}>
         { classes.map( c => (
           <div class={style.classOverview}>
-            <img src="https://placeimg.com/320/200/any" />
+            <img src={this.getImage(c.previewImage)} />
             <div class={style.classGroup}>
               <header>
                 <h3>{c.title}</h3>
                 <h4>{c.subtitle}</h4>
               </header>
-              <p>{c.description}</p>
+              <p>{c.shortDescription}</p>
               <footer>
-                <a href={c.link}>Learn More</a>
+                <a href={this.getLink(c.page)}>Learn More</a>
               </footer>
             </div>
           </div>
