@@ -1,0 +1,82 @@
+@import "../../style/_variables.scss";
+
+.quoteWrapper {
+  background: #E0E0E0;
+  padding: 50px 0 40px;
+  margin-bottom: 40px;
+  color: $color6;
+
+  .quote {
+    position: relative;
+
+    blockquote {
+      padding: 0;
+      margin: 1em 18px;
+      position: relative;
+      display: grid;
+      grid: 1fr / 1fr 77px;
+      grid-gap: 10px 20px;
+      align-items: center;
+
+      @media only screen and (min-width: $bp-md) {
+        margin-left: 60px;
+        margin-right: 60px;
+        grid: 1fr / 1fr 157px;
+        align-items: flex-start;
+      }
+
+      &:before {
+        content: "\201C";
+        font-size: 120px;
+        color: white;
+        position: absolute;
+        top: -70px;
+        left: -18px;
+
+        @media only screen and (min-width: $bp-md) {
+          top: -35px;
+          left: -60px;
+        }
+      }
+
+    }
+  }
+
+  .quoteText {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.25;
+    grid-column: span 2;
+
+    @media only screen and (min-width: $bp-md) {
+      font-size: 35px;
+      grid-column: span 1;
+    }
+
+    @media only screen and (min-width: $bp-lg) {
+      font-size: 39px;
+    }
+
+  }
+
+  .byLine {
+    font-weight: normal;
+    font-size: 21px;
+
+    @media only screen and (min-width: $bp-md) {
+      display: block;
+      order: 3;
+    }
+  }
+
+  .headshot {
+    position: relative;
+    @include circle-group(2px);
+
+    @media only screen and (min-width: $bp-md) {
+      order: 2;
+
+      @include circle-group(5px);
+    }
+  }
+}

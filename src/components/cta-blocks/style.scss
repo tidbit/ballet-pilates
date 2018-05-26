@@ -1,0 +1,87 @@
+@import "../../style/_variables.scss";
+
+$bp-blocks: 648px;
+
+.ctaBlocks {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @media only screen and (min-width: $bp-blocks) {
+    flex-direction: row;
+  }
+}
+
+.ctaBlock {
+  background: #F0F0F0;
+  border-radius: 5px;
+  padding: 50px 20px 20px;
+  position: relative;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  @media only screen and (min-width: $bp-blocks) {
+
+    width: 33%;
+    margin-left: 4px;
+    margin-right: 4px;
+
+    &:first-child {
+      margin-right: 8px;
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-left: 8px;
+      margin-right: 0;
+    }
+  }
+
+}
+
+.ctaIconGroup {
+  background: #FFF;
+  display: inline-block;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: -30px;
+
+  @include circle-group(3px);
+}
+
+.ctaTitle {
+  font-weight: normal;
+  font-size: 36px;
+  padding-bottom: 2rem;
+  line-height: 1.15;
+  color: $color6;
+}
+
+.calendarIcon {
+  position: relative;
+}
+
+.downloadIcon {
+  position: relative;
+  left: 1px;
+}
+
+.signupIcon {
+  position: relative;
+  left: 1px;
+}
+
+.ctaLink {
+  @include link-style();
+  @include withRightArrow();
+}

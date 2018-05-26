@@ -3,6 +3,8 @@ import Match, { Link } from 'preact-router/match';
 import { observer } from 'mobx-react';
 import style from './style.scss';
 
+import Icon from '../icon';
+
 import { appData } from '../../store/app-data';
 
 @observer
@@ -11,10 +13,7 @@ export default class Header extends Component {
   toggleNav = (e) => {
     const { toggleMenu } = appData;
     e.preventDefault();
-
-    console.log("toggling nav");
     toggleMenu();
-
   }
 
 	render() {
@@ -26,8 +25,18 @@ export default class Header extends Component {
             <nav class={ [ style.mainNav, 'nav'].join(' ') }>
               <h1><Link href="/">Ballet & Pilates By Victoria</Link></h1>
               <ul>
-                <li class={style.signup}><a target="_blank" href="https://clients.mindbodyonline.com/classic/ws?studioid=27108&stype=-2&subTab=info">Login</a></li>
-                <li class={style.contact}><Link href="/contact">Contact&nbsp;Us</Link></li>
+                <li class={style.contact}>
+                  <Link href="/contact">
+                    <Icon name={'contact'} color={'#62625E'} width={57} height={37} />
+                    <span>Contact</span>
+                  </Link>
+                </li>
+                <li class={style.signup}>
+                  <a target="_blank" href="https://clients.mindbodyonline.com/classic/ws?studioid=27108&stype=-2&subTab=info">
+                    <Icon name={'login'} color={'#62625E'} width={52} height={49} />
+                    <span>Login</span>
+                  </a>
+                </li>
               </ul>
             </nav>
 

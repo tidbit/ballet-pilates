@@ -1,0 +1,97 @@
+@import "../../style/_variables.scss";
+
+.classesOverview {
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: $bp-md) {
+    flex-direction: row;
+  }
+}
+
+.classOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  @media only screen and (min-width: $bp-sm) {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  @media only screen and (min-width: $bp-md) {
+    width: 33%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &:nth-child(odd) {
+    background: #F0F0F0;
+  }
+
+  &:nth-child(even) {
+    background: #F7F7F7;
+  }
+
+
+  img {
+    border-bottom: 3px solid $color1;
+
+    @media only screen and (min-width: $bp-sm) {
+      border-bottom: none;
+      width: 40%;
+    }
+
+    @media only screen and (min-width: $bp-md) {
+      border-bottom: 3px solid $color1;
+      width: 100%;
+    }
+  }
+}
+
+.classGroup {
+  box-sizing: border-box;
+  padding: 15px;
+  padding-bottom: 30px;
+  max-width: 100%;
+
+  @media only screen and (min-width: $bp-sm) {
+    width: 60%;
+  }
+
+  @media only screen and (min-width: $bp-md) {
+    width: 100%;
+  }
+
+  h3 {
+    color: $color6;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 0;
+    line-height: 1.2;
+  }
+
+  h4 {
+    color: $color2;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2
+  }
+
+  header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  p {
+    color: $color6;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  a {
+    @include link-style();
+    @include withRightArrow();
+  }
+}

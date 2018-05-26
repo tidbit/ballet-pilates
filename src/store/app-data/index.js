@@ -1,6 +1,6 @@
 import {observable} from 'mobx';
 
-const debug = true;
+const debug = false;
 
 class AppData {
   @observable showMenu = false;
