@@ -37,7 +37,34 @@ $button-trans-delay: 0.3s;
 @mixin link-style() {
   color: $color6;
   text-decoration-color: $color1;
+
   &:hover {
+    color: $color6;
     text-decoration-color: $color3;
+  }
+}
+
+@mixin withRightArrow() {
+  &:after {
+    content: "\2192";
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 140%;
+    animation: backAndForth 0.5s alternate infinite;
+    animation-play-state: paused;
+  }
+
+  &:hover:after {
+    animation-play-state: running;
+  }
+}
+
+@keyframes backAndForth {
+  from {
+    transform: translateX(0);
+  }
+
+  to{
+    transform: translateX(5px);
   }
 }

@@ -83,4 +83,5 @@ $bp-blocks: 648px;
 
 .ctaLink {
   @include link-style();
+  @include withRightArrow();
 }

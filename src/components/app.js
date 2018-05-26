@@ -2,7 +2,6 @@ import { h, Component } from 'preact';
 import { Router, } from 'preact-router';
 import Match from 'preact-router/match';
 
-// Unnecessary unless it's a dramatic redesign
 import Home from '../routes/home';
 import Page from '../routes/page';
 import Error from '../routes/error';
@@ -13,6 +12,8 @@ import Redirect from './redirect';
 
 import routes from '../routes.json';
 
+import { appData } from '../store/app-data';
+
 import s from '../style/index.scss';
 
 export default class App extends Component {
@@ -21,10 +22,21 @@ export default class App extends Component {
 	 *	@param {string} event.url	The newly routed URL
 	 */
 	handleRoute = e => {
-    console.log("handleRoute:", e);
+
+    const { showMenu, toggleMenu } = appData;
+
+    console.log('handleRoute:', showMenu);
+
     if( e.url !== e.previous ) {
       (typeof window !== "undefined") && window.scrollTo(0,0);
+
+      // if the menu is open on route change, let's close it
+      if( showMenu ) {
+        toggleMenu();
+      }
+
     }
+
 		this.currentUrl = e.url;
 	};
 
