@@ -10,10 +10,7 @@ export default class HomeSlider extends Component {
   }
 
   componentDidMount() {
-
-    console.log("START HERE!");
     this.interval = this.newInterval();
-
   }
 
   componentWillUnmount() {
@@ -32,9 +29,9 @@ export default class HomeSlider extends Component {
   }
 
   // Set the index to the current item if we enter into it
-  handleItemSelect = ( e, i ) => {
+  handleItemSelect = (e, i) => {
     e.preventDefault();
-    this.setState({slideIndex: i});
+    this.setState({ slideIndex: i });
   }
 
   // Turn the interval off if mouse enters slideshow
@@ -50,7 +47,7 @@ export default class HomeSlider extends Component {
     this.interval = this.newInterval();
   }
 
-	render({}, { slideIndex }) {
+  render({ }, { slideIndex }) {
 
     const slideData = [{
       className: style.kids,
@@ -70,21 +67,21 @@ export default class HomeSlider extends Component {
       <div class={style.homeSlider}>
         <div class="wrapper">
 
-        <ul class={['clearfix', style.slides].join(' ')} onMouseEnter={ this.handleMouseEnter } onMouseLeave={ this.handleMouseLeave }>
-        { slideData.map( (slide, i) => (
-            <li class={[slide.className, style.slide, slideIndex === i ? style.current : ''].join(' ') } key={ i } onMouseEnter={ (e) => this.handleItemSelect(e, i) }>
-            <a href={slide.link}>
-              <span>{slide.text}</span>
-            </a>
-          </li>
-        ))}
-        </ul>
+          <ul class={['clearfix', style.slides].join(' ')} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+            {slideData.map((slide, i) => (
+              <li class={[slide.className, style.slide, slideIndex === i ? style.current : ''].join(' ')} key={i} onMouseEnter={(e) => this.handleItemSelect(e, i)}>
+                <a href={slide.link}>
+                  <span>{slide.text}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <ul class={ style.sliderNav }>
-        { slideData.map( (slide, i) => (
-          <li class={[slide.className, slideIndex === i ? style.current : '' ].join(' ') } onClick={ (e) => this.handleItemSelect(e, i) } />
-        ))}
-        </ul>
+          <ul class={style.sliderNav}>
+            {slideData.map((slide, i) => (
+              <li class={[slide.className, slideIndex === i ? style.current : ''].join(' ')} onClick={(e) => this.handleItemSelect(e, i)} />
+            ))}
+          </ul>
         </div>
       </div>
     );

@@ -17,48 +17,46 @@ import { appData } from '../store/app-data';
 import s from '../style/index.scss';
 
 export default class App extends Component {
-	/** Gets fired when the route changes.
-	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-	 *	@param {string} event.url	The newly routed URL
-	 */
-	handleRoute = e => {
+  /** 
+  * Gets fired when the route changes.
+  * @param {Object} event "change" event from [preact-router](http://git.io/preact-router)
+  * @param {string} event.url The newly routed URL
+  */
+  handleRoute = e => {
 
     const { showMenu, toggleMenu } = appData;
 
-    console.log('handleRoute:', showMenu);
-
-    if( e.url !== e.previous ) {
-      (typeof window !== "undefined") && window.scrollTo(0,0);
+    if (e.url !== e.previous) {
+      (typeof window !== "undefined") && window.scrollTo(0, 0);
 
       // if the menu is open on route change, let's close it
-      if( showMenu ) {
+      if (showMenu) {
         toggleMenu();
       }
 
     }
 
-		this.currentUrl = e.url;
-	};
+    this.currentUrl = e.url;
+  };
 
-	render() {
+  render() {
 
-    console.log(s);
-		return (
-			<div id="app">
-				<Header />
+    return (
+      <div id="app">
+        <Header />
 
-        <div role="main" class={ [ 'mainContent', 'clearfix'].join(' ') }>
+        <div role="main" class={['mainContent', 'clearfix'].join(' ')}>
           <Router onChange={this.handleRoute}>
-            { Object.keys(routes).map( route => ( route === 'Home' ?
+            {Object.keys(routes).map(route => (route === 'Home' ?
               <Home path="/" /> :
-              <Page page={ route } path={ routes[route] } />
-            ) )}
-            <Error type="404"  default />
+              <Page page={route} path={routes[route]} />
+            ))}
+            <Error type="404" default />
           </Router>
         </div>
 
         <Footer />
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 }

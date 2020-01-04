@@ -33,10 +33,16 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
+    "apollo-link-context": "^1.0.19",
+    "apollo-link-http": "^1.5.16",
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.5.5",
-    "react-apollo": "1.4.16",
+    "react-apollo": "^1.4.16",
     "superstatic": "^5.0.1"
   }
 }
