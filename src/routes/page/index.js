@@ -29,7 +29,9 @@ class Page extends Component {
             </header>
           )}
 
-          {Page.content && <div class="page-content" dangerouslySetInnerHTML={{ __html: Page.content }} />}
+          {Page.pageContent && Page.pageContent.html && (
+            <div class="page-content" dangerouslySetInnerHTML={{ __html: Page.pageContent.html }} />
+          )}
 
           {Page.videoEmbeds && (
             Object.keys(Page.videoEmbeds).map(i => {
@@ -61,12 +63,14 @@ query pageDetails($page: PageType) {
     updatedAt,
     title,
     subtitle,
-    content,
     masthead{
       url,
       fileName
     },
-    videoEmbeds
+    videoEmbeds,
+    pageContent {
+      html
+    }
   },
 }
 `;
