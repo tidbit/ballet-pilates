@@ -27,13 +27,12 @@
   }
 
   &:nth-child(odd) {
-    background: #F0F0F0;
+    background: #f0f0f0;
   }
 
   &:nth-child(even) {
-    background: #F7F7F7;
+    background: #f7f7f7;
   }
-
 
   img {
     border-bottom: 3px solid $color1;
@@ -76,7 +75,7 @@
     color: $color2;
     font-size: 16px;
     font-weight: bold;
-    line-height: 1.2
+    line-height: 1.2;
   }
 
   header {

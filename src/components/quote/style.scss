@@ -1,7 +1,7 @@
 @import "../../style/_variables.scss";
 
 .quoteWrapper {
-  background: #E0E0E0;
+  background: #e0e0e0;
   padding: 50px 0 40px;
   margin-bottom: 40px;
   color: $color6;
@@ -38,7 +38,6 @@
           left: -60px;
         }
       }
-
     }
   }
 
@@ -56,7 +55,6 @@
     @media only screen and (min-width: $bp-lg) {
       font-size: 39px;
     }
-
   }
 
   .byLine {
@@ -71,11 +69,14 @@
 
   .headshot {
     position: relative;
+    overflow: hidden;
+    height: 77px;
+    object-fit: cover;
     @include circle-group(2px);
 
     @media only screen and (min-width: $bp-md) {
       order: 2;
-
+      height: 157px;
       @include circle-group(5px);
     }
   }
