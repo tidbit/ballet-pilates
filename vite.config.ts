@@ -12,6 +12,9 @@ export default defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tanstackStart({
+      sitemap: {
+        host: "https://balletandpilates.com",
+      },
       pages: [
         {
           path: "/",
