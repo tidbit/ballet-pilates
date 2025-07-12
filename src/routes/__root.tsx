@@ -65,14 +65,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
-        <div className="p-2 flex gap-2 text-lg">
+      <body className="font-serif">
+        <div className="">
+          <div className="container mx-auto w-full">
+            <div className="bg-base-100 py-8 text-center">Logo</div>
+          </div>
           <Nav />
-          <Sidebar />
+          {children}
         </div>
 
-        <hr />
-        {children}
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
