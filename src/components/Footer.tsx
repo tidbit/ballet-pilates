@@ -44,16 +44,15 @@ export function Footer() {
 
       <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16">
         <div className="">
+          <h4 className="text-xl text-base-900/60 pb-4 italic">
+            Drop by for a class today!
+          </h4>
           <div className="w-full h-0 pb-[56.25%] relative">
             <iframe
               className="w-full h-full absolute inset-0"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.22181442122!2d-95.64194039999998!3d29.8867086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d0cdbf20aaaf%3A0xddb25e12a6d01bcd!2s15544+Ridge+Park+Dr%2C+Houston%2C+TX+77095!5e0!3m2!1sen!2sus!4v1433523478239"
             ></iframe>
           </div>
-
-          <h4 className="text-xl text-base-900/60 pt-4 italic">
-            Drop by for a class today!
-          </h4>
         </div>
 
         <div className="  md:max-xl:col-span-2 md:max-xl:px-[25%] md:max-xl:order-last ">
@@ -61,7 +60,7 @@ export function Footer() {
         </div>
 
         <div className=" space-y-4">
-          <h4 className="text-2xl text-base-900/60 pb-4">
+          <h4 className="text-xl text-base-900/60 pb-4 italic">
             Questions? Get in touch!
           </h4>
 
