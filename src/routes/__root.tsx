@@ -14,6 +14,14 @@ import { NotFound } from "~/components/NotFound";
 import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
 import { Sidebar } from "~/components/Sidebar";
+import { Footer } from "~/components/Footer";
+
+let titlePrefix = ``;
+
+if (import.meta.env.DEV) {
+  titlePrefix = `[DEV] - `;
+  console.log(`DEV MODE`);
+}
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
@@ -28,9 +36,8 @@ export const Route = createRootRouteWithContext<{
         content: "width=device-width, initial-scale=1",
       },
       ...seo({
-        title:
-          "TanStack Start | Type-Safe, Client-First, Full-Stack React Framework",
-        description: `TanStack Start is a type-safe, client-first, full-stack React framework. `,
+        title: `${titlePrefix} Ballet &amp; Pilates By Victoria`,
+        description: `Find what moves you`,
       }),
     ],
     links: [
@@ -76,7 +83,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <Nav />
           <Sidebar />
 
-          {children}
+          <main>{children}</main>
+          <Footer />
         </div>
 
         <TanStackRouterDevtools position="bottom-right" />

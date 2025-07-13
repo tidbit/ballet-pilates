@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && tsc --noEmit",
-    "start": "node .output/server/index.mjs"
+    "b": "bun run build",
+    "preview": "bun b && cd .output/public && bunx http-server",
+    "start": "node .output/server/index.mjs",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.83.0",
@@ -22,6 +25,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.7",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^22.5.4",
     "@types/react": "^19.0.8",
@@ -31,6 +35,8 @@
     "tailwindcss": "^4.1.11",
     "typescript": "^5.7.2",
     "vite": "^6.3.5",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "@graphql-codegen/introspection": "4.0.3",
+    "@graphql-codegen/client-preset": "4.8.3"
   }
 }
