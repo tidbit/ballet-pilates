@@ -27,6 +27,7 @@ export default defineConfig({
       customViteReactPlugin: true,
       prerender: {
         enabled: true,
+        autoSubfolderIndex: true,
         crawlLinks: true,
       },
     }),
