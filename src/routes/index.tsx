@@ -46,12 +46,6 @@ const homePageQueryDocument = graphql(`
   }
 `);
 
-//const homeQueryOptions = () =>
-//  queryOptions({
-//    queryKey: ["hygraph", "home"],
-//    queryFn: () => CMSRequest(homePageQuery),
-//  });
-
 export const Route = createFileRoute("/")({
   component: Home,
 });
@@ -64,11 +58,34 @@ function Home() {
   console.log({ data, foo: data.siteInfo });
 
   return (
-    <div className="p-2">
-      <h3>Welcome Home!!!</h3>
-      <div>
+    <main className="">
+      <div className="container mx-auto">
         <pre>{JSON.stringify(data, undefined, 2)}</pre>
       </div>
-    </div>
+
+      <div className="bg-base-100 py-24">
+        <div className="container mx-auto px-24">
+          <div className="flex gap-8 justify-around items-stretch">
+            {[1, 2].map((e) => (
+              <div
+                key={e}
+                className="border border-base-200 rounded-lg p-4 bg-base-50 w-[430px]  space-y-4"
+              >
+                <header className="flex gap-4">
+                  <div className="bg-primary-100 aspect-square rounded-full size-[64px]" />
+                  <h3 className="grow text-lg">
+                    Reformer Pilates, Barre, &amp; Private Sessions
+                  </h3>
+                </header>
+                <p>
+                  Experience the transformative benefits of Pilates &amp; barre
+                  in a welcoming, supportive environment.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }

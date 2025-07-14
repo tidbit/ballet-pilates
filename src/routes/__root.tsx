@@ -81,9 +81,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <div className="bg-base-100 py-8 text-center">Logo</div>
           </div>
           <Nav />
-          <Sidebar />
 
-          <main>{children}</main>
+          {children}
           <Footer />
         </div>
 
