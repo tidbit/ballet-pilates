@@ -1,10 +1,9 @@
-import { gql } from "graphql-request";
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { CMSRequest } from "~/utils/cms-request";
 import { HomePageQuery } from "~/gql/graphql";
 import { graphql } from "~/gql/gql";
-import { request } from "graphql-request";
+import { HomeCarousel } from "~/components/HomeCarousel";
 
 const homePageQueryDocument = graphql(`
   query HomePage {
@@ -59,20 +58,18 @@ function Home() {
 
   return (
     <main className="">
-      <div className="container mx-auto">
-        <pre>{JSON.stringify(data, undefined, 2)}</pre>
-      </div>
+      <HomeCarousel />
 
-      <div className="bg-base-100 py-24">
+      <div className="bg-base-200 py-24">
         <div className="container mx-auto px-24">
           <div className="flex gap-8 justify-around items-stretch">
             {[1, 2].map((e) => (
               <div
                 key={e}
-                className="border border-base-200 rounded-lg p-4 bg-base-50 w-[430px]  space-y-4"
+                className="border border-base-300 rounded-lg p-4 bg-base-100 w-[430px]  space-y-4"
               >
                 <header className="flex gap-4">
-                  <div className="bg-primary-100 aspect-square rounded-full size-[64px]" />
+                  <div className="bg-primary aspect-square rounded-full size-[64px]" />
                   <h3 className="grow text-lg">
                     Reformer Pilates, Barre, &amp; Private Sessions
                   </h3>

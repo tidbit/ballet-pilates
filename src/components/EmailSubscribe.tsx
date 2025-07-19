@@ -1,6 +1,6 @@
 export function EmailSubscribe() {
   return (
-    <div className="w-full bg-white py-8 px-6 rounded-lg shadow-sm shadow-base-300 border-base-100 ">
+    <div className="w-full bg-white py-8 px-6 rounded-lg shadow-sm shadow-base-300 border-base-200 ">
       {/* BEGIN: Constant Contact Bubble Opt-in Email List Form  */}
       <div>
         <form
@@ -9,25 +9,23 @@ export function EmailSubscribe() {
           target="_blank"
           method="post"
         >
-          <h3 className="text-2xl text-primary-300 pb-4">
-            Join Our Email List
-          </h3>
+          <h3 className="text-2xl text-primary pb-4">Join Our Email List</h3>
           <label className="block " htmlFor="email">
             Email:
           </label>
           <div className="flex flex-col lg:flex-row gap-4 pb-4 pt-2">
             <input
-              className="border border-base-300 rounded-sm px-4 py-2 outline-primary-300 grow shrink"
+              className="border border-base-300 text-base-content rounded-sm px-4 py-2 outline-primary grow shrink"
+              placeholder="email"
               id="email"
               type="email"
               name="ea"
-              value=""
             />
             <input
               type="submit"
               name="go"
               value="Join"
-              className="submit text-md px-6 py-2 rounded-sm bg-primary-300"
+              className="submit text-md px-6 py-2 rounded-sm bg-primary cursor-pointer hover:opacity-85"
             />
             <input type="hidden" name="llr" value="nfon6tjab" />
             <input type="hidden" name="m" value="1109843687597" />

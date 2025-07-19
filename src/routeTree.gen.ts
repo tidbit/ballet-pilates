@@ -9,21 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PageRouteImport } from './routes/_page'
+import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PageSocialRouteImport } from './routes/_page/social'
-import { Route as PagePrivateSessionsRouteImport } from './routes/_page/private-sessions'
-import { Route as PageInstructorsRouteImport } from './routes/_page/instructors'
-import { Route as PageContactRouteImport } from './routes/_page/contact'
-import { Route as PageChildrenClassesRouteImport } from './routes/_page/children-classes'
-import { Route as PageAdultClassesRouteImport } from './routes/_page/adult-classes'
-import { Route as PageAboutVictoriaRouteImport } from './routes/_page/about-victoria'
-import { Route as PageChildrenClassesSummerRouteImport } from './routes/_page/children-classes.summer'
-import { Route as PageChildrenClassesFallSpringRouteImport } from './routes/_page/children-classes.fall-spring'
-import { Route as PageAdultClassesNewToUsRouteImport } from './routes/_page/adult-classes.new-to-us'
 
-const PageRoute = PageRouteImport.update({
-  id: '/_page',
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,155 +22,40 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PageSocialRoute = PageSocialRouteImport.update({
-  id: '/social',
-  path: '/social',
-  getParentRoute: () => PageRoute,
-} as any)
-const PagePrivateSessionsRoute = PagePrivateSessionsRouteImport.update({
-  id: '/private-sessions',
-  path: '/private-sessions',
-  getParentRoute: () => PageRoute,
-} as any)
-const PageInstructorsRoute = PageInstructorsRouteImport.update({
-  id: '/instructors',
-  path: '/instructors',
-  getParentRoute: () => PageRoute,
-} as any)
-const PageContactRoute = PageContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => PageRoute,
-} as any)
-const PageChildrenClassesRoute = PageChildrenClassesRouteImport.update({
-  id: '/children-classes',
-  path: '/children-classes',
-  getParentRoute: () => PageRoute,
-} as any)
-const PageAdultClassesRoute = PageAdultClassesRouteImport.update({
-  id: '/adult-classes',
-  path: '/adult-classes',
-  getParentRoute: () => PageRoute,
-} as any)
-const PageAboutVictoriaRoute = PageAboutVictoriaRouteImport.update({
-  id: '/about-victoria',
-  path: '/about-victoria',
-  getParentRoute: () => PageRoute,
-} as any)
-const PageChildrenClassesSummerRoute =
-  PageChildrenClassesSummerRouteImport.update({
-    id: '/summer',
-    path: '/summer',
-    getParentRoute: () => PageChildrenClassesRoute,
-  } as any)
-const PageChildrenClassesFallSpringRoute =
-  PageChildrenClassesFallSpringRouteImport.update({
-    id: '/fall-spring',
-    path: '/fall-spring',
-    getParentRoute: () => PageChildrenClassesRoute,
-  } as any)
-const PageAdultClassesNewToUsRoute = PageAdultClassesNewToUsRouteImport.update({
-  id: '/new-to-us',
-  path: '/new-to-us',
-  getParentRoute: () => PageAdultClassesRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about-victoria': typeof PageAboutVictoriaRoute
-  '/adult-classes': typeof PageAdultClassesRouteWithChildren
-  '/children-classes': typeof PageChildrenClassesRouteWithChildren
-  '/contact': typeof PageContactRoute
-  '/instructors': typeof PageInstructorsRoute
-  '/private-sessions': typeof PagePrivateSessionsRoute
-  '/social': typeof PageSocialRoute
-  '/adult-classes/new-to-us': typeof PageAdultClassesNewToUsRoute
-  '/children-classes/fall-spring': typeof PageChildrenClassesFallSpringRoute
-  '/children-classes/summer': typeof PageChildrenClassesSummerRoute
+  '/$': typeof SplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about-victoria': typeof PageAboutVictoriaRoute
-  '/adult-classes': typeof PageAdultClassesRouteWithChildren
-  '/children-classes': typeof PageChildrenClassesRouteWithChildren
-  '/contact': typeof PageContactRoute
-  '/instructors': typeof PageInstructorsRoute
-  '/private-sessions': typeof PagePrivateSessionsRoute
-  '/social': typeof PageSocialRoute
-  '/adult-classes/new-to-us': typeof PageAdultClassesNewToUsRoute
-  '/children-classes/fall-spring': typeof PageChildrenClassesFallSpringRoute
-  '/children-classes/summer': typeof PageChildrenClassesSummerRoute
+  '/$': typeof SplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_page': typeof PageRouteWithChildren
-  '/_page/about-victoria': typeof PageAboutVictoriaRoute
-  '/_page/adult-classes': typeof PageAdultClassesRouteWithChildren
-  '/_page/children-classes': typeof PageChildrenClassesRouteWithChildren
-  '/_page/contact': typeof PageContactRoute
-  '/_page/instructors': typeof PageInstructorsRoute
-  '/_page/private-sessions': typeof PagePrivateSessionsRoute
-  '/_page/social': typeof PageSocialRoute
-  '/_page/adult-classes/new-to-us': typeof PageAdultClassesNewToUsRoute
-  '/_page/children-classes/fall-spring': typeof PageChildrenClassesFallSpringRoute
-  '/_page/children-classes/summer': typeof PageChildrenClassesSummerRoute
+  '/$': typeof SplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about-victoria'
-    | '/adult-classes'
-    | '/children-classes'
-    | '/contact'
-    | '/instructors'
-    | '/private-sessions'
-    | '/social'
-    | '/adult-classes/new-to-us'
-    | '/children-classes/fall-spring'
-    | '/children-classes/summer'
+  fullPaths: '/' | '/$'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about-victoria'
-    | '/adult-classes'
-    | '/children-classes'
-    | '/contact'
-    | '/instructors'
-    | '/private-sessions'
-    | '/social'
-    | '/adult-classes/new-to-us'
-    | '/children-classes/fall-spring'
-    | '/children-classes/summer'
-  id:
-    | '__root__'
-    | '/'
-    | '/_page'
-    | '/_page/about-victoria'
-    | '/_page/adult-classes'
-    | '/_page/children-classes'
-    | '/_page/contact'
-    | '/_page/instructors'
-    | '/_page/private-sessions'
-    | '/_page/social'
-    | '/_page/adult-classes/new-to-us'
-    | '/_page/children-classes/fall-spring'
-    | '/_page/children-classes/summer'
+  to: '/' | '/$'
+  id: '__root__' | '/' | '/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PageRoute: typeof PageRouteWithChildren
+  SplatRoute: typeof SplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_page': {
-      id: '/_page'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof PageRouteImport
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -189,128 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_page/social': {
-      id: '/_page/social'
-      path: '/social'
-      fullPath: '/social'
-      preLoaderRoute: typeof PageSocialRouteImport
-      parentRoute: typeof PageRoute
-    }
-    '/_page/private-sessions': {
-      id: '/_page/private-sessions'
-      path: '/private-sessions'
-      fullPath: '/private-sessions'
-      preLoaderRoute: typeof PagePrivateSessionsRouteImport
-      parentRoute: typeof PageRoute
-    }
-    '/_page/instructors': {
-      id: '/_page/instructors'
-      path: '/instructors'
-      fullPath: '/instructors'
-      preLoaderRoute: typeof PageInstructorsRouteImport
-      parentRoute: typeof PageRoute
-    }
-    '/_page/contact': {
-      id: '/_page/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof PageContactRouteImport
-      parentRoute: typeof PageRoute
-    }
-    '/_page/children-classes': {
-      id: '/_page/children-classes'
-      path: '/children-classes'
-      fullPath: '/children-classes'
-      preLoaderRoute: typeof PageChildrenClassesRouteImport
-      parentRoute: typeof PageRoute
-    }
-    '/_page/adult-classes': {
-      id: '/_page/adult-classes'
-      path: '/adult-classes'
-      fullPath: '/adult-classes'
-      preLoaderRoute: typeof PageAdultClassesRouteImport
-      parentRoute: typeof PageRoute
-    }
-    '/_page/about-victoria': {
-      id: '/_page/about-victoria'
-      path: '/about-victoria'
-      fullPath: '/about-victoria'
-      preLoaderRoute: typeof PageAboutVictoriaRouteImport
-      parentRoute: typeof PageRoute
-    }
-    '/_page/children-classes/summer': {
-      id: '/_page/children-classes/summer'
-      path: '/summer'
-      fullPath: '/children-classes/summer'
-      preLoaderRoute: typeof PageChildrenClassesSummerRouteImport
-      parentRoute: typeof PageChildrenClassesRoute
-    }
-    '/_page/children-classes/fall-spring': {
-      id: '/_page/children-classes/fall-spring'
-      path: '/fall-spring'
-      fullPath: '/children-classes/fall-spring'
-      preLoaderRoute: typeof PageChildrenClassesFallSpringRouteImport
-      parentRoute: typeof PageChildrenClassesRoute
-    }
-    '/_page/adult-classes/new-to-us': {
-      id: '/_page/adult-classes/new-to-us'
-      path: '/new-to-us'
-      fullPath: '/adult-classes/new-to-us'
-      preLoaderRoute: typeof PageAdultClassesNewToUsRouteImport
-      parentRoute: typeof PageAdultClassesRoute
-    }
   }
 }
 
-interface PageAdultClassesRouteChildren {
-  PageAdultClassesNewToUsRoute: typeof PageAdultClassesNewToUsRoute
-}
-
-const PageAdultClassesRouteChildren: PageAdultClassesRouteChildren = {
-  PageAdultClassesNewToUsRoute: PageAdultClassesNewToUsRoute,
-}
-
-const PageAdultClassesRouteWithChildren =
-  PageAdultClassesRoute._addFileChildren(PageAdultClassesRouteChildren)
-
-interface PageChildrenClassesRouteChildren {
-  PageChildrenClassesFallSpringRoute: typeof PageChildrenClassesFallSpringRoute
-  PageChildrenClassesSummerRoute: typeof PageChildrenClassesSummerRoute
-}
-
-const PageChildrenClassesRouteChildren: PageChildrenClassesRouteChildren = {
-  PageChildrenClassesFallSpringRoute: PageChildrenClassesFallSpringRoute,
-  PageChildrenClassesSummerRoute: PageChildrenClassesSummerRoute,
-}
-
-const PageChildrenClassesRouteWithChildren =
-  PageChildrenClassesRoute._addFileChildren(PageChildrenClassesRouteChildren)
-
-interface PageRouteChildren {
-  PageAboutVictoriaRoute: typeof PageAboutVictoriaRoute
-  PageAdultClassesRoute: typeof PageAdultClassesRouteWithChildren
-  PageChildrenClassesRoute: typeof PageChildrenClassesRouteWithChildren
-  PageContactRoute: typeof PageContactRoute
-  PageInstructorsRoute: typeof PageInstructorsRoute
-  PagePrivateSessionsRoute: typeof PagePrivateSessionsRoute
-  PageSocialRoute: typeof PageSocialRoute
-}
-
-const PageRouteChildren: PageRouteChildren = {
-  PageAboutVictoriaRoute: PageAboutVictoriaRoute,
-  PageAdultClassesRoute: PageAdultClassesRouteWithChildren,
-  PageChildrenClassesRoute: PageChildrenClassesRouteWithChildren,
-  PageContactRoute: PageContactRoute,
-  PageInstructorsRoute: PageInstructorsRoute,
-  PagePrivateSessionsRoute: PagePrivateSessionsRoute,
-  PageSocialRoute: PageSocialRoute,
-}
-
-const PageRouteWithChildren = PageRoute._addFileChildren(PageRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PageRoute: PageRouteWithChildren,
+  SplatRoute: SplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

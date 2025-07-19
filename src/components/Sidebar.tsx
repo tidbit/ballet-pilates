@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { SplatLink } from "./SplatLink";
 
 export function Sidebar() {
   return (
@@ -7,19 +7,19 @@ export function Sidebar() {
         <nav className={``}>
           <ul className={``}>
             <li>
-              <Link className={``} to="/children-classes">
+              <SplatLink className={``} to="/children-classes">
                 Children Classes
-              </Link>
+              </SplatLink>
               <ul className={``}>
                 <li>
-                  <Link className={``} to="/children-classes/fall-spring">
+                  <SplatLink className={``} to="/children-classes/fall-spring">
                     Fall &amp; Spring
-                  </Link>
+                  </SplatLink>
                 </li>
                 <li>
-                  <Link className={``} to="/children-classes/summer">
+                  <SplatLink className={``} to="/children-classes/summer">
                     Summer
-                  </Link>
+                  </SplatLink>
                 </li>
                 <li>
                   <a
@@ -32,14 +32,14 @@ export function Sidebar() {
               </ul>
             </li>
             <li>
-              <Link className={``} to="/adult-classes">
+              <SplatLink className={``} to="/adult-classes">
                 Adult Classes
-              </Link>
+              </SplatLink>
               <ul className={``}>
                 <li>
-                  <Link className={``} to="/adult-classes/new-to-us">
+                  <SplatLink className={``} to="/adult-classes/new-to-us">
                     New to Us
-                  </Link>
+                  </SplatLink>
                 </li>
                 <li>
                   <a
@@ -52,31 +52,31 @@ export function Sidebar() {
               </ul>
             </li>
             <li>
-              <Link className={``} to="/private-sessions">
+              <SplatLink className={``} to="/private-sessions">
                 Private Sessions
-              </Link>
+              </SplatLink>
             </li>
           </ul>
           <ul className={``}>
             <li>
-              <Link className={``} to="/about-victoria">
+              <SplatLink className={``} to="/about-victoria">
                 About Victoria
-              </Link>
+              </SplatLink>
             </li>
             <li>
-              <Link className={``} to="/instructors">
+              <SplatLink className={``} to="/instructors">
                 Instructors
-              </Link>
+              </SplatLink>
             </li>
             <li>
-              <Link className={``} to="/contact">
+              <SplatLink className={``} to="/contact">
                 Contact Us
-              </Link>
+              </SplatLink>
             </li>
             <li>
-              <Link className={``} to="/social">
+              <SplatLink className={``} to="/social">
                 Social
-              </Link>
+              </SplatLink>
             </li>
           </ul>
         </nav>

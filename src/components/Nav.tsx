@@ -1,33 +1,34 @@
 import { Link } from "@tanstack/react-router";
+import { SplatLink } from "./SplatLink";
 
 export function Nav() {
-  const linkClass = `grow px-2 py-1 hover:text-base-900/50 text-center`;
+  const linkClass = `grow px-2 py-1 hover:text-base-content/50 text-center`;
   return (
-    <div className="border-t border-b border-base-200 py-2 px-1">
+    <div className="border-t border-b border-base-300 py-2 px-1">
       <nav
         className={`container flex gap-2 flex-wrap flex-row justify-stretch mx-auto`}
       >
         <Link className={linkClass} to="/">
           Home
         </Link>
-        <Link className={linkClass} to="/adult-classes">
+        <SplatLink className={linkClass} to="/adult-classes">
           Adult Pilates
-        </Link>
-        <Link className={linkClass} to="/children-classes">
+        </SplatLink>
+        <SplatLink className={linkClass} to="/children-classes">
           Children's Dance
-        </Link>
-        <Link className={linkClass} to="/">
+        </SplatLink>
+        <SplatLink className={linkClass} to="/schedule">
           Schedule
-        </Link>
-        <Link className={linkClass} to="/">
+        </SplatLink>
+        <SplatLink className={linkClass} to="/pricing">
           Pricing
-        </Link>
-        <Link className={linkClass} to="/about-victoria">
+        </SplatLink>
+        <SplatLink className={linkClass} to="/about-victoria">
           About
-        </Link>
-        <Link className={linkClass} to="/contact">
+        </SplatLink>
+        <SplatLink className={linkClass} to="/contact">
           Contact
-        </Link>
+        </SplatLink>
       </nav>
     </div>
   );

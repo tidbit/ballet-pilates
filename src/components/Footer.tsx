@@ -33,10 +33,10 @@ export function Footer() {
   console.log({ data, foo: data.siteInfo });
 
   return (
-    <footer className="bg-base-300 text-base-900 py-16 space-y-16">
+    <footer className="bg-base-300 text-base-content py-16 space-y-16">
       {data.siteInfo?.footerTitle && (
         <div className="container mx-auto text-center">
-          <h3 className="italic text-3xl text-base-900/60">
+          <h3 className="italic text-3xl text-base-content/60">
             {data.siteInfo.footerTitle}
           </h3>
         </div>
@@ -44,7 +44,7 @@ export function Footer() {
 
       <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16">
         <div className="">
-          <h4 className="text-xl text-base-900/60 pb-4 italic">
+          <h4 className="text-xl text-base-content/60 pb-4 italic">
             Drop by for a class today!
           </h4>
           <div className="w-full h-0 pb-[56.25%] relative">
@@ -60,11 +60,11 @@ export function Footer() {
         </div>
 
         <div className=" space-y-4">
-          <h4 className="text-xl text-base-900/60 pb-4 italic">
+          <h4 className="text-xl text-base-content/60 pb-4 italic">
             Questions? Get in touch!
           </h4>
 
-          <p className="space-y-2 flex flex-col text-base-900/80">
+          <p className="space-y-2 flex flex-col text-base-content/80">
             <FooterLink href="mailto:balletandpilates@gmail.com?subject=Ballet%20and%20Pilates">
               balletandpilates@gmail.com
             </FooterLink>
@@ -86,9 +86,8 @@ export function Footer() {
               Login
             </FooterLink>
             <iframe
-              className="w-[200px] h-[48px] mx-[20px] border-none mt-8"
+              className="w-[200px] h-[48px] mx-[20px] border-none mt-8 bg-transparent"
               id="getOurApp"
-              allowTransparency={true}
               scrolling="no"
               src="https://clients.mindbodyonline.com/connect/appbutton"
             ></iframe>
@@ -97,7 +96,7 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto text-center pt-8">
-        <p className="italic text-md text-base-900/50">
+        <p className="italic text-md text-base-content/50">
           {data.siteInfo?.footerCopyright}
         </p>
       </div>

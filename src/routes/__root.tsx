@@ -78,7 +78,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body className="font-serif">
         <div className="">
           <div className="container mx-auto w-full">
-            <div className="bg-base-100 py-8 text-center">Logo</div>
+            <div className="bg-base-200 py-8 text-center">Logo</div>
           </div>
           <Nav />
 
