@@ -1,9 +1,10 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { createFileRoute, notFound, Outlet } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Sidebar } from "~/components/Sidebar";
 import { CMSRequest } from "~/utils/cms-request";
 import { graphql } from "~/gql/gql";
 import { PageQuery } from "~/gql/graphql";
+import { Page } from "~/components/Page";
 
 const definedRoutes: Record<string, string> = {
   "adult-classes": "Adult_Classes",
@@ -61,28 +62,5 @@ function RouteComponent() {
       <Page data={data.page} />
       <Sidebar />
     </div>
-  );
-}
-
-type PageProps = {
-  data: PageQuery["page"];
-};
-function Page({ data }: PageProps) {
-  console.log({ data });
-  return (
-    <main className="max-w-prose">
-      {(data?.title || data?.subtitle) && (
-        <header>
-          {data.title && <h1>{data.title}</h1>}
-          {data.subtitle && <h2>{data.subtitle}</h2>}
-        </header>
-      )}
-
-      <div className="py-10 overflow-scroll w-full">
-        <pre className="">
-          <code>{JSON.stringify(data, undefined, 2)}</code>
-        </pre>
-      </div>
-    </main>
   );
 }

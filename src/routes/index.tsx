@@ -14,6 +14,7 @@ const homePageQueryDocument = graphql(`
         handle
         fileName
       }
+      videoEmbeds
     }
     siteInfo(where: { id: "cj97sbb83hzqw0128cva2wlrd" }) {
       homePageQuote
@@ -82,6 +83,19 @@ function Home() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="card bg-base-300 p-10 overflow-scroll w-full">
+        <details className="collapse">
+          <summary className="collapse-title font-semibold">
+            inspect data
+          </summary>
+          <div className="collapse-content text-sm">
+            <pre className="">
+              <code>{JSON.stringify(data, undefined, 2)}</code>
+            </pre>
+          </div>
+        </details>
       </div>
     </main>
   );
