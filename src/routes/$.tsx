@@ -1,11 +1,12 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { TemplateFullWidth } from "~/components/TemplateFullWidth";
 import { Sidebar } from "~/components/Sidebar";
 import { CMSRequest } from "~/utils/cms-request";
 import { graphql } from "~/gql/gql";
 import { PageQuery } from "~/gql/graphql";
 import { Page } from "~/components/Page";
-
+import { TemplateDefault } from "~/components/TemplateDefault";
 const definedRoutes: Record<string, string> = {
   "adult-classes": "Adult_Classes",
   "adult-classes/new-to-us": "Adult_Classes_NewToUs",
@@ -17,6 +18,8 @@ const definedRoutes: Record<string, string> = {
   contact: "Contact_Us",
   instructors: "Instructors",
   social: "Social",
+  schedule: "Schedule",
+  pricing: "Pricing",
 } as const;
 
 export const Route = createFileRoute("/$")({
@@ -40,6 +43,7 @@ const pageQueryDocument = graphql(`
         fileName
       }
       videoEmbeds
+      pageTemplate
       pageContent {
         html
       }
@@ -57,10 +61,9 @@ function RouteComponent() {
   });
 
   console.log({ _splat, page, data });
-  return (
-    <div className="container mx-auto py-8 grid grid-cols-1 lg:grid-cols-[1fr_270px] lg:gap-8  ">
-      <Page data={data.page} />
-      <Sidebar />
-    </div>
+  return _splat && data?.page?.pageTemplate === "fullWidth" ? (
+    <TemplateFullWidth data={data.page} slug={_splat} />
+  ) : (
+    <TemplateDefault data={data.page} />
   );
 }

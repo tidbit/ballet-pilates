@@ -2416,6 +2416,8 @@ export type Page = Entity & Node & {
   /** The page this content belongs to */
   page?: Maybe<PageType>;
   pageContent?: Maybe<RichText>;
+  /** The page template to use. Default (With sidebar) or Full width (No sidebar). */
+  pageTemplate: PageTemplate;
   previewImage?: Maybe<Asset>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -2526,6 +2528,7 @@ export type PageCreateInput = {
   masthead?: InputMaybe<AssetCreateOneInlineInput>;
   page?: InputMaybe<PageType>;
   pageContent?: InputMaybe<Scalars['RichTextAST']['input']>;
+  pageTemplate: PageTemplate;
   previewImage?: InputMaybe<AssetCreateOneInlineInput>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
@@ -2622,6 +2625,13 @@ export type PageManyWhereInput = {
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
   masthead?: InputMaybe<AssetWhereInput>;
   page?: InputMaybe<PageType>;
+  pageTemplate?: InputMaybe<PageTemplate>;
+  /** All values that are contained in given list. */
+  pageTemplate_in?: InputMaybe<Array<InputMaybe<PageTemplate>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  pageTemplate_not?: InputMaybe<PageTemplate>;
+  /** All values that are not contained in given list. */
+  pageTemplate_not_in?: InputMaybe<Array<InputMaybe<PageTemplate>>>;
   /** All values that are contained in given list. */
   page_in?: InputMaybe<Array<InputMaybe<PageType>>>;
   /** Any other value that exists and is not equal to the given value. */
@@ -2738,6 +2748,8 @@ export enum PageOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  PageTemplateAsc = 'pageTemplate_ASC',
+  PageTemplateDesc = 'pageTemplate_DESC',
   PageAsc = 'page_ASC',
   PageDesc = 'page_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
@@ -2754,6 +2766,12 @@ export enum PageOrderByInput {
   VideoEmbedsDesc = 'videoEmbeds_DESC'
 }
 
+/** The page template for a given page. Default (with sidebar) and Full Width (No sidebar) */
+export enum PageTemplate {
+  Default = 'default',
+  FullWidth = 'fullWidth'
+}
+
 export enum PageType {
   AboutVictoria = 'About_Victoria',
   AdultClasses = 'Adult_Classes',
@@ -2764,7 +2782,9 @@ export enum PageType {
   ContactUs = 'Contact_Us',
   Home = 'Home',
   Instructors = 'Instructors',
+  Pricing = 'Pricing',
   PrivateSessions = 'Private_Sessions',
+  Schedule = 'Schedule',
   Social = 'Social'
 }
 
@@ -2772,6 +2792,7 @@ export type PageUpdateInput = {
   masthead?: InputMaybe<AssetUpdateOneInlineInput>;
   page?: InputMaybe<PageType>;
   pageContent?: InputMaybe<Scalars['RichTextAST']['input']>;
+  pageTemplate?: InputMaybe<PageTemplate>;
   previewImage?: InputMaybe<AssetUpdateOneInlineInput>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
@@ -2798,6 +2819,7 @@ export type PageUpdateManyInlineInput = {
 
 export type PageUpdateManyInput = {
   pageContent?: InputMaybe<Scalars['RichTextAST']['input']>;
+  pageTemplate?: InputMaybe<PageTemplate>;
   shortDescription?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -2903,6 +2925,13 @@ export type PageWhereInput = {
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
   masthead?: InputMaybe<AssetWhereInput>;
   page?: InputMaybe<PageType>;
+  pageTemplate?: InputMaybe<PageTemplate>;
+  /** All values that are contained in given list. */
+  pageTemplate_in?: InputMaybe<Array<InputMaybe<PageTemplate>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  pageTemplate_not?: InputMaybe<PageTemplate>;
+  /** All values that are not contained in given list. */
+  pageTemplate_not_in?: InputMaybe<Array<InputMaybe<PageTemplate>>>;
   /** All values that are contained in given list. */
   page_in?: InputMaybe<Array<InputMaybe<PageType>>>;
   /** Any other value that exists and is not equal to the given value. */
@@ -5496,7 +5525,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', updatedAt: any, title?: string | null, subtitle?: string | null, videoEmbeds: Array<string>, masthead?: { __typename?: 'Asset', url: string, fileName: string } | null, pageContent?: { __typename?: 'RichText', html: string } | null } | null };
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', updatedAt: any, title?: string | null, subtitle?: string | null, videoEmbeds: Array<string>, pageTemplate: PageTemplate, masthead?: { __typename?: 'Asset', url: string, fileName: string } | null, pageContent?: { __typename?: 'RichText', html: string } | null } | null };
 
 export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5505,5 +5534,5 @@ export type HomePageQuery = { __typename?: 'Query', page?: { __typename?: 'Page'
 
 
 export const FooterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Footer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"footerTitle"}},{"kind":"Field","name":{"kind":"Name","value":"footerCopyright"}}]}}]}}]} as unknown as DocumentNode<FooterQuery, FooterQueryVariables>;
-export const PageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Page"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PageType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}},{"kind":"Field","name":{"kind":"Name","value":"pageContent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]} as unknown as DocumentNode<PageQuery, PageQueryVariables>;
+export const PageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Page"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PageType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}},{"kind":"Field","name":{"kind":"Name","value":"pageTemplate"}},{"kind":"Field","name":{"kind":"Name","value":"pageContent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]} as unknown as DocumentNode<PageQuery, PageQueryVariables>;
 export const HomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"EnumValue","value":"Home"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}}]}},{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePageQuote"}},{"kind":"Field","name":{"kind":"Name","value":"homePageQuoteImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"iconsize"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"linkLabel"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"pages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page_in"},"value":{"kind":"ListValue","values":[{"kind":"EnumValue","value":"Children_Classes"},{"kind":"EnumValue","value":"Adult_Classes"},{"kind":"EnumValue","value":"Private_Sessions"}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"previewImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;

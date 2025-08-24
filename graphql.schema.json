@@ -511,7 +511,7 @@
               },
               {
                 "name": "locales",
-                "description": "Potential locales that should be returned. \n\nThe order of locales will also override locale fall-backing behaviour in the query's subtree.\n\nNote any related model with localized fields in the query's subtree will be affected.\nThe first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.\nThis argument will overwrite any existing locale filtering defined in the query's tree for the subtree.\n\nConsider using this in conjunction with forceParentLocale on the children relation fields.",
+                "description": "Potential locales that should be returned.\n\nThe order of locales will also override locale fall-backing behaviour in the query's subtree.\n\nNote any related model with localized fields in the query's subtree will be affected.\nThe first locale matching the provided list will be returned, localized entries that do not have the provided locale defined will be filtered out.\nThis argument will overwrite any existing locale filtering defined in the query's tree for the subtree.\n\nConsider using this in conjunction with forceParentLocale on the children relation fields.",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -16310,6 +16310,22 @@
             "deprecationReason": null
           },
           {
+            "name": "pageTemplate",
+            "description": "The page template to use. Default (With sidebar) or Full width (No sidebar).",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PageTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "previewImage",
             "description": null,
             "args": [
@@ -16864,6 +16880,22 @@
               "kind": "SCALAR",
               "name": "RichTextAST",
               "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PageTemplate",
+                "ofType": null
+              }
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -17544,6 +17576,62 @@
               "kind": "ENUM",
               "name": "PageType",
               "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "PageTemplate",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PageTemplate",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "ENUM",
+              "name": "PageTemplate",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PageTemplate",
+                "ofType": null
+              }
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -18396,6 +18484,18 @@
             "deprecationReason": null
           },
           {
+            "name": "pageTemplate_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "page_ASC",
             "description": null,
             "isDeprecated": false,
@@ -18484,6 +18584,30 @@
       },
       {
         "kind": "ENUM",
+        "name": "PageTemplate",
+        "description": "The page template for a given page. Default (with sidebar) and Full Width (No sidebar)",
+        "isOneOf": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "default",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fullWidth",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
         "name": "PageType",
         "description": null,
         "isOneOf": null,
@@ -18546,7 +18670,19 @@
             "deprecationReason": null
           },
           {
+            "name": "Pricing",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "Private_Sessions",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "Schedule",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -18597,6 +18733,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "RichTextAST",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "PageTemplate",
               "ofType": null
             },
             "defaultValue": null,
@@ -18841,6 +18989,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "RichTextAST",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "PageTemplate",
               "ofType": null
             },
             "defaultValue": null,
@@ -19570,6 +19730,62 @@
               "kind": "ENUM",
               "name": "PageType",
               "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "PageTemplate",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate_in",
+            "description": "All values that are contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PageTemplate",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate_not",
+            "description": "Any other value that exists and is not equal to the given value.",
+            "type": {
+              "kind": "ENUM",
+              "name": "PageTemplate",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageTemplate_not_in",
+            "description": "All values that are not contained in given list.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "PageTemplate",
+                "ofType": null
+              }
             },
             "defaultValue": null,
             "isDeprecated": false,
