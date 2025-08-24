@@ -5,6 +5,7 @@ import { FooterQuery } from "~/gql/graphql";
 import { graphql } from "~/gql";
 import { AnchorHTMLAttributes } from "react";
 import { cn } from "~/utils/utils";
+import { Schedule } from "./Schedule";
 
 function FooterLink({
   className,
@@ -44,12 +45,7 @@ export function Footer() {
 
       <div className="container mx-auto space-y-10 px-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16">
         <div className="">
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                '<!-- Mindbody Schedules widget begin --><div class="mindbody-widget" data-widget-type="Schedules" data-widget-id="9731261000e"></div><script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script><!-- Mindbody Schedules widget end -->',
-            }}
-          />
+          <Schedule />
         </div>
 
         <div className="space-y-10 md:max-xl:col-span-2 md:max-xl:px-[25%] md:max-xl:order-last ">
