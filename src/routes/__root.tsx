@@ -1,6 +1,7 @@
 /// <reference types="vite/client" />
 import {
   HeadContent,
+  Link,
   Scripts,
   createRootRouteWithContext,
 } from "@tanstack/react-router";
@@ -77,8 +78,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body className="font-serif">
         <div className="">
-          <div className="container mx-auto w-full">
-            <div className="bg-base-200 py-8 text-center">Logo</div>
+          <div className="container mx-auto w-full flex justify-center">
+            <Link className="inline-block" to="/">
+              <img
+                className="max-h-[90px]"
+                src="/BPV-2025-logo.jpg"
+                alt="Ballet & Pilates by Victoria"
+              />
+            </Link>
           </div>
           <Nav />
 
