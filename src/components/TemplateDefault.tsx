@@ -8,7 +8,7 @@ type PageProps = {
 
 export function TemplateDefault({ data }: PageProps) {
   return (
-    <div className="container mx-auto py-8 grid grid-cols-1 lg:grid-cols-[1fr_270px] lg:gap-8">
+    <div className="container mx-auto py-8 grid grid-cols-1 lg:grid-cols-[1fr_380px] lg:gap-8">
       <Page data={data} />
       <Sidebar />
     </div>

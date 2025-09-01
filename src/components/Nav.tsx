@@ -12,10 +12,10 @@ export function Nav() {
           Home
         </Link>
         <SplatLink className={linkClass} to="/adult-classes">
-          Adult Pilates
+          Adult Classes
         </SplatLink>
         <SplatLink className={linkClass} to="/children-classes">
-          Children's Dance
+          Children's Classes
         </SplatLink>
         <SplatLink className={linkClass} to="/schedule">
           Schedule

@@ -6,7 +6,7 @@ type PageProps = {
 export function Page({ data }: PageProps) {
   console.log({ data });
   return (
-    <main className="max-w-prose pt-6 pb-10 space-y-6">
+    <main className="pt-6 pb-10 space-y-6">
       {(data?.title || data?.subtitle) && (
         <header>
           {data.title && <h1 className="text-5xl">{data.title}</h1>}

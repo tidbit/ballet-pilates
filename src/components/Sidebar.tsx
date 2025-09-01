@@ -1,8 +1,18 @@
+import { usePage } from "~/hooks";
+import { Adults, Childrens } from "./Schedule";
 import { SplatLink } from "./SplatLink";
 
 export function Sidebar() {
+  const { isChildrens, isAdults } = usePage();
+
   return (
     <aside>
+      {isChildrens ? <Childrens /> : null}
+      {isAdults ? <Adults /> : null}
+
+      {/**
+
+
       <div className={``}>
         <nav className={``}>
           <ul className={``}>
@@ -81,6 +91,8 @@ export function Sidebar() {
           </ul>
         </nav>
       </div>
+
+        **/}
     </aside>
   );
 }

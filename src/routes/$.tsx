@@ -1,26 +1,11 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { TemplateFullWidth } from "~/components/TemplateFullWidth";
-import { Sidebar } from "~/components/Sidebar";
 import { CMSRequest } from "~/utils/cms-request";
 import { graphql } from "~/gql/gql";
 import { PageQuery } from "~/gql/graphql";
-import { Page } from "~/components/Page";
 import { TemplateDefault } from "~/components/TemplateDefault";
-const definedRoutes: Record<string, string> = {
-  "adult-classes": "Adult_Classes",
-  "adult-classes/new-to-us": "Adult_Classes_NewToUs",
-  "children-classes": "Children_Classes",
-  "children-classes/fall-spring": "Children_Classes_FallSpring",
-  "children-classes/summer": "Children_Classes_Summer",
-  "private-sessions": "Private_Sessions",
-  "about-victoria": "About_Victoria",
-  contact: "Contact_Us",
-  instructors: "Instructors",
-  social: "Social",
-  schedule: "Schedule",
-  pricing: "Pricing",
-} as const;
+import { definedRoutes } from "~/consts";
 
 export const Route = createFileRoute("/$")({
   loader: ({ params }) => {
