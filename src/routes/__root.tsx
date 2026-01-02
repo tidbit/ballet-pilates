@@ -38,7 +38,7 @@ export const Route = createRootRouteWithContext<{
         content: "width=device-width, initial-scale=1",
       },
       ...seo({
-        title: `${titlePrefix} Ballet &amp; Pilates By Victoria`,
+        title: `${titlePrefix} Ballet & Pilates By Victoria`,
         description: `Find what moves you`,
       }),
     ],
