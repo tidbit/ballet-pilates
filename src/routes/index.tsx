@@ -32,6 +32,23 @@ const homePageQueryDocument = graphql(`
         linkLabel
         url
       }
+      carouselItems {
+        id
+        title
+        image {
+          id
+          fileName
+          url
+        }
+        buttonLabel
+        buttonLink
+      }
+      ctaCards(first: 3) {
+        id
+        title
+        description
+        link
+      }
     }
     pages(
       where: { page_in: [Children_Classes, Adult_Classes, Private_Sessions] }
@@ -57,35 +74,32 @@ function Home() {
     queryKey: ["hygraph", "home"],
     queryFn: () => CMSRequest<HomePageQuery>(homePageQueryDocument),
   });
-  console.log({ data, foo: data.siteInfo });
+
+  const carouselItems = data.siteInfo?.carouselItems || [];
+  const ctaCards = data.siteInfo?.ctaCards || [];
 
   return (
     <main className="">
-      <HomeCarousel />
+      <HomeCarousel items={carouselItems} />
 
       <div className="bg-base-200 py-24">
         <div className="container mx-auto px-8 md:px-24">
           <div className="flex flex-wrap gap-8 justify-center items-stretch">
-            {[1, 2, 3].map((e) => (
+            {ctaCards.map((card) => (
               <div
-                key={e}
+                key={card.id}
                 className="w-full md:w-[calc(50%_-_1.5rem)] lg:w-[calc(33.3333%_-_1.5rem)] border border-base-300 rounded-lg p-4 bg-base-100 space-y-4"
               >
                 <header className="flex gap-4 ">
                   <div className="bg-primary aspect-square rounded-full size-[64px]" />
-                  <h3 className="grow text-lg">
-                    Reformer Pilates, Barre, &amp; Private Sessions
-                  </h3>
+                  <h3 className="grow text-lg">{card.title}</h3>
                 </header>
-                <p>
-                  Experience the transformative benefits of Pilates &amp; barre
-                  in a welcoming, supportive environment.
-                </p>
+                <p>{card.description}</p>
 
-                {Boolean(e / 2 !== 1) ? (
+                {card.link ? (
                   <SplatLink
                     className="underline hover:text-base-content/50"
-                    to="./adult-classes"
+                    to={card.link}
                   >
                     Learn more
                   </SplatLink>

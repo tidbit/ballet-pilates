@@ -54,6 +54,7 @@ export type Asset = Entity & Node & {
   homePageQuoteImageSiteInfo: Array<SiteInfo>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
+  imageCarouselItem: Array<CarouselItem>;
   /** System Locale field */
   locale: Locale;
   /** Get the other localizations for this document */
@@ -124,6 +125,20 @@ export type AssetHomePageQuoteImageSiteInfoArgs = {
   orderBy?: InputMaybe<SiteInfoOrderByInput>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<SiteInfoWhereInput>;
+};
+
+
+/** Asset system model */
+export type AssetImageCarouselItemArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<CarouselItemOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CarouselItemWhereInput>;
 };
 
 
@@ -227,6 +242,7 @@ export type AssetCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   homePageQuoteImageSiteInfo?: InputMaybe<SiteInfoCreateManyInlineInput>;
+  imageCarouselItem?: InputMaybe<CarouselItemCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>;
   mastheadPage?: InputMaybe<PageCreateManyInlineInput>;
@@ -329,6 +345,9 @@ export type AssetManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  imageCarouselItem_every?: InputMaybe<CarouselItemWhereInput>;
+  imageCarouselItem_none?: InputMaybe<CarouselItemWhereInput>;
+  imageCarouselItem_some?: InputMaybe<CarouselItemWhereInput>;
   mastheadPage_every?: InputMaybe<PageWhereInput>;
   mastheadPage_none?: InputMaybe<PageWhereInput>;
   mastheadPage_some?: InputMaybe<PageWhereInput>;
@@ -418,6 +437,7 @@ export type AssetTransformationInput = {
 export type AssetUpdateInput = {
   fileName?: InputMaybe<Scalars['String']['input']>;
   homePageQuoteImageSiteInfo?: InputMaybe<SiteInfoUpdateManyInlineInput>;
+  imageCarouselItem?: InputMaybe<CarouselItemUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>;
   mastheadPage?: InputMaybe<PageUpdateManyInlineInput>;
@@ -745,6 +765,9 @@ export type AssetWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  imageCarouselItem_every?: InputMaybe<CarouselItemWhereInput>;
+  imageCarouselItem_none?: InputMaybe<CarouselItemWhereInput>;
+  imageCarouselItem_some?: InputMaybe<CarouselItemWhereInput>;
   mastheadPage_every?: InputMaybe<PageWhereInput>;
   mastheadPage_none?: InputMaybe<PageWhereInput>;
   mastheadPage_some?: InputMaybe<PageWhereInput>;
@@ -861,6 +884,551 @@ export type BatchPayload = {
   __typename?: 'BatchPayload';
   /** The number of nodes that have been affected by the Batch operation. */
   count: Scalars['Long']['output'];
+};
+
+export type CarouselItem = Entity & Node & {
+  __typename?: 'CarouselItem';
+  /** The text displayed in the carousel item's button */
+  buttonLabel: Scalars['String']['output'];
+  /** The URL used for the carousel item's button link */
+  buttonLink: Scalars['String']['output'];
+  /** The time the document was created */
+  createdAt: Scalars['DateTime']['output'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Get the document in other stages */
+  documentInStages: Array<CarouselItem>;
+  /** List of CarouselItem versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  /** The main background image for the carousel item */
+  image: Asset;
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  siteInfo?: Maybe<SiteInfo>;
+  /** System stage field */
+  stage: Stage;
+  /** The title for the carousel item */
+  title: Scalars['String']['output'];
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime']['output'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+export type CarouselItemCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type CarouselItemDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean']['input'];
+  inheritLocale?: Scalars['Boolean']['input'];
+  stages?: Array<Stage>;
+};
+
+
+export type CarouselItemHistoryArgs = {
+  limit?: Scalars['Int']['input'];
+  skip?: Scalars['Int']['input'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type CarouselItemImageArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  where?: InputMaybe<AssetSingleRelationWhereInput>;
+};
+
+
+export type CarouselItemPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type CarouselItemScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+export type CarouselItemSiteInfoArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type CarouselItemUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type CarouselItemConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: CarouselItemWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type CarouselItemConnection = {
+  __typename?: 'CarouselItemConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<CarouselItemEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type CarouselItemCreateInput = {
+  buttonLabel: Scalars['String']['input'];
+  buttonLink: Scalars['String']['input'];
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  image: AssetCreateOneInlineInput;
+  siteInfo?: InputMaybe<SiteInfoCreateOneInlineInput>;
+  title: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type CarouselItemCreateManyInlineInput = {
+  /** Connect multiple existing CarouselItem documents */
+  connect?: InputMaybe<Array<CarouselItemWhereUniqueInput>>;
+  /** Create and connect multiple existing CarouselItem documents */
+  create?: InputMaybe<Array<CarouselItemCreateInput>>;
+};
+
+export type CarouselItemCreateOneInlineInput = {
+  /** Connect one existing CarouselItem document */
+  connect?: InputMaybe<CarouselItemWhereUniqueInput>;
+  /** Create and connect one CarouselItem document */
+  create?: InputMaybe<CarouselItemCreateInput>;
+};
+
+/** An edge in a connection. */
+export type CarouselItemEdge = {
+  __typename?: 'CarouselItemEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: CarouselItem;
+};
+
+/** Identifies documents */
+export type CarouselItemManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CarouselItemWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CarouselItemWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CarouselItemWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLabel_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLabel_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLabel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLabel_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLabel_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLabel_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLabel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLabel_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLabel_starts_with?: InputMaybe<Scalars['String']['input']>;
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLink_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLink_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLink_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLink_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLink_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLink_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLink_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLink_starts_with?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<CarouselItemWhereStageInput>;
+  documentInStages_none?: InputMaybe<CarouselItemWhereStageInput>;
+  documentInStages_some?: InputMaybe<CarouselItemWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<AssetWhereInput>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  siteInfo?: InputMaybe<SiteInfoWhereInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum CarouselItemOrderByInput {
+  ButtonLabelAsc = 'buttonLabel_ASC',
+  ButtonLabelDesc = 'buttonLabel_DESC',
+  ButtonLinkAsc = 'buttonLink_ASC',
+  ButtonLinkDesc = 'buttonLink_DESC',
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type CarouselItemUpdateInput = {
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<AssetUpdateOneInlineInput>;
+  siteInfo?: InputMaybe<SiteInfoUpdateOneInlineInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CarouselItemUpdateManyInlineInput = {
+  /** Connect multiple existing CarouselItem documents */
+  connect?: InputMaybe<Array<CarouselItemConnectInput>>;
+  /** Create and connect multiple CarouselItem documents */
+  create?: InputMaybe<Array<CarouselItemCreateInput>>;
+  /** Delete multiple CarouselItem documents */
+  delete?: InputMaybe<Array<CarouselItemWhereUniqueInput>>;
+  /** Disconnect multiple CarouselItem documents */
+  disconnect?: InputMaybe<Array<CarouselItemWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing CarouselItem documents */
+  set?: InputMaybe<Array<CarouselItemWhereUniqueInput>>;
+  /** Update multiple CarouselItem documents */
+  update?: InputMaybe<Array<CarouselItemUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple CarouselItem documents */
+  upsert?: InputMaybe<Array<CarouselItemUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type CarouselItemUpdateManyInput = {
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CarouselItemUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: CarouselItemUpdateManyInput;
+  /** Document search */
+  where: CarouselItemWhereInput;
+};
+
+export type CarouselItemUpdateOneInlineInput = {
+  /** Connect existing CarouselItem document */
+  connect?: InputMaybe<CarouselItemWhereUniqueInput>;
+  /** Create and connect one CarouselItem document */
+  create?: InputMaybe<CarouselItemCreateInput>;
+  /** Delete currently connected CarouselItem document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected CarouselItem document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single CarouselItem document */
+  update?: InputMaybe<CarouselItemUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single CarouselItem document */
+  upsert?: InputMaybe<CarouselItemUpsertWithNestedWhereUniqueInput>;
+};
+
+export type CarouselItemUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: CarouselItemUpdateInput;
+  /** Unique document search */
+  where: CarouselItemWhereUniqueInput;
+};
+
+export type CarouselItemUpsertInput = {
+  /** Create document if it didn't exist */
+  create: CarouselItemCreateInput;
+  /** Update document if it exists */
+  update: CarouselItemUpdateInput;
+};
+
+export type CarouselItemUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: CarouselItemUpsertInput;
+  /** Unique document search */
+  where: CarouselItemWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type CarouselItemWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Identifies documents */
+export type CarouselItemWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CarouselItemWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CarouselItemWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CarouselItemWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  buttonLabel?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLabel_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLabel_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLabel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLabel_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLabel_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLabel_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLabel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLabel_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLabel_starts_with?: InputMaybe<Scalars['String']['input']>;
+  buttonLink?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  buttonLink_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  buttonLink_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  buttonLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  buttonLink_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  buttonLink_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  buttonLink_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  buttonLink_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  buttonLink_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  buttonLink_starts_with?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<CarouselItemWhereStageInput>;
+  documentInStages_none?: InputMaybe<CarouselItemWhereStageInput>;
+  documentInStages_some?: InputMaybe<CarouselItemWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  image?: InputMaybe<AssetWhereInput>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  siteInfo?: InputMaybe<SiteInfoWhereInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type CarouselItemWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CarouselItemWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CarouselItemWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CarouselItemWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<CarouselItemWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References CarouselItem record uniquely */
+export type CarouselItemWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 /** Representing a color value comprising of HEX, RGBA and css color values */
@@ -1486,6 +2054,546 @@ export type ContentBlockWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
+/** Control the content of the cards displayed on the homepage */
+export type CtaCard = Entity & Node & {
+  __typename?: 'CtaCard';
+  /** The time the document was created */
+  createdAt: Scalars['DateTime']['output'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** The description of the CTA Card */
+  description: Scalars['String']['output'];
+  /** Get the document in other stages */
+  documentInStages: Array<CtaCard>;
+  /** List of CtaCard versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  /** The URL for the "Learn More" link */
+  link?: Maybe<Scalars['String']['output']>;
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  siteInfo?: Maybe<SiteInfo>;
+  /** System stage field */
+  stage: Stage;
+  /** The title of the CTA Card */
+  title: Scalars['String']['output'];
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime']['output'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+
+/** Control the content of the cards displayed on the homepage */
+export type CtaCardCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+/** Control the content of the cards displayed on the homepage */
+export type CtaCardDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean']['input'];
+  inheritLocale?: Scalars['Boolean']['input'];
+  stages?: Array<Stage>;
+};
+
+
+/** Control the content of the cards displayed on the homepage */
+export type CtaCardHistoryArgs = {
+  limit?: Scalars['Int']['input'];
+  skip?: Scalars['Int']['input'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+
+/** Control the content of the cards displayed on the homepage */
+export type CtaCardPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+/** Control the content of the cards displayed on the homepage */
+export type CtaCardScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+/** Control the content of the cards displayed on the homepage */
+export type CtaCardSiteInfoArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+
+/** Control the content of the cards displayed on the homepage */
+export type CtaCardUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type CtaCardConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: CtaCardWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type CtaCardConnection = {
+  __typename?: 'CtaCardConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<CtaCardEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type CtaCardCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  description: Scalars['String']['input'];
+  link?: InputMaybe<Scalars['String']['input']>;
+  siteInfo?: InputMaybe<SiteInfoCreateOneInlineInput>;
+  title: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type CtaCardCreateManyInlineInput = {
+  /** Connect multiple existing CtaCard documents */
+  connect?: InputMaybe<Array<CtaCardWhereUniqueInput>>;
+  /** Create and connect multiple existing CtaCard documents */
+  create?: InputMaybe<Array<CtaCardCreateInput>>;
+};
+
+export type CtaCardCreateOneInlineInput = {
+  /** Connect one existing CtaCard document */
+  connect?: InputMaybe<CtaCardWhereUniqueInput>;
+  /** Create and connect one CtaCard document */
+  create?: InputMaybe<CtaCardCreateInput>;
+};
+
+/** An edge in a connection. */
+export type CtaCardEdge = {
+  __typename?: 'CtaCardEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: CtaCard;
+};
+
+/** Identifies documents */
+export type CtaCardManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CtaCardWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CtaCardWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CtaCardWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  description_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  description_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  description_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  description_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  description_starts_with?: InputMaybe<Scalars['String']['input']>;
+  documentInStages_every?: InputMaybe<CtaCardWhereStageInput>;
+  documentInStages_none?: InputMaybe<CtaCardWhereStageInput>;
+  documentInStages_some?: InputMaybe<CtaCardWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  link_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  link_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  link_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  link_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  link_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  link_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  link_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  link_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  link_starts_with?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  siteInfo?: InputMaybe<SiteInfoWhereInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum CtaCardOrderByInput {
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  LinkAsc = 'link_ASC',
+  LinkDesc = 'link_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type CtaCardUpdateInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+  siteInfo?: InputMaybe<SiteInfoUpdateOneInlineInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CtaCardUpdateManyInlineInput = {
+  /** Connect multiple existing CtaCard documents */
+  connect?: InputMaybe<Array<CtaCardConnectInput>>;
+  /** Create and connect multiple CtaCard documents */
+  create?: InputMaybe<Array<CtaCardCreateInput>>;
+  /** Delete multiple CtaCard documents */
+  delete?: InputMaybe<Array<CtaCardWhereUniqueInput>>;
+  /** Disconnect multiple CtaCard documents */
+  disconnect?: InputMaybe<Array<CtaCardWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing CtaCard documents */
+  set?: InputMaybe<Array<CtaCardWhereUniqueInput>>;
+  /** Update multiple CtaCard documents */
+  update?: InputMaybe<Array<CtaCardUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple CtaCard documents */
+  upsert?: InputMaybe<Array<CtaCardUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type CtaCardUpdateManyInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CtaCardUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: CtaCardUpdateManyInput;
+  /** Document search */
+  where: CtaCardWhereInput;
+};
+
+export type CtaCardUpdateOneInlineInput = {
+  /** Connect existing CtaCard document */
+  connect?: InputMaybe<CtaCardWhereUniqueInput>;
+  /** Create and connect one CtaCard document */
+  create?: InputMaybe<CtaCardCreateInput>;
+  /** Delete currently connected CtaCard document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected CtaCard document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single CtaCard document */
+  update?: InputMaybe<CtaCardUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single CtaCard document */
+  upsert?: InputMaybe<CtaCardUpsertWithNestedWhereUniqueInput>;
+};
+
+export type CtaCardUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: CtaCardUpdateInput;
+  /** Unique document search */
+  where: CtaCardWhereUniqueInput;
+};
+
+export type CtaCardUpsertInput = {
+  /** Create document if it didn't exist */
+  create: CtaCardCreateInput;
+  /** Update document if it exists */
+  update: CtaCardUpdateInput;
+};
+
+export type CtaCardUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: CtaCardUpsertInput;
+  /** Unique document search */
+  where: CtaCardWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type CtaCardWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Identifies documents */
+export type CtaCardWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CtaCardWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CtaCardWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CtaCardWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  description_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  description_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  description_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  description_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  description_starts_with?: InputMaybe<Scalars['String']['input']>;
+  documentInStages_every?: InputMaybe<CtaCardWhereStageInput>;
+  documentInStages_none?: InputMaybe<CtaCardWhereStageInput>;
+  documentInStages_some?: InputMaybe<CtaCardWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  link_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  link_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  link_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  link_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  link_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  link_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  link_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  link_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  link_starts_with?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  siteInfo?: InputMaybe<SiteInfoWhereInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type CtaCardWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<CtaCardWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<CtaCardWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<CtaCardWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<CtaCardWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References CtaCard record uniquely */
+export type CtaCardWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export enum DocumentFileTypes {
   /** Automatically selects the best format for the image based on the browser's capabilities. */
   AutoImage = 'autoImage',
@@ -1545,8 +2653,11 @@ export type Entity = {
 export enum EntityTypeName {
   /** Asset system model */
   Asset = 'Asset',
+  CarouselItem = 'CarouselItem',
   /** This model describes the content blocks on the home page */
   ContentBlock = 'ContentBlock',
+  /** Control the content of the cards displayed on the homepage */
+  CtaCard = 'CtaCard',
   /** A Page */
   Page = 'Page',
   /** Scheduled Operation system model */
@@ -1694,8 +2805,12 @@ export type Mutation = {
   __typename?: 'Mutation';
   /** Create an asset. Use the returned info to finish the creation process by uploading the asset. */
   createAsset?: Maybe<Asset>;
+  /** Create one carouselItem */
+  createCarouselItem?: Maybe<CarouselItem>;
   /** Create one contentBlock */
   createContentBlock?: Maybe<ContentBlock>;
+  /** Create one ctaCard */
+  createCtaCard?: Maybe<CtaCard>;
   /** Create one page */
   createPage?: Maybe<Page>;
   /** Create one scheduledRelease */
@@ -1704,8 +2819,12 @@ export type Mutation = {
   createSiteInfo?: Maybe<SiteInfo>;
   /** Delete one asset from _all_ existing stages. Returns deleted document. */
   deleteAsset?: Maybe<Asset>;
+  /** Delete one carouselItem from _all_ existing stages. Returns deleted document. */
+  deleteCarouselItem?: Maybe<CarouselItem>;
   /** Delete one contentBlock from _all_ existing stages. Returns deleted document. */
   deleteContentBlock?: Maybe<ContentBlock>;
+  /** Delete one ctaCard from _all_ existing stages. Returns deleted document. */
+  deleteCtaCard?: Maybe<CtaCard>;
   /**
    * Delete many Asset documents
    * @deprecated Please use the new paginated many mutation (deleteManyAssetsConnection)
@@ -1714,12 +2833,26 @@ export type Mutation = {
   /** Delete many Asset documents, return deleted documents */
   deleteManyAssetsConnection: AssetConnection;
   /**
+   * Delete many CarouselItem documents
+   * @deprecated Please use the new paginated many mutation (deleteManyCarouselItemsConnection)
+   */
+  deleteManyCarouselItems: BatchPayload;
+  /** Delete many CarouselItem documents, return deleted documents */
+  deleteManyCarouselItemsConnection: CarouselItemConnection;
+  /**
    * Delete many ContentBlock documents
    * @deprecated Please use the new paginated many mutation (deleteManyContentBlocksConnection)
    */
   deleteManyContentBlocks: BatchPayload;
   /** Delete many ContentBlock documents, return deleted documents */
   deleteManyContentBlocksConnection: ContentBlockConnection;
+  /**
+   * Delete many CtaCard documents
+   * @deprecated Please use the new paginated many mutation (deleteManyCtaCardsConnection)
+   */
+  deleteManyCtaCards: BatchPayload;
+  /** Delete many CtaCard documents, return deleted documents */
+  deleteManyCtaCardsConnection: CtaCardConnection;
   /**
    * Delete many Page documents
    * @deprecated Please use the new paginated many mutation (deleteManyPagesConnection)
@@ -1744,8 +2877,12 @@ export type Mutation = {
   deleteSiteInfo?: Maybe<SiteInfo>;
   /** Publish one asset */
   publishAsset?: Maybe<Asset>;
+  /** Publish one carouselItem */
+  publishCarouselItem?: Maybe<CarouselItem>;
   /** Publish one contentBlock */
   publishContentBlock?: Maybe<ContentBlock>;
+  /** Publish one ctaCard */
+  publishCtaCard?: Maybe<CtaCard>;
   /**
    * Publish many Asset documents
    * @deprecated Please use the new paginated many mutation (publishManyAssetsConnection)
@@ -1754,12 +2891,26 @@ export type Mutation = {
   /** Publish many Asset documents */
   publishManyAssetsConnection: AssetConnection;
   /**
+   * Publish many CarouselItem documents
+   * @deprecated Please use the new paginated many mutation (publishManyCarouselItemsConnection)
+   */
+  publishManyCarouselItems: BatchPayload;
+  /** Publish many CarouselItem documents */
+  publishManyCarouselItemsConnection: CarouselItemConnection;
+  /**
    * Publish many ContentBlock documents
    * @deprecated Please use the new paginated many mutation (publishManyContentBlocksConnection)
    */
   publishManyContentBlocks: BatchPayload;
   /** Publish many ContentBlock documents */
   publishManyContentBlocksConnection: ContentBlockConnection;
+  /**
+   * Publish many CtaCard documents
+   * @deprecated Please use the new paginated many mutation (publishManyCtaCardsConnection)
+   */
+  publishManyCtaCards: BatchPayload;
+  /** Publish many CtaCard documents */
+  publishManyCtaCardsConnection: CtaCardConnection;
   /**
    * Publish many Page documents
    * @deprecated Please use the new paginated many mutation (publishManyPagesConnection)
@@ -1780,24 +2931,36 @@ export type Mutation = {
   publishSiteInfo?: Maybe<SiteInfo>;
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>;
+  /** Schedule to publish one carouselItem */
+  schedulePublishCarouselItem?: Maybe<CarouselItem>;
   /** Schedule to publish one contentBlock */
   schedulePublishContentBlock?: Maybe<ContentBlock>;
+  /** Schedule to publish one ctaCard */
+  schedulePublishCtaCard?: Maybe<CtaCard>;
   /** Schedule to publish one page */
   schedulePublishPage?: Maybe<Page>;
   /** Schedule to publish one siteInfo */
   schedulePublishSiteInfo?: Maybe<SiteInfo>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>;
+  /** Unpublish one carouselItem from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishCarouselItem?: Maybe<CarouselItem>;
   /** Unpublish one contentBlock from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishContentBlock?: Maybe<ContentBlock>;
+  /** Unpublish one ctaCard from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishCtaCard?: Maybe<CtaCard>;
   /** Unpublish one page from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishPage?: Maybe<Page>;
   /** Unpublish one siteInfo from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishSiteInfo?: Maybe<SiteInfo>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAsset?: Maybe<Asset>;
+  /** Unpublish one carouselItem from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishCarouselItem?: Maybe<CarouselItem>;
   /** Unpublish one contentBlock from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishContentBlock?: Maybe<ContentBlock>;
+  /** Unpublish one ctaCard from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishCtaCard?: Maybe<CtaCard>;
   /**
    * Unpublish many Asset documents
    * @deprecated Please use the new paginated many mutation (unpublishManyAssetsConnection)
@@ -1806,12 +2969,26 @@ export type Mutation = {
   /** Find many Asset documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyAssetsConnection: AssetConnection;
   /**
+   * Unpublish many CarouselItem documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyCarouselItemsConnection)
+   */
+  unpublishManyCarouselItems: BatchPayload;
+  /** Find many CarouselItem documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyCarouselItemsConnection: CarouselItemConnection;
+  /**
    * Unpublish many ContentBlock documents
    * @deprecated Please use the new paginated many mutation (unpublishManyContentBlocksConnection)
    */
   unpublishManyContentBlocks: BatchPayload;
   /** Find many ContentBlock documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyContentBlocksConnection: ContentBlockConnection;
+  /**
+   * Unpublish many CtaCard documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyCtaCardsConnection)
+   */
+  unpublishManyCtaCards: BatchPayload;
+  /** Find many CtaCard documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyCtaCardsConnection: CtaCardConnection;
   /**
    * Unpublish many Page documents
    * @deprecated Please use the new paginated many mutation (unpublishManyPagesConnection)
@@ -1832,8 +3009,12 @@ export type Mutation = {
   unpublishSiteInfo?: Maybe<SiteInfo>;
   /** Update one asset */
   updateAsset?: Maybe<Asset>;
+  /** Update one carouselItem */
+  updateCarouselItem?: Maybe<CarouselItem>;
   /** Update one contentBlock */
   updateContentBlock?: Maybe<ContentBlock>;
+  /** Update one ctaCard */
+  updateCtaCard?: Maybe<CtaCard>;
   /**
    * Update many assets
    * @deprecated Please use the new paginated many mutation (updateManyAssetsConnection)
@@ -1842,12 +3023,26 @@ export type Mutation = {
   /** Update many Asset documents */
   updateManyAssetsConnection: AssetConnection;
   /**
+   * Update many carouselItems
+   * @deprecated Please use the new paginated many mutation (updateManyCarouselItemsConnection)
+   */
+  updateManyCarouselItems: BatchPayload;
+  /** Update many CarouselItem documents */
+  updateManyCarouselItemsConnection: CarouselItemConnection;
+  /**
    * Update many contentBlocks
    * @deprecated Please use the new paginated many mutation (updateManyContentBlocksConnection)
    */
   updateManyContentBlocks: BatchPayload;
   /** Update many ContentBlock documents */
   updateManyContentBlocksConnection: ContentBlockConnection;
+  /**
+   * Update many ctaCards
+   * @deprecated Please use the new paginated many mutation (updateManyCtaCardsConnection)
+   */
+  updateManyCtaCards: BatchPayload;
+  /** Update many CtaCard documents */
+  updateManyCtaCardsConnection: CtaCardConnection;
   /**
    * Update many pages
    * @deprecated Please use the new paginated many mutation (updateManyPagesConnection)
@@ -1870,8 +3065,12 @@ export type Mutation = {
   updateSiteInfo?: Maybe<SiteInfo>;
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>;
+  /** Upsert one carouselItem */
+  upsertCarouselItem?: Maybe<CarouselItem>;
   /** Upsert one contentBlock */
   upsertContentBlock?: Maybe<ContentBlock>;
+  /** Upsert one ctaCard */
+  upsertCtaCard?: Maybe<CtaCard>;
   /** Upsert one page */
   upsertPage?: Maybe<Page>;
   /** Upsert one siteInfo */
@@ -1884,8 +3083,18 @@ export type MutationCreateAssetArgs = {
 };
 
 
+export type MutationCreateCarouselItemArgs = {
+  data: CarouselItemCreateInput;
+};
+
+
 export type MutationCreateContentBlockArgs = {
   data: ContentBlockCreateInput;
+};
+
+
+export type MutationCreateCtaCardArgs = {
+  data: CtaCardCreateInput;
 };
 
 
@@ -1909,8 +3118,18 @@ export type MutationDeleteAssetArgs = {
 };
 
 
+export type MutationDeleteCarouselItemArgs = {
+  where: CarouselItemWhereUniqueInput;
+};
+
+
 export type MutationDeleteContentBlockArgs = {
   where: ContentBlockWhereUniqueInput;
+};
+
+
+export type MutationDeleteCtaCardArgs = {
+  where: CtaCardWhereUniqueInput;
 };
 
 
@@ -1929,6 +3148,21 @@ export type MutationDeleteManyAssetsConnectionArgs = {
 };
 
 
+export type MutationDeleteManyCarouselItemsArgs = {
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
+export type MutationDeleteManyCarouselItemsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
 export type MutationDeleteManyContentBlocksArgs = {
   where?: InputMaybe<ContentBlockManyWhereInput>;
 };
@@ -1941,6 +3175,21 @@ export type MutationDeleteManyContentBlocksConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ContentBlockManyWhereInput>;
+};
+
+
+export type MutationDeleteManyCtaCardsArgs = {
+  where?: InputMaybe<CtaCardManyWhereInput>;
+};
+
+
+export type MutationDeleteManyCtaCardsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CtaCardManyWhereInput>;
 };
 
 
@@ -2003,9 +3252,21 @@ export type MutationPublishAssetArgs = {
 };
 
 
+export type MutationPublishCarouselItemArgs = {
+  to?: Array<Stage>;
+  where: CarouselItemWhereUniqueInput;
+};
+
+
 export type MutationPublishContentBlockArgs = {
   to?: Array<Stage>;
   where: ContentBlockWhereUniqueInput;
+};
+
+
+export type MutationPublishCtaCardArgs = {
+  to?: Array<Stage>;
+  where: CtaCardWhereUniqueInput;
 };
 
 
@@ -2033,6 +3294,24 @@ export type MutationPublishManyAssetsConnectionArgs = {
 };
 
 
+export type MutationPublishManyCarouselItemsArgs = {
+  to?: Array<Stage>;
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
+export type MutationPublishManyCarouselItemsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
 export type MutationPublishManyContentBlocksArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<ContentBlockManyWhereInput>;
@@ -2048,6 +3327,24 @@ export type MutationPublishManyContentBlocksConnectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   to?: Array<Stage>;
   where?: InputMaybe<ContentBlockManyWhereInput>;
+};
+
+
+export type MutationPublishManyCtaCardsArgs = {
+  to?: Array<Stage>;
+  where?: InputMaybe<CtaCardManyWhereInput>;
+};
+
+
+export type MutationPublishManyCtaCardsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<CtaCardManyWhereInput>;
 };
 
 
@@ -2110,11 +3407,27 @@ export type MutationSchedulePublishAssetArgs = {
 };
 
 
+export type MutationSchedulePublishCarouselItemArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  to?: Array<Stage>;
+  where: CarouselItemWhereUniqueInput;
+};
+
+
 export type MutationSchedulePublishContentBlockArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
   to?: Array<Stage>;
   where: ContentBlockWhereUniqueInput;
+};
+
+
+export type MutationSchedulePublishCtaCardArgs = {
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  to?: Array<Stage>;
+  where: CtaCardWhereUniqueInput;
 };
 
 
@@ -2144,11 +3457,27 @@ export type MutationScheduleUnpublishAssetArgs = {
 };
 
 
+export type MutationScheduleUnpublishCarouselItemArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  where: CarouselItemWhereUniqueInput;
+};
+
+
 export type MutationScheduleUnpublishContentBlockArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
   releaseId?: InputMaybe<Scalars['String']['input']>;
   where: ContentBlockWhereUniqueInput;
+};
+
+
+export type MutationScheduleUnpublishCtaCardArgs = {
+  from?: Array<Stage>;
+  releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseId?: InputMaybe<Scalars['String']['input']>;
+  where: CtaCardWhereUniqueInput;
 };
 
 
@@ -2176,9 +3505,21 @@ export type MutationUnpublishAssetArgs = {
 };
 
 
+export type MutationUnpublishCarouselItemArgs = {
+  from?: Array<Stage>;
+  where: CarouselItemWhereUniqueInput;
+};
+
+
 export type MutationUnpublishContentBlockArgs = {
   from?: Array<Stage>;
   where: ContentBlockWhereUniqueInput;
+};
+
+
+export type MutationUnpublishCtaCardArgs = {
+  from?: Array<Stage>;
+  where: CtaCardWhereUniqueInput;
 };
 
 
@@ -2204,6 +3545,24 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
 };
 
 
+export type MutationUnpublishManyCarouselItemsArgs = {
+  from?: Array<Stage>;
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyCarouselItemsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: InputMaybe<Stage>;
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
 export type MutationUnpublishManyContentBlocksArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<ContentBlockManyWhereInput>;
@@ -2219,6 +3578,24 @@ export type MutationUnpublishManyContentBlocksConnectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   stage?: InputMaybe<Stage>;
   where?: InputMaybe<ContentBlockManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyCtaCardsArgs = {
+  from?: Array<Stage>;
+  where?: InputMaybe<CtaCardManyWhereInput>;
+};
+
+
+export type MutationUnpublishManyCtaCardsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: InputMaybe<Stage>;
+  where?: InputMaybe<CtaCardManyWhereInput>;
 };
 
 
@@ -2276,9 +3653,21 @@ export type MutationUpdateAssetArgs = {
 };
 
 
+export type MutationUpdateCarouselItemArgs = {
+  data: CarouselItemUpdateInput;
+  where: CarouselItemWhereUniqueInput;
+};
+
+
 export type MutationUpdateContentBlockArgs = {
   data: ContentBlockUpdateInput;
   where: ContentBlockWhereUniqueInput;
+};
+
+
+export type MutationUpdateCtaCardArgs = {
+  data: CtaCardUpdateInput;
+  where: CtaCardWhereUniqueInput;
 };
 
 
@@ -2299,6 +3688,23 @@ export type MutationUpdateManyAssetsConnectionArgs = {
 };
 
 
+export type MutationUpdateManyCarouselItemsArgs = {
+  data: CarouselItemUpdateManyInput;
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
+export type MutationUpdateManyCarouselItemsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  data: CarouselItemUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CarouselItemManyWhereInput>;
+};
+
+
 export type MutationUpdateManyContentBlocksArgs = {
   data: ContentBlockUpdateManyInput;
   where?: InputMaybe<ContentBlockManyWhereInput>;
@@ -2313,6 +3719,23 @@ export type MutationUpdateManyContentBlocksConnectionArgs = {
   last?: InputMaybe<Scalars['Int']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ContentBlockManyWhereInput>;
+};
+
+
+export type MutationUpdateManyCtaCardsArgs = {
+  data: CtaCardUpdateManyInput;
+  where?: InputMaybe<CtaCardManyWhereInput>;
+};
+
+
+export type MutationUpdateManyCtaCardsConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']['input']>;
+  before?: InputMaybe<Scalars['ID']['input']>;
+  data: CtaCardUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CtaCardManyWhereInput>;
 };
 
 
@@ -2374,9 +3797,21 @@ export type MutationUpsertAssetArgs = {
 };
 
 
+export type MutationUpsertCarouselItemArgs = {
+  upsert: CarouselItemUpsertInput;
+  where: CarouselItemWhereUniqueInput;
+};
+
+
 export type MutationUpsertContentBlockArgs = {
   upsert: ContentBlockUpsertInput;
   where: ContentBlockWhereUniqueInput;
+};
+
+
+export type MutationUpsertCtaCardArgs = {
+  upsert: CtaCardUpsertInput;
+  where: CtaCardWhereUniqueInput;
 };
 
 
@@ -3080,6 +4515,14 @@ export type Query = {
   assets: Array<Asset>;
   /** Retrieve multiple assets using the Relay connection interface */
   assetsConnection: AssetConnection;
+  /** Retrieve a single carouselItem */
+  carouselItem?: Maybe<CarouselItem>;
+  /** Retrieve document version */
+  carouselItemVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple carouselItems */
+  carouselItems: Array<CarouselItem>;
+  /** Retrieve multiple carouselItems using the Relay connection interface */
+  carouselItemsConnection: CarouselItemConnection;
   /** Retrieve a single contentBlock */
   contentBlock?: Maybe<ContentBlock>;
   /** Retrieve document version */
@@ -3088,6 +4531,14 @@ export type Query = {
   contentBlocks: Array<ContentBlock>;
   /** Retrieve multiple contentBlocks using the Relay connection interface */
   contentBlocksConnection: ContentBlockConnection;
+  /** Retrieve a single ctaCard */
+  ctaCard?: Maybe<CtaCard>;
+  /** Retrieve document version */
+  ctaCardVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple ctaCards */
+  ctaCards: Array<CtaCard>;
+  /** Retrieve multiple ctaCards using the Relay connection interface */
+  ctaCardsConnection: CtaCardConnection;
   /** Fetches an object given its ID */
   entities?: Maybe<Array<Entity>>;
   /** Fetches an object given its ID */
@@ -3167,6 +4618,44 @@ export type QueryAssetsConnectionArgs = {
 };
 
 
+export type QueryCarouselItemArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: CarouselItemWhereUniqueInput;
+};
+
+
+export type QueryCarouselItemVersionArgs = {
+  where: VersionWhereInput;
+};
+
+
+export type QueryCarouselItemsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<CarouselItemOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<CarouselItemWhereInput>;
+};
+
+
+export type QueryCarouselItemsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<CarouselItemOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<CarouselItemWhereInput>;
+};
+
+
 export type QueryContentBlockArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
@@ -3202,6 +4691,44 @@ export type QueryContentBlocksConnectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   stage?: Stage;
   where?: InputMaybe<ContentBlockWhereInput>;
+};
+
+
+export type QueryCtaCardArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: CtaCardWhereUniqueInput;
+};
+
+
+export type QueryCtaCardVersionArgs = {
+  where: VersionWhereInput;
+};
+
+
+export type QueryCtaCardsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<CtaCardOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<CtaCardWhereInput>;
+};
+
+
+export type QueryCtaCardsConnectionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<CtaCardOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  stage?: Stage;
+  where?: InputMaybe<CtaCardWhereInput>;
 };
 
 
@@ -3504,7 +5031,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | ContentBlock | Page | SiteInfo;
+export type ScheduledOperationAffectedDocument = Asset | CarouselItem | ContentBlock | CtaCard | Page | SiteInfo;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -4440,11 +5967,14 @@ export type ScheduledReleaseWhereUniqueInput = {
 /** General Site Info */
 export type SiteInfo = Entity & Node & {
   __typename?: 'SiteInfo';
+  carouselItems: Array<CarouselItem>;
   contentBlocks: Array<ContentBlock>;
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
   /** User that created this document */
   createdBy?: Maybe<User>;
+  /** Control which CTA Cards are shown on the home page. A maximum of three (3) will be displayed */
+  ctaCards: Array<CtaCard>;
   /** Get the document in other stages */
   documentInStages: Array<SiteInfo>;
   /** The footer section's copyright line */
@@ -4474,6 +6004,20 @@ export type SiteInfo = Entity & Node & {
 
 
 /** General Site Info */
+export type SiteInfoCarouselItemsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<CarouselItemOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CarouselItemWhereInput>;
+};
+
+
+/** General Site Info */
 export type SiteInfoContentBlocksArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
@@ -4491,6 +6035,20 @@ export type SiteInfoContentBlocksArgs = {
 export type SiteInfoCreatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
   locales?: InputMaybe<Array<Locale>>;
+};
+
+
+/** General Site Info */
+export type SiteInfoCtaCardsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<CtaCardOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CtaCardWhereInput>;
 };
 
 
@@ -4562,8 +6120,10 @@ export type SiteInfoConnection = {
 };
 
 export type SiteInfoCreateInput = {
+  carouselItems?: InputMaybe<CarouselItemCreateManyInlineInput>;
   contentBlocks?: InputMaybe<ContentBlockCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  ctaCards?: InputMaybe<CtaCardCreateManyInlineInput>;
   footerCopyright: Scalars['String']['input'];
   footerTitle: Scalars['String']['input'];
   homePageQuote?: InputMaybe<Scalars['String']['input']>;
@@ -4604,6 +6164,9 @@ export type SiteInfoManyWhereInput = {
   OR?: InputMaybe<Array<SiteInfoWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  carouselItems_every?: InputMaybe<CarouselItemWhereInput>;
+  carouselItems_none?: InputMaybe<CarouselItemWhereInput>;
+  carouselItems_some?: InputMaybe<CarouselItemWhereInput>;
   contentBlocks_every?: InputMaybe<ContentBlockWhereInput>;
   contentBlocks_none?: InputMaybe<ContentBlockWhereInput>;
   contentBlocks_some?: InputMaybe<ContentBlockWhereInput>;
@@ -4623,6 +6186,9 @@ export type SiteInfoManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  ctaCards_every?: InputMaybe<CtaCardWhereInput>;
+  ctaCards_none?: InputMaybe<CtaCardWhereInput>;
+  ctaCards_some?: InputMaybe<CtaCardWhereInput>;
   documentInStages_every?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_none?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_some?: InputMaybe<SiteInfoWhereStageInput>;
@@ -4758,7 +6324,9 @@ export enum SiteInfoOrderByInput {
 }
 
 export type SiteInfoUpdateInput = {
+  carouselItems?: InputMaybe<CarouselItemUpdateManyInlineInput>;
   contentBlocks?: InputMaybe<ContentBlockUpdateManyInlineInput>;
+  ctaCards?: InputMaybe<CtaCardUpdateManyInlineInput>;
   footerCopyright?: InputMaybe<Scalars['String']['input']>;
   footerTitle?: InputMaybe<Scalars['String']['input']>;
   homePageQuote?: InputMaybe<Scalars['String']['input']>;
@@ -4847,6 +6415,9 @@ export type SiteInfoWhereInput = {
   OR?: InputMaybe<Array<SiteInfoWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']['input']>;
+  carouselItems_every?: InputMaybe<CarouselItemWhereInput>;
+  carouselItems_none?: InputMaybe<CarouselItemWhereInput>;
+  carouselItems_some?: InputMaybe<CarouselItemWhereInput>;
   contentBlocks_every?: InputMaybe<ContentBlockWhereInput>;
   contentBlocks_none?: InputMaybe<ContentBlockWhereInput>;
   contentBlocks_some?: InputMaybe<ContentBlockWhereInput>;
@@ -4866,6 +6437,9 @@ export type SiteInfoWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  ctaCards_every?: InputMaybe<CtaCardWhereInput>;
+  ctaCards_none?: InputMaybe<CtaCardWhereInput>;
+  ctaCards_some?: InputMaybe<CtaCardWhereInput>;
   documentInStages_every?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_none?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_some?: InputMaybe<SiteInfoWhereStageInput>;
@@ -5530,9 +7104,9 @@ export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', up
 export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomePageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', videoEmbeds: Array<string>, masthead?: { __typename?: 'Asset', id: string, url: string, handle: string, fileName: string } | null } | null, siteInfo?: { __typename?: 'SiteInfo', homePageQuote?: string | null, homePageQuoteImage?: { __typename?: 'Asset', id: string, fileName: string, url: string } | null, contentBlocks: Array<{ __typename?: 'ContentBlock', icon?: Icons | null, iconsize?: number | null, title: string, linkLabel: string, url: string }> } | null, pages: Array<{ __typename?: 'Page', page?: PageType | null, title?: string | null, subtitle?: string | null, shortDescription?: string | null, previewImage?: { __typename?: 'Asset', url: string, fileName: string } | null }> };
+export type HomePageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', videoEmbeds: Array<string>, masthead?: { __typename?: 'Asset', id: string, url: string, handle: string, fileName: string } | null } | null, siteInfo?: { __typename?: 'SiteInfo', homePageQuote?: string | null, homePageQuoteImage?: { __typename?: 'Asset', id: string, fileName: string, url: string } | null, contentBlocks: Array<{ __typename?: 'ContentBlock', icon?: Icons | null, iconsize?: number | null, title: string, linkLabel: string, url: string }>, carouselItems: Array<{ __typename?: 'CarouselItem', id: string, title: string, buttonLabel: string, buttonLink: string, image: { __typename?: 'Asset', id: string, fileName: string, url: string } }>, ctaCards: Array<{ __typename?: 'CtaCard', id: string, title: string, description: string, link?: string | null }> } | null, pages: Array<{ __typename?: 'Page', page?: PageType | null, title?: string | null, subtitle?: string | null, shortDescription?: string | null, previewImage?: { __typename?: 'Asset', url: string, fileName: string } | null }> };
 
 
 export const FooterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Footer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"footerTitle"}},{"kind":"Field","name":{"kind":"Name","value":"footerCopyright"}}]}}]}}]} as unknown as DocumentNode<FooterQuery, FooterQueryVariables>;
 export const PageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Page"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PageType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}},{"kind":"Field","name":{"kind":"Name","value":"pageTemplate"}},{"kind":"Field","name":{"kind":"Name","value":"pageContent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]} as unknown as DocumentNode<PageQuery, PageQueryVariables>;
-export const HomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"EnumValue","value":"Home"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}}]}},{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePageQuote"}},{"kind":"Field","name":{"kind":"Name","value":"homePageQuoteImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"iconsize"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"linkLabel"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"pages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page_in"},"value":{"kind":"ListValue","values":[{"kind":"EnumValue","value":"Children_Classes"},{"kind":"EnumValue","value":"Adult_Classes"},{"kind":"EnumValue","value":"Private_Sessions"}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"previewImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;
+export const HomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"EnumValue","value":"Home"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}}]}},{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePageQuote"}},{"kind":"Field","name":{"kind":"Name","value":"homePageQuoteImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"iconsize"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"linkLabel"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"carouselItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"buttonLabel"}},{"kind":"Field","name":{"kind":"Name","value":"buttonLink"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ctaCards"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"3"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"pages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page_in"},"value":{"kind":"ListValue","values":[{"kind":"EnumValue","value":"Children_Classes"},{"kind":"EnumValue","value":"Adult_Classes"},{"kind":"EnumValue","value":"Private_Sessions"}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"previewImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;
