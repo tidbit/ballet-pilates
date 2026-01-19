@@ -41,6 +41,10 @@ export function EmitDomContentLoadedOnNav() {
       setTimeout(() => {
         window.document.dispatchEvent(domContentLoadedEvent);
       }, 120);
+    } else {
+      setTimeout(() => {
+        emit();
+      }, 240);
     }
   };
 
