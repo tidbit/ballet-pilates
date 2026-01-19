@@ -1,4 +1,4 @@
-import { ClientOnly, useRouter, useRouterState } from "@tanstack/react-router";
+import { ClientOnly, useRouterState } from "@tanstack/react-router";
 import { ReactNode, useEffect, useState } from "react";
 
 type RenderOnLoadProps = {
@@ -27,12 +27,14 @@ export function EmitDomContentLoadedOnNav() {
     if (!isLoading) {
       console.log("Loaded -- emit");
       emit();
+      setTimeout(() => window.instgrm?.Embeds?.process(), 60);
     }
   }, [location, isLoading]);
 
   const emit = () => {
     setTimeout(() => {
       const widgets = window.document.querySelectorAll(".mindbody-widget");
+      console.log({ widgets });
       if (widgets.length > 0) {
         const domContentLoadedEvent = new Event("DOMContentLoaded", {
           bubbles: true,
@@ -40,6 +42,8 @@ export function EmitDomContentLoadedOnNav() {
         });
 
         window.document.dispatchEvent(domContentLoadedEvent);
+      } else {
+        emit();
       }
     }, 360);
   };
