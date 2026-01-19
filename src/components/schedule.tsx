@@ -51,36 +51,30 @@ export function EmitDomContentLoadedOnNav() {
 
 export function Schedule() {
   return (
-    <ClientOnly>
-      <div
-        className="mindbody-widget"
-        data-widget-type="Schedules"
-        data-widget-id="9731261000e"
-      />
-    </ClientOnly>
+    <div
+      className="mindbody-widget"
+      data-widget-type="Schedules"
+      data-widget-id="9731261000e"
+    />
   );
 }
 
 export function Adults() {
   return (
-    <ClientOnly>
-      <div
-        className="mindbody-widget"
-        data-widget-type="Schedules"
-        data-widget-id="9732984000e"
-      />
-    </ClientOnly>
+    <div
+      className="mindbody-widget"
+      data-widget-type="Schedules"
+      data-widget-id="9732984000e"
+    />
   );
 }
 
 export function Childrens() {
   return (
-    <ClientOnly>
-      <div
-        className="mindbody-widget"
-        data-widget-type="Schedules"
-        data-widget-id="9732981000e"
-      />
-    </ClientOnly>
+    <div
+      className="mindbody-widget"
+      data-widget-type="Schedules"
+      data-widget-id="9732981000e"
+    />
   );
 }
