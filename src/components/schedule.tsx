@@ -1,4 +1,4 @@
-import { useRouter, useRouterState } from "@tanstack/react-router";
+import { ClientOnly, useRouter, useRouterState } from "@tanstack/react-router";
 import { ReactNode, useEffect, useState } from "react";
 
 type RenderOnLoadProps = {
@@ -49,30 +49,36 @@ export function EmitDomContentLoadedOnNav() {
 
 export function Schedule() {
   return (
-    <div
-      className="mindbody-widget"
-      data-widget-type="Schedules"
-      data-widget-id="9731261000e"
-    />
+    <ClientOnly>
+      <div
+        className="mindbody-widget"
+        data-widget-type="Schedules"
+        data-widget-id="9731261000e"
+      />
+    </ClientOnly>
   );
 }
 
 export function Adults() {
   return (
-    <div
-      className="mindbody-widget"
-      data-widget-type="Schedules"
-      data-widget-id="9732984000e"
-    />
+    <ClientOnly>
+      <div
+        className="mindbody-widget"
+        data-widget-type="Schedules"
+        data-widget-id="9732984000e"
+      />
+    </ClientOnly>
   );
 }
 
 export function Childrens() {
   return (
-    <div
-      className="mindbody-widget"
-      data-widget-type="Schedules"
-      data-widget-id="9732981000e"
-    />
+    <ClientOnly>
+      <div
+        className="mindbody-widget"
+        data-widget-type="Schedules"
+        data-widget-id="9732981000e"
+      />
+    </ClientOnly>
   );
 }
