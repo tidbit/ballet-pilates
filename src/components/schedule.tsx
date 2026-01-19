@@ -40,7 +40,7 @@ export function EmitDomContentLoadedOnNav() {
 
       setTimeout(() => {
         window.document.dispatchEvent(domContentLoadedEvent);
-      }, 60);
+      }, 120);
     }
   };
 
