@@ -5977,6 +5977,7 @@ export type SiteInfo = Entity & Node & {
   ctaCards: Array<CtaCard>;
   /** Get the document in other stages */
   documentInStages: Array<SiteInfo>;
+  email?: Maybe<Scalars['String']['output']>;
   /** The footer section's copyright line */
   footerCopyright: Scalars['String']['output'];
   /** The title for the footer */
@@ -5989,6 +5990,8 @@ export type SiteInfo = Entity & Node & {
   homePageQuoteImage?: Maybe<Asset>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
+  /** The phone number of the studio */
+  phoneNumber?: Maybe<Scalars['String']['output']>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   /** User that last published this document */
@@ -6124,10 +6127,12 @@ export type SiteInfoCreateInput = {
   contentBlocks?: InputMaybe<ContentBlockCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   ctaCards?: InputMaybe<CtaCardCreateManyInlineInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
   footerCopyright: Scalars['String']['input'];
   footerTitle: Scalars['String']['input'];
   homePageQuote?: InputMaybe<Scalars['String']['input']>;
   homePageQuoteImage?: InputMaybe<AssetCreateOneInlineInput>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -6192,6 +6197,25 @@ export type SiteInfoManyWhereInput = {
   documentInStages_every?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_none?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_some?: InputMaybe<SiteInfoWhereStageInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  email_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  email_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  email_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  email_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  email_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  email_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  email_starts_with?: InputMaybe<Scalars['String']['input']>;
   footerCopyright?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   footerCopyright_contains?: InputMaybe<Scalars['String']['input']>;
@@ -6269,6 +6293,25 @@ export type SiteInfoManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  phoneNumber_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  phoneNumber_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  phoneNumber_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  phoneNumber_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  phoneNumber_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  phoneNumber_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  phoneNumber_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  phoneNumber_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  phoneNumber_starts_with?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -6309,6 +6352,8 @@ export type SiteInfoManyWhereInput = {
 export enum SiteInfoOrderByInput {
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
+  EmailAsc = 'email_ASC',
+  EmailDesc = 'email_DESC',
   FooterCopyrightAsc = 'footerCopyright_ASC',
   FooterCopyrightDesc = 'footerCopyright_DESC',
   FooterTitleAsc = 'footerTitle_ASC',
@@ -6317,6 +6362,8 @@ export enum SiteInfoOrderByInput {
   HomePageQuoteDesc = 'homePageQuote_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  PhoneNumberAsc = 'phoneNumber_ASC',
+  PhoneNumberDesc = 'phoneNumber_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
@@ -6327,10 +6374,12 @@ export type SiteInfoUpdateInput = {
   carouselItems?: InputMaybe<CarouselItemUpdateManyInlineInput>;
   contentBlocks?: InputMaybe<ContentBlockUpdateManyInlineInput>;
   ctaCards?: InputMaybe<CtaCardUpdateManyInlineInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
   footerCopyright?: InputMaybe<Scalars['String']['input']>;
   footerTitle?: InputMaybe<Scalars['String']['input']>;
   homePageQuote?: InputMaybe<Scalars['String']['input']>;
   homePageQuoteImage?: InputMaybe<AssetUpdateOneInlineInput>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SiteInfoUpdateManyInlineInput = {
@@ -6351,9 +6400,11 @@ export type SiteInfoUpdateManyInlineInput = {
 };
 
 export type SiteInfoUpdateManyInput = {
+  email?: InputMaybe<Scalars['String']['input']>;
   footerCopyright?: InputMaybe<Scalars['String']['input']>;
   footerTitle?: InputMaybe<Scalars['String']['input']>;
   homePageQuote?: InputMaybe<Scalars['String']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SiteInfoUpdateManyWithNestedWhereInput = {
@@ -6443,6 +6494,25 @@ export type SiteInfoWhereInput = {
   documentInStages_every?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_none?: InputMaybe<SiteInfoWhereStageInput>;
   documentInStages_some?: InputMaybe<SiteInfoWhereStageInput>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  email_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  email_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  email_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  email_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  email_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  email_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  email_starts_with?: InputMaybe<Scalars['String']['input']>;
   footerCopyright?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   footerCopyright_contains?: InputMaybe<Scalars['String']['input']>;
@@ -6520,6 +6590,25 @@ export type SiteInfoWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  phoneNumber_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  phoneNumber_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  phoneNumber_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  phoneNumber_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  phoneNumber_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  phoneNumber_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  phoneNumber_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  phoneNumber_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  phoneNumber_starts_with?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -7092,7 +7181,7 @@ export enum _SystemDateTimeFieldVariation {
 export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterQuery = { __typename?: 'Query', siteInfo?: { __typename?: 'SiteInfo', footerTitle: string, footerCopyright: string } | null };
+export type FooterQuery = { __typename?: 'Query', siteInfo?: { __typename?: 'SiteInfo', footerTitle: string, footerCopyright: string, phoneNumber?: string | null, email?: string | null } | null };
 
 export type PageQueryVariables = Exact<{
   page?: InputMaybe<PageType>;
@@ -7107,6 +7196,6 @@ export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 export type HomePageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', videoEmbeds: Array<string>, masthead?: { __typename?: 'Asset', id: string, url: string, handle: string, fileName: string } | null } | null, siteInfo?: { __typename?: 'SiteInfo', homePageQuote?: string | null, homePageQuoteImage?: { __typename?: 'Asset', id: string, fileName: string, url: string } | null, contentBlocks: Array<{ __typename?: 'ContentBlock', icon?: Icons | null, iconsize?: number | null, title: string, linkLabel: string, url: string }>, carouselItems: Array<{ __typename?: 'CarouselItem', id: string, title: string, buttonLabel: string, buttonLink: string, image: { __typename?: 'Asset', id: string, fileName: string, url: string } }>, ctaCards: Array<{ __typename?: 'CtaCard', id: string, title: string, description: string, link?: string | null }> } | null, pages: Array<{ __typename?: 'Page', page?: PageType | null, title?: string | null, subtitle?: string | null, shortDescription?: string | null, previewImage?: { __typename?: 'Asset', url: string, fileName: string } | null }> };
 
 
-export const FooterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Footer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"footerTitle"}},{"kind":"Field","name":{"kind":"Name","value":"footerCopyright"}}]}}]}}]} as unknown as DocumentNode<FooterQuery, FooterQueryVariables>;
+export const FooterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Footer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"footerTitle"}},{"kind":"Field","name":{"kind":"Name","value":"footerCopyright"}},{"kind":"Field","name":{"kind":"Name","value":"phoneNumber"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]} as unknown as DocumentNode<FooterQuery, FooterQueryVariables>;
 export const PageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Page"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PageType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}},{"kind":"Field","name":{"kind":"Name","value":"pageTemplate"}},{"kind":"Field","name":{"kind":"Name","value":"pageContent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]} as unknown as DocumentNode<PageQuery, PageQueryVariables>;
 export const HomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"EnumValue","value":"Home"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"masthead"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"videoEmbeds"}}]}},{"kind":"Field","name":{"kind":"Name","value":"siteInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"cj97sbb83hzqw0128cva2wlrd","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePageQuote"}},{"kind":"Field","name":{"kind":"Name","value":"homePageQuoteImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"iconsize"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"linkLabel"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"carouselItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"buttonLabel"}},{"kind":"Field","name":{"kind":"Name","value":"buttonLink"}}]}},{"kind":"Field","name":{"kind":"Name","value":"ctaCards"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"3"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"pages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page_in"},"value":{"kind":"ListValue","values":[{"kind":"EnumValue","value":"Children_Classes"},{"kind":"EnumValue","value":"Adult_Classes"},{"kind":"EnumValue","value":"Private_Sessions"}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"shortDescription"}},{"kind":"Field","name":{"kind":"Name","value":"previewImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"fileName"}}]}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;
