@@ -17,6 +17,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import appCss from "@/styles.css?url";
 import { seo } from "@/utils/seo";
+import { EmitDomContentLoadedOnNav } from "@/components/schedule";
 
 let titlePrefix = ``;
 
@@ -84,6 +85,7 @@ function RootComponent() {
       disableTransitionOnChange={false}
     >
       <Outlet />
+      <EmitDomContentLoadedOnNav />
     </ThemeProvider>
   );
 }
