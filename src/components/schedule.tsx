@@ -1,4 +1,4 @@
-import { ClientOnly, useRouterState } from "@tanstack/react-router";
+import { useRouterState } from "@tanstack/react-router";
 import { ReactNode, useEffect, useState } from "react";
 
 type RenderOnLoadProps = {
@@ -43,7 +43,7 @@ export function EmitDomContentLoadedOnNav() {
 
         window.document.dispatchEvent(domContentLoadedEvent);
       }
-    }, 1000);
+    }, 750);
   };
 
   return null;
