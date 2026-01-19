@@ -45,7 +45,10 @@ function RouteComponent() {
     queryFn: () => CMSRequest<PageQuery>(pageQueryDocument, { page }),
   });
 
-  console.log({ _splat, page, data });
+  if (import.meta.env.DEV) {
+    console.log({ _splat, page, data });
+  }
+
   return _splat && data?.page?.pageTemplate === "fullWidth" ? (
     <TemplateFullWidth data={data.page} slug={_splat} />
   ) : (

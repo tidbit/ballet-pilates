@@ -12,7 +12,6 @@ export function RenderOnLoad({ children, callback }: RenderOnLoadProps) {
 
   useEffect(() => {
     if (show && callback) {
-      console.log({ show });
       callback();
     }
   }, [show]);

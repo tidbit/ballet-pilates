@@ -5,7 +5,9 @@ type PageProps = {
   data: PageQuery["page"];
 };
 export function Page({ data }: PageProps) {
-  console.log({ data });
+  if (import.meta.env.DEV) {
+    console.log({ data });
+  }
   return (
     <main className="pt-4 pb-10 space-y-6">
       {(data?.title || data?.subtitle) && (

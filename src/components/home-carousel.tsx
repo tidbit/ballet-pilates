@@ -24,7 +24,6 @@ type HomeCarouselProps = {
   items: HomeCarouselItem[];
 };
 export function HomeCarousel({ items }: HomeCarouselProps) {
-  console.log({ items });
   const [show, setShow] = useState(false);
 
   return (
@@ -45,15 +44,6 @@ export function HomeCarousel({ items }: HomeCarouselProps) {
 
         const showPrev = show && (rect ? rect.left === 0 : false);
         const showNext = show && (rect ? rect.left === rect.width : false);
-
-        console.log({
-          rect,
-          showPrev,
-          showNext,
-          i,
-          id: item.id,
-        });
-
         const handleClick = () => setShow(false);
 
         return (

@@ -9,11 +9,13 @@ type PageProps = {
 };
 
 const pageMap = {
-  schedule: (props: PageProps) => <Schedule />,
+  schedule: () => <Schedule />,
   pricing: (props: PageProps) => <Page data={props.data} />,
 };
 export function TemplateFullWidth({ data, slug }: PageProps) {
-  console.log({ data, slug, p: pageMap[slug as keyof typeof pageMap] });
+  if (import.meta.env.DEV) {
+    console.log({ data, slug, p: pageMap[slug as keyof typeof pageMap] });
+  }
   const Comp = pageMap[slug as keyof typeof pageMap];
   return Comp ? (
     <div className="container mx-auto min-h-60 px-6 md:px-8 py-8 grid grid-cols-1">
