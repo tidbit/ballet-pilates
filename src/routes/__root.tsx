@@ -64,7 +64,16 @@ export const Route = createRootRouteWithContext<{
       { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
       { rel: "icon", href: "/favicon.ico" },
     ],
-    scripts: [],
+    scripts: [
+      {
+        src: "//www.instagram.com/embed.js",
+        async: true,
+      },
+      {
+        src: "https://brandedweb.mindbodyonline.com/embed/widget.js",
+        async: true,
+      },
+    ],
   }),
   errorComponent: (props) => {
     return (

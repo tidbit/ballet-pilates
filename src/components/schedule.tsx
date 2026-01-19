@@ -1,42 +1,84 @@
+import { ReactNode, useEffect, useState } from "react";
+
+type RenderOnLoadProps = {
+  children: ReactNode;
+  callback?: () => void;
+};
+export function RenderOnLoad({ children, callback }: RenderOnLoadProps) {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
+  useEffect(() => {
+    if (show && callback) {
+      console.log({ show });
+      callback();
+    }
+  }, [show]);
+
+  return show ? children : null;
+}
+
 export function Schedule() {
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `<!-- Mindbody Schedules widget begin -->
-<div class="mindbody-widget" data-widget-type="Schedules" data-widget-id="9731261000e"></div>
-<script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
-<!-- Mindbody Schedules widget end -->
-`,
+    <RenderOnLoad
+      callback={() => {
+        const domContentLoadedEvent = new Event("DOMContentLoaded", {
+          bubbles: true,
+          cancelable: false,
+        });
+
+        window?.document?.dispatchEvent(domContentLoadedEvent);
       }}
-    />
+    >
+      <div
+        className="mindbody-widget"
+        data-widget-type="Schedules"
+        data-widget-id="9731261000e"
+      />
+    </RenderOnLoad>
   );
 }
 
 export function Adults() {
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `<!-- Mindbody Schedules widget begin -->
-<!-- Mindbody Schedules widget begin -->
-<div class="mindbody-widget" data-widget-type="Schedules" data-widget-id="9732984000e"></div>
-<script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
-<!-- Mindbody Schedules widget end -->
-`,
+    <RenderOnLoad
+      callback={() => {
+        const domContentLoadedEvent = new Event("DOMContentLoaded", {
+          bubbles: true,
+          cancelable: false,
+        });
+
+        window?.document?.dispatchEvent(domContentLoadedEvent);
       }}
-    />
+    >
+      <div
+        className="mindbody-widget"
+        data-widget-type="Schedules"
+        data-widget-id="9732984000e"
+      />
+    </RenderOnLoad>
   );
 }
 
 export function Childrens() {
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `<!-- Mindbody Schedules widget begin -->
-<div class="mindbody-widget" data-widget-type="Schedules" data-widget-id="9732981000e"></div>
-<script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
-<!-- Mindbody Schedules widget end -->
-`,
+    <RenderOnLoad
+      callback={() => {
+        const domContentLoadedEvent = new Event("DOMContentLoaded", {
+          bubbles: true,
+          cancelable: false,
+        });
+
+        window?.document?.dispatchEvent(domContentLoadedEvent);
       }}
-    />
+    >
+      <div
+        className="mindbody-widget"
+        data-widget-type="Schedules"
+        data-widget-id="9732981000e"
+      />
+    </RenderOnLoad>
   );
 }
