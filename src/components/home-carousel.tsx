@@ -5,11 +5,6 @@ import { CarouselItem as CMSCarouselItem } from "@/gql/graphql";
 import { useRef, useState } from "react";
 import { useAnimationFrame } from "motion/react";
 
-function HomeCarouselItem(props: React.ComponentProps<"div">) {
-  const { children } = props;
-  return <CarouselItem className="w-1/2">{children}</CarouselItem>;
-}
-
 type HomeCarouselItem = Pick<
   CMSCarouselItem,
   "id" | "title" | "buttonLabel" | "buttonLink"

@@ -72,20 +72,19 @@ export const Route = createRootRouteWithContext<{
   },
   notFoundComponent: () => <NotFound />,
   component: RootComponent,
+  shellComponent: RootDocument,
 });
 
 function RootComponent() {
   return (
-    <RootDocument>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange={false}
-      >
-        <Outlet />
-      </ThemeProvider>
-    </RootDocument>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange={false}
+    >
+      <Outlet />
+    </ThemeProvider>
   );
 }
 

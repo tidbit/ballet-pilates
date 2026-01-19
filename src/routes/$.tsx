@@ -6,6 +6,7 @@ import { graphql } from "@/gql/gql";
 import { PageQuery } from "@/gql/graphql";
 import { TemplateDefault } from "@/components/template-default";
 import { definedRoutes } from "@/consts";
+import { NotFound } from "@/components/not-found";
 
 export const Route = createFileRoute("/$")({
   loader: ({ params }) => {
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/$")({
     }
   },
   component: RouteComponent,
+  notFoundComponent: () => <NotFound />,
 });
 
 const pageQueryDocument = graphql(`
