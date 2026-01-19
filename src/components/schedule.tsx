@@ -33,27 +33,30 @@ export function EmitDomContentLoadedOnNav() {
 
   const emit = () => {
     let count = 0;
-    let delay = 360;
+    let maxCount = 5;
+    let delay = 500;
 
     const doIt = () => {
-      count += 1;
-      if (count <= 5) {
-        setTimeout(() => {
-          const widgets = window.document.querySelectorAll(".mindbody-widget");
-          console.log({ widgets });
-          if (widgets.length > 0) {
-            const domContentLoadedEvent = new Event("DOMContentLoaded", {
-              bubbles: true,
-              cancelable: false,
-            });
+      if (count <= maxCount) {
+        const widgets = window.document.querySelectorAll(".mindbody-widget");
+        console.log({ widgets });
+        if (widgets.length > 0) {
+          const domContentLoadedEvent = new Event("DOMContentLoaded", {
+            bubbles: true,
+            cancelable: false,
+          });
 
-            window.document.dispatchEvent(domContentLoadedEvent);
-          } else {
+          window.document.dispatchEvent(domContentLoadedEvent);
+        } else {
+          count += 1;
+          setTimeout(() => {
             doIt();
-          }
-        }, delay);
+          }, delay);
+        }
       }
     };
+
+    doIt();
   };
 
   return null;
