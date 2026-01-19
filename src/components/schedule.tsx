@@ -42,10 +42,8 @@ export function EmitDomContentLoadedOnNav() {
         });
 
         window.document.dispatchEvent(domContentLoadedEvent);
-      } else {
-        emit();
       }
-    }, 360);
+    }, 1000);
   };
 
   return null;
