@@ -31,21 +31,17 @@ export function EmitDomContentLoadedOnNav() {
   }, [location, isLoading]);
 
   const emit = () => {
-    const widgets = window.document.querySelectorAll(".mindbody-widget");
-    if (widgets.length > 0) {
-      const domContentLoadedEvent = new Event("DOMContentLoaded", {
-        bubbles: true,
-        cancelable: false,
-      });
+    setTimeout(() => {
+      const widgets = window.document.querySelectorAll(".mindbody-widget");
+      if (widgets.length > 0) {
+        const domContentLoadedEvent = new Event("DOMContentLoaded", {
+          bubbles: true,
+          cancelable: false,
+        });
 
-      setTimeout(() => {
         window.document.dispatchEvent(domContentLoadedEvent);
-      }, 120);
-    } else {
-      setTimeout(() => {
-        emit();
-      }, 240);
-    }
+      }
+    }, 360);
   };
 
   return null;
