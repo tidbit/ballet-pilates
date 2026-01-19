@@ -43,7 +43,7 @@ export function EmitDomContentLoadedOnNav() {
 
         window.document.dispatchEvent(domContentLoadedEvent);
       }
-    }, 750);
+    }, 1000);
   };
 
   return null;
