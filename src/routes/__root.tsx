@@ -58,10 +58,6 @@ export const Route = createRootRouteWithContext<{
         src: "//www.instagram.com/embed.js",
         async: true,
       },
-      {
-        src: "https://brandedweb.mindbodyonline.com/embed/widget.js",
-        async: true,
-      },
     ],
   }),
   errorComponent: (props) => {

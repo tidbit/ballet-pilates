@@ -18,7 +18,7 @@ export function TemplateFullWidth({ data, slug }: PageProps) {
   }
   const Comp = pageMap[slug as keyof typeof pageMap];
   return Comp ? (
-    <div className="container mx-auto min-h-60 px-6 md:px-8 py-8 grid grid-cols-1">
+    <div className="container mx-auto min-h-[400px] px-6 md:px-8 py-8 grid grid-cols-1">
       <Comp data={data} slug={slug} />
     </div>
   ) : (
