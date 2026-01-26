@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "vite build && echo $CF_PAGES_BRANCH",
+    "build": "vite build && echo $WORKERS_CI_BRANCH",
     "serve": "vite preview",
     "deploy": "bun run deploy:stage",
     "deploy:stage": "bun run build --mode staging && wrangler deploy --env=staging",
