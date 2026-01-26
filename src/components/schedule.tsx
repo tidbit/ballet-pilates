@@ -1,5 +1,6 @@
-import { useRouterState } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { ClientOnly, useRouterState } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import { useInterval } from "usehooks-ts";
 
 export function EmitDomContentLoadedOnNav() {
   const { location, isLoading } = useRouterState();
@@ -14,9 +15,37 @@ export function EmitDomContentLoadedOnNav() {
   return null;
 }
 
+function AllSchedule() {
+  const ref = useRef<HTMLIFrameElement | null>(null);
+
+  const setHeight = () => {
+    if (ref.current) {
+      const scrollHeight =
+        ref.current.contentWindow?.document.body.scrollHeight ?? 800;
+      // console.log({ scrollHeight });
+
+      ref.current.style.height = `${scrollHeight + 20}px`;
+    }
+  };
+
+  useInterval(() => {
+    setHeight();
+  }, 60);
+
+  return (
+    <iframe
+      ref={ref}
+      className="w-full min-h-[800px]"
+      src="/embed/schedule-all.html"
+    />
+  );
+}
+
 export function Schedule() {
   return (
-    <iframe className="w-full min-h-[800px]" src="/embed/schedule-all.html" />
+    <ClientOnly>
+      <AllSchedule />
+    </ClientOnly>
   );
 }
 
