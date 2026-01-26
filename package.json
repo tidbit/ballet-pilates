@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",
-    "deploy": "bun run build && wrangler deploy",
     "serve": "vite preview",
+    "deploy": "bun run deploy:stage",
+    "deploy:stage": "bun run build --mode staging && wrangler deploy --env=staging",
+    "deploy:prod": "bun run build && wrangler deploy",
     "codegen": "graphql-codegen --config codegen.ts",
     "cf-typegen": "wrangler types --env-interface Env"
   },

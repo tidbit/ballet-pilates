@@ -21,9 +21,9 @@ import { EmitDomContentLoadedOnNav } from "@/components/schedule";
 
 let titlePrefix = ``;
 
-if (import.meta.env.DEV) {
-  titlePrefix = `[DEV] - `;
-  console.log(`DEV MODE`);
+if (import.meta.env.VITE_TITLE_PREFIX) {
+  titlePrefix = `${import.meta.env.VITE_TITLE_PREFIX} - `;
+  console.log(`${import.meta.env.VITE_TITLE_PREFIX} MODE`);
 }
 
 export const Route = createRootRouteWithContext<{
