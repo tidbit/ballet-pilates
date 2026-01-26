@@ -5,7 +5,6 @@ import { HomePageQuery } from "@/gql/graphql";
 import { graphql } from "@/gql/gql";
 import { HomeCarousel } from "@/components/home-carousel";
 import { InspectData } from "@/components/inspect-data";
-import { SplatLink } from "@/components/splat-link";
 
 const homePageQueryDocument = graphql(`
   query HomePage {
@@ -97,12 +96,12 @@ function Home() {
                 <p>{card.description}</p>
 
                 {card.link ? (
-                  <SplatLink
+                  <a
                     className="underline hover:text-base-content/50"
-                    to={card.link}
+                    href={card.link}
                   >
                     Learn more
-                  </SplatLink>
+                  </a>
                 ) : null}
               </div>
             ))}

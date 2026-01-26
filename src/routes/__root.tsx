@@ -53,12 +53,7 @@ export const Route = createRootRouteWithContext<{
       { rel: "manifest", href: "/manifest.json", color: "#fffff" },
       { rel: "icon", href: "/favicon.ico" },
     ],
-    scripts: [
-      {
-        src: "//www.instagram.com/embed.js",
-        async: true,
-      },
-    ],
+    scripts: [],
   }),
   errorComponent: (props) => {
     return (

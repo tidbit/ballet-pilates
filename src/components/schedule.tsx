@@ -1,16 +1,25 @@
 import { ClientOnly, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { useInterval } from "usehooks-ts";
+import { useInterval, useScript } from "usehooks-ts";
 
 export function EmitDomContentLoadedOnNav() {
   const { location, isLoading } = useRouterState();
 
+  const status = useScript("//www.instagram.com/embed.js", {
+    removeOnUnmount: false,
+    id: "instagram",
+  });
+
   useEffect(() => {
+    if (status !== "ready") {
+      return;
+    }
+
     if (!isLoading) {
       // console.log("Loaded -- emit");
       setTimeout(() => window.instgrm?.Embeds?.process(), 0);
     }
-  }, [location, isLoading]);
+  }, [location, isLoading, status]);
 
   return null;
 }
