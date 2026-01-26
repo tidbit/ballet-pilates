@@ -16,7 +16,6 @@ export function EmitDomContentLoadedOnNav() {
     }
 
     if (!isLoading) {
-      // console.log("Loaded -- emit");
       setTimeout(() => window.instgrm?.Embeds?.process(), 0);
     }
   }, [location, isLoading, status]);
@@ -31,7 +30,6 @@ function AllSchedule() {
     if (ref.current) {
       const scrollHeight =
         ref.current.contentWindow?.document.body.scrollHeight ?? 800;
-      // console.log({ scrollHeight });
 
       ref.current.style.height = `${scrollHeight + 20}px`;
     }
