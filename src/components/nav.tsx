@@ -12,22 +12,22 @@ export function Nav() {
           Home
         </Link>
         <SplatLink className={linkClass} to="adult-classes">
-          Adult Classes
+          Pilates
         </SplatLink>
         <SplatLink className={linkClass} to="children-classes">
-          Children's Classes
+          Ballet
         </SplatLink>
         <SplatLink className={linkClass} to="schedule">
           Schedule
         </SplatLink>
         <SplatLink className={linkClass} to="pricing">
-          Pricing
+          Investment
         </SplatLink>
         <SplatLink className={linkClass} to="about-victoria">
-          About
+          Philosophy
         </SplatLink>
         <SplatLink className={linkClass} to="contact">
-          Contact
+          Connect
         </SplatLink>
       </nav>
     </div>
