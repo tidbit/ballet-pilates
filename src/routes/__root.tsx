@@ -42,6 +42,14 @@ export const Route = createRootRouteWithContext<{
         title: `${titlePrefix} Ballet & Pilates By Victoria`,
         description: `Find what moves you`,
       }),
+      {
+        name: "account-id",
+        content: "186f2413-b6c2-4af6-ad20-5b286f4fd412",
+      },
+      {
+        name: "environment",
+        content: "app.healthdesk.ai",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -53,7 +61,22 @@ export const Route = createRootRouteWithContext<{
       { rel: "manifest", href: "/manifest.json", color: "#fffff" },
       { rel: "icon", href: "/favicon.ico" },
     ],
-    scripts: [],
+    scripts: [
+      {
+        children: `
+var script = document.createElement('script');
+script.src = "https://app.healthdesk.ai/js/chatbot_snippet.js?v=" +
+new Date().getTime();
+script.async = true;
+script.setAttribute("data-no-minify", "1");
+script.setAttribute("data-rocket-ignore", "true");
+script.setAttribute("data-cfasync", "false");
+script.setAttribute("data-no-defer", "true");
+script.id = "healthdesk-chatbot-script";
+document.head.appendChild(script);
+`,
+      },
+    ],
   }),
   errorComponent: (props) => {
     return (
