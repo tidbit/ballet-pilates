@@ -6,28 +6,28 @@ A modern, full-stack React application built with TanStack Start and deployed on
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Start development server
-pnpm dev
+bun dev
 
 # Build for production
-pnpm build
+bun run build
 
 # Preview production build locally
-pnpm serve
+bun run serve
 ```
 
 ## Development Workflow
 
-- **`pnpm dev`** - Start development server on port 3000
-- **`pnpm build`** - Build the application for production
-- **`pnpm serve`** - Preview production build locally
-- **`pnpm codegen`** - Regenerate GraphQL types from Hygraph schema
+- **`bun dev`** - Start development server on port 3000
+- **`bun run build`** - Build the application for production
+- **`bun run serve`** - Preview production build locally
+- **`bun run codegen`** - Regenerate GraphQL types from Hygraph schema
 
 ## Deployment
 
-This project deploys to Vercel. The build command (`pnpm build`) outputs to `.vercel/output/` using the Vercel Build Output API format, which Vercel detects automatically.
+This project deploys to Vercel. The build command (`bun run build`) outputs to `.vercel/output/` using the Vercel Build Output API format, which Vercel detects automatically.
 
 ### Environment Variables
 
@@ -48,8 +48,8 @@ Pre-configured with the `@tailwindcss/vite` plugin and CSS variables for theming
 Add accessible components using Shadcn/UI:
 
 ```bash
-pnpx shadcn@latest add button
-pnpx shadcn@latest add card
+bunx shadcn@latest add button
+bunx shadcn@latest add card
 ```
 
 ## File-Based Routing
@@ -94,7 +94,7 @@ const data = await CMSRequest<MyQuery>(myQuery);
 After modifying queries, regenerate types:
 
 ```bash
-pnpm codegen
+bun run codegen
 ```
 
 ### TanStack Query
@@ -111,7 +111,7 @@ const { data } = useSuspenseQuery({
 Uses [Vitest](https://vitest.dev/) with jsdom and `@testing-library/react`:
 
 ```bash
-pnpm test
+bun run test
 ```
 
 ## Tech Stack
@@ -133,6 +133,7 @@ pnpm test
 - **Lucide React** - Icon set
 
 ### Build & Deployment
+- **Bun** - Package manager and runtime
 - **Vite** - Build tool and dev server
 - **Nitro** - Server engine (`@tanstack/nitro-v2-vite-plugin`)
 - **Vercel** - Hosting and preview deployments
