@@ -11,3 +11,5 @@ count.txt
 .vercel
 .vinxi
 todos.json
+
+.env*
