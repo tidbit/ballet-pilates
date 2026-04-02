@@ -8,5 +8,6 @@ count.txt
 .nitro
 .tanstack
 .output
+.vercel
 .vinxi
 todos.json
