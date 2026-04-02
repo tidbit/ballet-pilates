@@ -1,17 +1,12 @@
 {
-  "name": "tanstack-start-on-cloudflare",
+  "name": "ballet-pilates-2025",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
-    "v:build": "vite build",
-    "build": "./build.sh",
-    "serve": "vite preview",
-    "deploy": "bun run deploy:stage",
-    "deploy:stage": "bun run build --mode staging && wrangler deploy --env=staging",
-    "deploy:prod": "bun run build && wrangler deploy",
-    "codegen": "graphql-codegen --config codegen.ts",
-    "cf-typegen": "wrangler types --env-interface Env"
+    "dev": "vite dev --host --port 3000",
+    "build": "vite build",
+    "serve": "node .output/server/index.mjs",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.12",
@@ -40,10 +35,10 @@
     "zod": "^4.3.5"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.21.0",
     "@graphql-codegen/cli": "^6.1.1",
     "@graphql-codegen/client-preset": "^5.2.2",
     "@graphql-codegen/introspection": "^5.0.0",
+    "@tanstack/nitro-v2-vite-plugin": "^1.154.9",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^22.19.7",
@@ -55,7 +50,6 @@
     "typescript": "^5.9.3",
     "vite": "7.1.2",
     "vitest": "^3.2.4",
-    "web-vitals": "^4.2.4",
-    "wrangler": "^4.59.2"
+    "web-vitals": "^4.2.4"
   }
 }

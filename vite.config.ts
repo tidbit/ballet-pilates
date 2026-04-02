@@ -3,7 +3,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import viteTsConfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
-import { cloudflare } from "@cloudflare/vite-plugin";
+import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 
 const config = defineConfig({
   plugins: [
@@ -18,10 +18,9 @@ const config = defineConfig({
       server: { entry: "./server.ts" },
     }),
     viteReact(),
-    cloudflare({
-      viteEnvironment: {
-        name: "ssr",
-      },
+    nitroV2Plugin({
+      preset: "vercel",
+      compatibilityDate: "2026-04-02",
     }),
   ],
 });
