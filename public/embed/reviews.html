@@ -9,16 +9,17 @@
     <link rel="icon" href="/favicon.ico" />
   </head>
   <body class="font-serif">
-    <!-- Mindbody Schedules widget begin -->
-    <div
-      class="mindbody-widget"
-      data-widget-type="Schedules"
-      data-widget-id="9732981000e"
-    ></div>
-    <script
-      async
-      src="https://brandedweb.mindbodyonline.com/embed/widget.js"
-    ></script>
-    <!-- Mindbody Schedules widget end -->
+    <div data-fred-widget-reviews></div>
+    <script src="https://d1yw3duy3i4qiv.cloudfront.net/js/sdk-v1.js"></script>
+    <script>
+      FRED.init({
+        locationId: "fa4dc202-57b5-4631-986d-c17fdd2158ae",
+        perPage: 5,
+        layout: "list",
+        background: "transparent",
+        titleHexColor: "fac8c8",
+        starHexColor: "fcc415",
+      });
+    </script>
   </body>
 </html>
