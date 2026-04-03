@@ -61,57 +61,66 @@ export function Footer() {
               <iframe
                 className="w-full h-full absolute inset-0"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.22181442122!2d-95.64194039999998!3d29.8867086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d0cdbf20aaaf%3A0xddb25e12a6d01bcd!2s15544+Ridge+Park+Dr%2C+Houston%2C+TX+77095!5e0!3m2!1sen!2sus!4v1433523478239"
+                title="Google Maps Embed - get directions to the studio"
               ></iframe>
             </ClientOnly>
           </div>
+
+          <div className=" space-y-4">
+            <h4 className="text-xl text-base-content/60 pb-4 italic">
+              Questions? Get in touch!
+            </h4>
+
+            <p className="space-y-2 flex flex-col text-base-content/80">
+              {data.siteInfo?.email ? (
+                <FooterLink
+                  href={`mailto:${data.siteInfo.email}?subject=Ballet%20and%20Pilates`}
+                >
+                  {data.siteInfo.email}
+                </FooterLink>
+              ) : null}
+              <FooterLink
+                target="_blank"
+                href="https://clients.mindbodyonline.com/classic/home?studioid=27108"
+                title="See the class schedule"
+              >
+                Class Schedule
+              </FooterLink>
+              <FooterLink target="_blank" href="https://goo.gl/maps/Ww4x1">
+                Get Directions
+              </FooterLink>
+              {data.siteInfo?.phoneNumber ? (
+                <a href={`tel:+1${data.siteInfo?.phoneNumber}`}>
+                  {data.siteInfo?.phoneNumber}
+                </a>
+              ) : null}
+              <FooterLink
+                target="_blank"
+                href="https://clients.mindbodyonline.com/classic/ws?studioid=27108&stype=-2&subTab=info"
+              >
+                Login
+              </FooterLink>
+              <iframe
+                className="w-[200px] h-[48px] mx-[20px] border-none mt-8 bg-transparent"
+                id="getOurApp"
+                scrolling="no"
+                src="https://clients.mindbodyonline.com/connect/appbutton"
+              ></iframe>
+            </p>
+          </div>
         </div>
 
-        <div className=" space-y-4">
-          <h4 className="text-xl text-base-content/60 pb-4 italic">
-            Questions? Get in touch!
-          </h4>
-
-          <p className="pb-8 space-y-2 flex flex-col text-base-content/80">
-            {data.siteInfo?.email ? (
-              <FooterLink
-                href={`mailto:${data.siteInfo.email}?subject=Ballet%20and%20Pilates`}
-              >
-                {data.siteInfo.email}
-              </FooterLink>
-            ) : null}
-            <FooterLink
-              target="_blank"
-              href="https://clients.mindbodyonline.com/classic/home?studioid=27108"
-              title="See the class schedule"
-            >
-              Class Schedule
-            </FooterLink>
-            <FooterLink target="_blank" href="https://goo.gl/maps/Ww4x1">
-              Get Directions
-            </FooterLink>
-            {data.siteInfo?.phoneNumber ? (
-              <a href={`tel:+1${data.siteInfo?.phoneNumber}`}>
-                {data.siteInfo?.phoneNumber}
-              </a>
-            ) : null}
-            <FooterLink
-              target="_blank"
-              href="https://clients.mindbodyonline.com/classic/ws?studioid=27108&stype=-2&subTab=info"
-            >
-              Login
-            </FooterLink>
-            <iframe
-              className="w-[200px] h-[48px] mx-[20px] border-none mt-8 bg-transparent"
-              id="getOurApp"
-              scrolling="no"
-              src="https://clients.mindbodyonline.com/connect/appbutton"
-            ></iframe>
-          </p>
+        <div className="space-y-4 min-h-[575px]">
+          <iframe
+            className="w-full min-h-full bg-white rounded"
+            src="/embed/reviews.html"
+            title="Ballet And Pilates Customer Reviews embed"
+          />
         </div>
       </div>
 
       <div className="container mx-auto text-center pt-8">
-        <p className="italic text-md text-base-content/50">
+        <p className="italic text-md text-base-content/70">
           {data.siteInfo?.footerCopyright}
         </p>
       </div>
