@@ -67,6 +67,7 @@ export const Route = createRootRouteWithContext<{
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations().then(function(regs) {
     if (regs.length > 0) {
+      console.log("Clearing stale SW");
       Promise.all(regs.map(function(reg) { return reg.unregister(); }))
         .then(function() {
           window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
