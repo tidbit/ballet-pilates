@@ -64,6 +64,20 @@ export const Route = createRootRouteWithContext<{
     scripts: [
       {
         children: `
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(regs) {
+    if (regs.length > 0) {
+      Promise.all(regs.map(function(reg) { return reg.unregister(); }))
+        .then(function() {
+          window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
+        });
+    }
+  });
+}
+`,
+      },
+      {
+        children: `
 var script = document.createElement('script');
 script.src = "https://app.healthdesk.ai/js/chatbot_snippet.js?v=" +
 new Date().getTime();
